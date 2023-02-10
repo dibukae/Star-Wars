@@ -1,1 +1,1 @@
-	print("Welcome to save the Chancellor!")
+	print("Welcome to Star Wars: Save the Chancellor! In this game you must save Chancellor Palpatine who has been captured by the Separatists.")
