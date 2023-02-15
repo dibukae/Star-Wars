@@ -21,4 +21,4 @@ if pathOption == "north" or "n":
 		print("\nYou try to flee, the battle droids instantly shoot you down.")
 		print(diedEnd)
 	elif fleeOrfight == "fight":
-		
+		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
