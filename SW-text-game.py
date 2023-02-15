@@ -18,5 +18,7 @@ if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
 	if fleeOrfight == "flee":
-		print("You try to flee, the battle droids instantly shoot you down.")
+		print("\nYou try to flee, the battle droids instantly shoot you down.")
 		print(diedEnd)
+	elif fleeOrfight == "fight":
+		
