@@ -6,10 +6,10 @@ print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
 print("Key: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load")
 
 print(f"\nHello there, Jedi {plyrName}. We need your help to save Chancellor Palpatine.\nHe has been captured by the Separatists. It is rumored that he was captured by the leader of the droid army, General Grievous.")
-print("Prepare your starfighter and be prepared to board his ship.")
+print("\nPrepare your starfighter and be prepared to board his ship.")
 print("<You start up your starfighter and fly over to the the Separatist Frigate.>")
 
-print("There is only one way in, through the hangar.")
+print("\nThere is only one way in, through the hangar.")
 pathOption = input("Available paths: north\n")
 if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They were awaiting your arrival.")
