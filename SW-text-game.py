@@ -33,16 +33,18 @@ if pathOption == "north" or "n":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 		hit = random.randrange(2)
 		defeatedDroids = 0
-		while B1DroidHP > 0:
-			if hit:
-				jediPlyrHP -= blasterDMG
-				print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
-			else:
-				print("\nA droid shoots at you but misses.")
-			print("\nYou deflect several blaster bullets and send them right back to the enemy.")
-			B1DroidHP -= lightsaberDMG
-			print(f"Droid HP:{B1DroidHP}")
-			if B1DroidHP == 0:
-				defeatedDroids += 1
-	if defeatedDroids == 3:
-		print("You defeated all the droids!")
+		while defeatedDroids >= 0:
+			while B1DroidHP > 0 and defeatedDroids >= 0:
+				if hit:
+					jediPlyrHP -= blasterDMG
+					print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
+				else:
+					print("\nA droid shoots at you but misses.")
+				print("\nYou deflect several blaster bullets and send them right back to the enemy.")
+				B1DroidHP -= lightsaberDMG
+				print(f"Droid HP:{B1DroidHP}")
+				if B1DroidHP == 0:
+					defeatedDroids += 1
+					print(f"You defeated {defeatedDroids} droids!")
+			if defeatedDroids == 3:
+				print("You defeated all the droids!")
