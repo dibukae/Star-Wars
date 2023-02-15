@@ -32,8 +32,7 @@ if pathOption == "north" or "n":
 	elif fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 		hit = random.randrange(2)
-		droids = 3
-		victory =False
+		defeatedDroids = 0
 		while B1DroidHP > 0:
 			if hit:
 				jediPlyrHP -= blasterDMG
@@ -44,6 +43,6 @@ if pathOption == "north" or "n":
 			B1DroidHP -= lightsaberDMG
 			print(f"Droid HP:{B1DroidHP}")
 			if B1DroidHP == 0:
-				droids -= 1
-	if droids == 0:
+				defeatedDroids += 1
+	if defeatedDroids == 3:
 		print("You defeated all the droids!")
