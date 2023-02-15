@@ -31,14 +31,18 @@ if pathOption == "north" or "n":
 		print(diedEnd)
 	elif fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
-		hitMiss = random.randint(1,10)
+		hitMiss = random.randint(1,2)
+	
+	droids = 3
+	if droids == 0:
+		print("You defeated all the droids!")
 		while B1DroidHP > 0:
+			if hitMiss == 2:
+				jediPlyrHP -= blasterDMG
+				print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
+			elif hitMiss == 1:
+				print("\nA droid shoots at you but misses.")
 			print("\nYou deflect several blaster bullets and send them right back to the enemy.")
 			B1DroidHP -= lightsaberDMG
 			print(f"Droid HP:{B1DroidHP}")
-			if hitMiss == 2, 4, 6,8,10:
-				jediPlyrHP -= blasterDMG
-				print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
-			elif hitMiss == 1,3,5,7,9:
-				print("\nA droid shoots at you but misses.")
-			
+			droids -= 1
