@@ -1,4 +1,10 @@
 diedEnd = "You died and failed to save the chancellor..."
+goodEnd = "You successfully saved the Chancellor! The Jedi Council promoted you to the rank of Jedi Master! Hooray!"
+
+jediPlyr = 35
+lightsaber = 5
+B1Droid = 10
+blaster = 2
 
 print("Welcome to Star Wars: Save the Chancellor!")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
