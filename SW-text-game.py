@@ -32,10 +32,10 @@ if pathOption == "north" or "n":
 	elif fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 		hitMiss = random.randint(1,2)
-		while B1DroidHP >= 0:
+		while B1DroidHP > 0:
 			print("\nYou deflect several blaster bullets and send them right back to the enemy.")
 			B1DroidHP -= lightsaberDMG
-			print(B1DroidHP)
+			print(f"Droid HP:{B1DroidHP}")
 			if hitMiss == 2:
 				jediPlyrHP -= blasterDMG
 				print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
