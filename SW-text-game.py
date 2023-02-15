@@ -1,10 +1,13 @@
 diedEnd = "You died and failed to save the chancellor..."
 goodEnd = "You successfully saved the Chancellor! The Jedi Council promoted you to the rank of Jedi Master! Hooray!"
 
-jediPlyr = 35
-lightsaber = 5
-B1Droid = 10
-blaster = 2
+jediPlyrHP = 35
+lightsaberDMG = 5
+B1DroidHP = 10
+blasterDMG = 2
+import random
+
+inventory = [MedPack]
 
 print("Welcome to Star Wars: Save the Chancellor!")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
@@ -28,3 +31,13 @@ if pathOption == "north" or "n":
 		print(diedEnd)
 	elif fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
+		hitMiss = random.randint(1,2)
+		while B1DroidHP <= 0:
+			print("You deflect several blaster bullets and send them right back to the enemy.")
+			B1DroidHP -= lightsaberDMG
+			if hitMiss == 2:
+				jediPlyrHP -= blasterDMG
+				print(f"A droid hits you, your HP is now: {jediPlyrHP}")
+			else:
+				print("A droid shoots at you but misses.")
+			
