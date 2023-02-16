@@ -49,3 +49,4 @@ if pathOption == "north" or "n":
 					input(f"\nYou defeated {defeatedDroids} droids!")
 		if defeatedDroids == 3:
 			print("\nYou defeated all the droids!")
+			input("Press enter to continue")
