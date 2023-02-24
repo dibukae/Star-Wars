@@ -56,4 +56,13 @@ print("Now that you've taken down those clankers, you must locate where the Chan
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print("\nYou spot a hallway and a door. Find a port for your droid.")
-hangarOption = input("Available paths: North, East")
+hangarOption = input("Available paths: north, east\n")
+
+palpsLocation = False
+if hangarOption == "north" or "n":
+	print("You go through the hallway. At the end of the hallway, there are elevators.")
+	print("Looks like you need a droid to operate the elevators.")
+	useDroid = input("Use droid?:\n")
+	if useDroid and palpsLocation = False:
+		print("You need to find the location of Chancellor Palpatine first.")
+		input("Available paths: south\n")
