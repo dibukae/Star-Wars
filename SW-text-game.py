@@ -14,7 +14,8 @@ print("In this game your main objective is to save Chancellor Palpatine, who has
 plyrName = input("Enter your epic Jedi name:\n")
 
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
-input("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load\nPress enter to continue.")
+print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load")
+input("Press enter to continue")
 
 input(f"\nHello there, Jedi {plyrName}. We need your help to save Chancellor Palpatine.\nHe has been captured by the Separatists. It is rumored that he was captured by the leader of the droid army, General Grievous.")
 print("\nPrepare your starfighter and be prepared to board his ship. Good luck! And may the force be with you!")
@@ -53,3 +54,6 @@ if pathOption == "north" or "n":
 
 print("Now that you've taken down those clankers, you must locate where the Chancellor is.")
 print("Good thing you have your trusty astromech droid to help!")
+print("But first your droid needs a port to plug into.")
+print("\nYou spot a hallway and a door. Find a port for your droid.")
+input("Available paths: North, East")
