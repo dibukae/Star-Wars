@@ -50,3 +50,6 @@ if pathOption == "north" or "n":
 		if defeatedDroids == 3:
 			print("\nYou defeated all the droids!")
 			input("Press enter to continue")
+
+print("Now that you've taken down those clankers, you must locate where the Chancellor is.")
+print("Good thing you have your trusty astromech droid to help!")
