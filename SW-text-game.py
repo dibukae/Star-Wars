@@ -56,4 +56,4 @@ print("Now that you've taken down those clankers, you must locate where the Chan
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print("\nYou spot a hallway and a door. Find a port for your droid.")
-input("Available paths: North, East")
+hangarOption = input("Available paths: North, East")
