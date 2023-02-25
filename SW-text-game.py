@@ -24,14 +24,18 @@ input("<You start up your starfighter and fly over to the the Separatist Frigate
 print("\nThere is only one way in, through the hangar.")
 pathOption = input("Available paths: north\n")
 print()
-if pathOption == "north" or "n":
-	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
-	fleeOrfight = input("Do you flee or fight?:\n")
+while pathOption != "north" or "n":
+	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
+	input("Press enter to continue")
+	if pathOption == "north" or "n":
+		print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
+		fleeOrfight = input("Do you flee or fight?:\n")
 	while fleeOrfight != "fight":
 		if fleeOrfight == "flee":
 			print("\nYou try to flee, the battle droids instantly shoot you down.")
 			print(diedEnd)
 			input("\nPress enter to restart.\n")
+			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 			fleeOrfight = input("Do you flee or fight?:\n")
 	if fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
@@ -50,7 +54,7 @@ if pathOption == "north" or "n":
 				print(f"Droid HP:{B1DroidHP}")
 				if B1DroidHP == 0:
 					defeatedDroids += 1
-					input(f"\nYou defeated {defeatedDroids} droids!\nPress enter to continue")
+					input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
 		if defeatedDroids == 3:
 			print("\nYou defeated all the droids!")
 			input("Press enter to continue")
