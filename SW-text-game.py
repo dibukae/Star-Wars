@@ -24,9 +24,9 @@ input("<You start up your starfighter and fly over to the the Separatist Frigate
 print("\nThere is only one way in, through the hangar.")
 pathOption = input("Available paths: north\n")
 print()
-while pathOption != "north" or "n":
+while pathOption != "north" and "n":
 	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
-	input("Press enter to continue")
+	
 	print("\nThere is only one way in, through the hangar.")
 	pathOption = input("Available paths: north\n")
 if pathOption == "north" or "n":
