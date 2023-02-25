@@ -14,7 +14,7 @@ print("In this game your main objective is to save Chancellor Palpatine, who has
 plyrName = input("Enter your epic Jedi name:\n")
 
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
-print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load")
+print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load, yes/y, no/n")
 input("Press enter to continue")
 
 input(f"\nHello there, Jedi {plyrName}. We need your help to save Chancellor Palpatine.\nHe has been captured by the Separatists. It is rumored that he was captured by the leader of the droid army, General Grievous.")
@@ -30,6 +30,7 @@ if pathOption == "north" or "n":
 	if fleeOrfight == "flee":
 		print("\nYou try to flee, the battle droids instantly shoot you down.")
 		print(diedEnd)
+		input()
 	elif fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 		defeatedDroids = 0
@@ -63,8 +64,9 @@ if hangarOption == "north" or "n":
 	print("You go through the hallway. At the end of the hallway, there are elevators.")
 	print("Looks like you need a droid to operate the elevators.")
 	useDroid = input("Use droid?:\n")
-	if useDroid and palpsLocation == False:
-		print("You need to find the location of Chancellor Palpatine first.")
-		option = input("Available paths: south\n")
-		if option == "south" or "s":
-			
+if useDroid and palpsLocation == False:
+	print("You need to find the location of Chancellor Palpatine first.")
+	option = input("Available paths: south\n")
+if option == "south" or "s":
+	print("You head back to the hangar.")
+	print("You spot a hallway and a door. Find a port for your droid.")
