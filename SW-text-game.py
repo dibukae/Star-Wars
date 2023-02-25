@@ -69,17 +69,18 @@ print("\nYou spot a hallway and a door. Find a port for your droid.")
 hangarOption = input("Available paths: north, east\n")
 
 palpsLocation = False
-while hangarOption != "north" or hangarOption != "n" or hangarOption != "east" or hangarOption != "e":
+while hangarOption != "north" and hangarOption != "n" and hangarOption != "east" and hangarOption != "e":
 	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
 	print("\nYou spot a hallway and a door. Find a port for your droid.")
 	hangarOption = input("Available paths: north, east\n")
-	if hangarOption == "north" or "n":
-		print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
-		print("Looks like you need a droid to operate the elevators.")
-		useDroid = input("Use droid?:\n")
-	if useDroid and palpsLocation == False:
-		print("\nYou need to find the location of Chancellor Palpatine first.")
-		option = input("Available paths: south\n")
-	if option == "south" or "s":
-		print("\nYou head back to the hangar.")
-		print("You spot a hallway and a door. Find a port for your droid.")
+if hangarOption == "north" or "n":
+	print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
+	print("Looks like you need a droid to operate the elevators.")
+	useDroid = input("Use droid?:\n")
+if useDroid and palpsLocation == False:
+	print("\nYou need to find the location of Chancellor Palpatine first.")
+	option = input("Available paths: south\n")
+if option == "south" or "s":
+	print("\nYou head back to the hangar.")
+	print("You spot a hallway and a door. Find a port for your droid.")
+	option = input("Avaiable paths: north, east\n")
