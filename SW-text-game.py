@@ -24,13 +24,22 @@ input("<You start up your starfighter and fly over to the the Separatist Frigate
 print("\nThere is only one way in, through the hangar.")
 pathOption = input("Available paths: north\n")
 print()
+while pathOption != "north" and pathOption != "n":
+	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
+	
+	print("\nThere is only one way in, through the hangar.")
+	pathOption = input("Available paths: north\n")
 if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
-	if fleeOrfight == "flee":
-		print("\nYou try to flee, the battle droids instantly shoot you down.")
-		print(diedEnd)
-	elif fleeOrfight == "fight":
+	while fleeOrfight != "fight":
+		if fleeOrfight == "flee":
+			print("\nYou try to flee, the battle droids instantly shoot you down.")
+			print(diedEnd)
+			input("\nPress enter to restart.\n")
+			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
+			fleeOrfight = input("Do you flee or fight?:\n")
+	if fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 		defeatedDroids = 0
 		while defeatedDroids != 3:
@@ -47,12 +56,12 @@ if pathOption == "north" or "n":
 				print(f"Droid HP:{B1DroidHP}")
 				if B1DroidHP == 0:
 					defeatedDroids += 1
-					input(f"\nYou defeated {defeatedDroids} droids!")
+					input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
 		if defeatedDroids == 3:
 			print("\nYou defeated all the droids!")
 			input("Press enter to continue")
 
-print("Now that you've taken down those clankers, you must locate where the Chancellor is.")
+print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print("\nYou spot a hallway and a door. Find a port for your droid.")
@@ -60,11 +69,12 @@ hangarOption = input("Available paths: north, east\n")
 
 palpsLocation = False
 if hangarOption == "north" or "n":
-	print("You go through the hallway. At the end of the hallway, there are elevators.")
+	print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
 	print("Looks like you need a droid to operate the elevators.")
 	useDroid = input("Use droid?:\n")
-	if useDroid and palpsLocation = False:
-		print("You need to find the location of Chancellor Palpatine first.")
-		option = input("Available paths: south\n")
-		if option == "south" or "s":
-			
+if useDroid and palpsLocation == False:
+	print("\nYou need to find the location of Chancellor Palpatine first.")
+	option = input("Available paths: south\n")
+if option == "south" or "s":
+	print("\nYou head back to the hangar.")
+	print("You spot a hallway and a door. Find a port for your droid.")
