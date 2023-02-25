@@ -26,7 +26,6 @@ pathOption = input("Available paths: north\n")
 print()
 while pathOption != "north" and pathOption != "n":
 	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
-	
 	print("\nThere is only one way in, through the hangar.")
 	pathOption = input("Available paths: north\n")
 if pathOption == "north" or "n":
