@@ -27,9 +27,11 @@ print()
 while pathOption != "north" or "n":
 	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
 	input("Press enter to continue")
-	if pathOption == "north" or "n":
-		print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
-		fleeOrfight = input("Do you flee or fight?:\n")
+	print("\nThere is only one way in, through the hangar.")
+	pathOption = input("Available paths: north\n")
+if pathOption == "north" or "n":
+	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
+	fleeOrfight = input("Do you flee or fight?:\n")
 	while fleeOrfight != "fight":
 		if fleeOrfight == "flee":
 			print("\nYou try to flee, the battle droids instantly shoot you down.")
