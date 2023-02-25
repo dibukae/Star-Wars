@@ -24,7 +24,7 @@ input("<You start up your starfighter and fly over to the the Separatist Frigate
 print("\nThere is only one way in, through the hangar.")
 pathOption = input("Available paths: north\n")
 print()
-while pathOption != "north" and "n":
+while pathOption != "north" and pathOption != "n":
 	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
 	
 	print("\nThere is only one way in, through the hangar.")
@@ -61,7 +61,7 @@ if pathOption == "north" or "n":
 			print("\nYou defeated all the droids!")
 			input("Press enter to continue")
 
-print("Now that you've taken down those clankers, you must locate where the Chancellor is.")
+print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print("\nYou spot a hallway and a door. Find a port for your droid.")
