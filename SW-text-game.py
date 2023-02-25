@@ -14,7 +14,7 @@ print("In this game your main objective is to save Chancellor Palpatine, who has
 plyrName = input("Enter your epic Jedi name:\n")
 
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
-print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load, yes/y, no/n")
+print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load")
 input("Press enter to continue")
 
 input(f"\nHello there, Jedi {plyrName}. We need your help to save Chancellor Palpatine.\nHe has been captured by the Separatists. It is rumored that he was captured by the leader of the droid army, General Grievous.")
@@ -27,11 +27,13 @@ print()
 if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
-	if fleeOrfight == "flee":
-		print("\nYou try to flee, the battle droids instantly shoot you down.")
-		print(diedEnd)
-		input()
-	elif fleeOrfight == "fight":
+	while fleeOrfight != "fight":
+		if fleeOrfight == "flee":
+			print("\nYou try to flee, the battle droids instantly shoot you down.")
+			print(diedEnd)
+			input("\nPress enter to restart.\n")
+			fleeOrfight = input("Do you flee or fight?:\n")
+	if fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 		defeatedDroids = 0
 		while defeatedDroids != 3:
