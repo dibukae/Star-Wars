@@ -32,6 +32,8 @@ if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
 	while fleeOrfight != "fight":
+		print("Invalid input. Are you going to FLEE or FIGHT?")
+		fleeOrfight = input("Do you flee or fight?:\n")
 		if fleeOrfight == "flee":
 			print("\nYou try to flee, the battle droids instantly shoot you down.")
 			print(diedEnd)
@@ -67,13 +69,17 @@ print("\nYou spot a hallway and a door. Find a port for your droid.")
 hangarOption = input("Available paths: north, east\n")
 
 palpsLocation = False
-if hangarOption == "north" or "n":
-	print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
-	print("Looks like you need a droid to operate the elevators.")
-	useDroid = input("Use droid?:\n")
-if useDroid and palpsLocation == False:
-	print("\nYou need to find the location of Chancellor Palpatine first.")
-	option = input("Available paths: south\n")
-if option == "south" or "s":
-	print("\nYou head back to the hangar.")
-	print("You spot a hallway and a door. Find a port for your droid.")
+while hangarOption != "north" or hangarOption != "n" or hangarOption != "east" or hangarOption != "e":
+	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
+	print("\nYou spot a hallway and a door. Find a port for your droid.")
+	hangarOption = input("Available paths: north, east\n")
+	if hangarOption == "north" or "n":
+		print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
+		print("Looks like you need a droid to operate the elevators.")
+		useDroid = input("Use droid?:\n")
+	if useDroid and palpsLocation == False:
+		print("\nYou need to find the location of Chancellor Palpatine first.")
+		option = input("Available paths: south\n")
+	if option == "south" or "s":
+		print("\nYou head back to the hangar.")
+		print("You spot a hallway and a door. Find a port for your droid.")
