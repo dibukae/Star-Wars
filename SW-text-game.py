@@ -50,7 +50,7 @@ if pathOption == "north" or "n":
 				print(f"Droid HP:{B1DroidHP}")
 				if B1DroidHP == 0:
 					defeatedDroids += 1
-					input(f"\nYou defeated {defeatedDroids} droids!")
+					input(f"\nYou defeated {defeatedDroids} droids!\nPress enter to continue")
 		if defeatedDroids == 3:
 			print("\nYou defeated all the droids!")
 			input("Press enter to continue")
@@ -63,12 +63,12 @@ hangarOption = input("Available paths: north, east\n")
 
 palpsLocation = False
 if hangarOption == "north" or "n":
-	print("You go through the hallway. At the end of the hallway, there are elevators.")
+	print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
 	print("Looks like you need a droid to operate the elevators.")
 	useDroid = input("Use droid?:\n")
 if useDroid and palpsLocation == False:
-	print("You need to find the location of Chancellor Palpatine first.")
+	print("\nYou need to find the location of Chancellor Palpatine first.")
 	option = input("Available paths: south\n")
 if option == "south" or "s":
-	print("You head back to the hangar.")
+	print("\nYou head back to the hangar.")
 	print("You spot a hallway and a door. Find a port for your droid.")
