@@ -7,6 +7,11 @@ B1DroidHP = 10
 blasterDMG = 2
 import random
 
+rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
+		'Elevator': '\nYou go through the hallway. At the end of the hallway, there are elevators.\nLooks like you need a droid to operate the elevators.',
+		'tinyRoom': 'You enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!',
+		}
+
 
 
 print("Welcome to Star Wars: Save the Chancellor!")
