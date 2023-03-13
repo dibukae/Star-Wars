@@ -12,6 +12,8 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 		'tinyRoom': 'You enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!',
 		}
 
+paths = {'north', 'n', 'south', 's', 'east', 'e', 'west', 'w'}
+
 
 
 print("Welcome to Star Wars: Save the Chancellor!")
@@ -38,15 +40,15 @@ while pathOption != "north" and pathOption != "n":
 if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
-	while fleeOrfight != "fight" or fleeOrfight != 'flee':
-		print("Invalid input. Are you going to FLEE or FIGHT?")
+	while fleeOrfight != "fight":
+		print("\nInvalid input. Are you going to FLEE or FIGHT?")
 		fleeOrfight = input("Do you flee or fight?:\n")
-	if fleeOrfight == "flee":
-		print("\nYou try to flee, the battle droids instantly shoot you down.")
-		print(diedEnd)
-		input("\nPress enter to restart.\n")
-		print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
-		fleeOrfight = input("Do you flee or fight?:\n")
+		if fleeOrfight == "flee":
+			print("\nYou try to flee, the battle droids instantly shoot you down.")
+			print(diedEnd)
+			input("\nPress enter to restart.\n")
+			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
+			fleeOrfight = input("Do you flee or fight?:\n")
 	if fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 		defeatedDroids = 0
@@ -78,7 +80,7 @@ print(rooms[Hangar])
 palpsLocation = False
 try:
 	hangarOption = input("Available paths: north, east\n")
-except ValueError:
+except if hangarOption != paths:
 	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
 
 
