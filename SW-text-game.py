@@ -41,12 +41,12 @@ if pathOption == "north" or "n":
 	while fleeOrfight != "fight":
 		print("Invalid input. Are you going to FLEE or FIGHT?")
 		fleeOrfight = input("Do you flee or fight?:\n")
-		if fleeOrfight == "flee":
-			print("\nYou try to flee, the battle droids instantly shoot you down.")
-			print(diedEnd)
-			input("\nPress enter to restart.\n")
-			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
-			fleeOrfight = input("Do you flee or fight?:\n")
+	if fleeOrfight == "flee":
+		print("\nYou try to flee, the battle droids instantly shoot you down.")
+		print(diedEnd)
+		input("\nPress enter to restart.\n")
+		print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
+		fleeOrfight = input("Do you flee or fight?:\n")
 	if fleeOrfight == "fight":
 		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 		defeatedDroids = 0
