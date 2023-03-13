@@ -24,7 +24,8 @@ input("Press enter to continue")
 
 input(f"\nHello there, Jedi {plyrName}. We need your help to save Chancellor Palpatine.\nHe has been captured by the Separatists. It is rumored that he was captured by the leader of the droid army, General Grievous.")
 print("\nPrepare your starfighter and be prepared to board his ship. Good luck! And may the force be with you!")
-input("<You start up your starfighter and fly over to the the Separatist Frigate.>")
+print("<You start up your starfighter and fly over to the the Separatist Frigate.>")
+input("Press enter to continue")
 
 print("\nThere is only one way in, through the hangar.")
 pathOption = input("Available paths: north\n")
