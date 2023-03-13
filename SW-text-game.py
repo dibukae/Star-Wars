@@ -14,6 +14,17 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 
 paths = {'north', 'n', 'south', 's', 'east', 'e', 'west', 'w'}
 
+def valid_move(question, allowd):
+	choice = None
+	final = []
+	for p in paths:
+		for each in allowed:
+			if each == p[0]:
+				final.append(p)
+	while choice not in allowed:
+		choice = input(question)
+	return choice
+
 
 
 print("Welcome to Star Wars: Save the Chancellor!")
@@ -74,17 +85,19 @@ if pathOption == "north" or "n":
 print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
-print(rooms[Hangar])
-
+print(rooms['Hangar'])
+hangarOption = input("Available paths: north, east\n")
 
 palpsLocation = False
-try:
-	hangarOption = input("Available paths: north, east\n")
-except if hangarOption != paths:
-	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
+while hangarOption not paths:
+	try:
+		hangarOption = valid("Available paths: north, east\n", "ne")
+	except :
+		print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
+	else:
+		print("\nYou spot a hallway and a door. Find a port for your droid.")
 
 
-print("\nYou spot a hallway and a door. Find a port for your droid.")
 hangarOption = input("Available paths: north, east\n")
 if hangarOption == "north" or "n":
 	print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
