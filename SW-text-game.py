@@ -71,14 +71,18 @@ if pathOption == "north" or "n":
 print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
-print("\nYou spot a hallway and a door. Find a port for your droid.")
-hangarOption = input("Available paths: north, east\n")
+print(rooms[Hangar])
+
 
 palpsLocation = False
-while hangarOption != "north" and hangarOption != "n" and hangarOption != "east" and hangarOption != "e":
-	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
-	print("\nYou spot a hallway and a door. Find a port for your droid.")
+try:
 	hangarOption = input("Available paths: north, east\n")
+except ValueError:
+	print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
+
+
+print("\nYou spot a hallway and a door. Find a port for your droid.")
+hangarOption = input("Available paths: north, east\n")
 if hangarOption == "north" or "n":
 	print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
 	print("Looks like you need a droid to operate the elevators.")
