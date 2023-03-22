@@ -1,10 +1,19 @@
 diedEnd = "You died and failed to save the chancellor..."
 goodEnd = "You successfully saved the Chancellor! The Jedi Council promoted you to the rank of Jedi Master! Hooray!"
 
+#max HP for player
 jediPlyrHP = 35
+#can add more damage to weapon during game
 lightsaberDMG = 5
 B1DroidHP = 10
 blasterDMG = 2
+droidekaHP = 15
+B2droidHP = 25
+#boss battle
+magnaDroidHP = 40
+magnaDMG = 5
+#helps recover player HP
+stimpak = 6
 import random
 
 rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
