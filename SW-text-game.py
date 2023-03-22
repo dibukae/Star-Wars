@@ -25,6 +25,26 @@ def valid_move(question, allowed):
 		choice = input(question)
 	return choice
 
+def fight_B1(fleeOrfight):
+	print("\nYou ignite your lightsaber and begin fighting the battle droids.")
+		defeatedDroids = 0
+		while defeatedDroids != 3:
+			B1DroidHP = 10
+			while B1DroidHP > 0 and defeatedDroids != 3:
+				hit = random.randrange(2)
+				if hit:
+					jediPlyrHP -= blasterDMG
+					print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
+				else:
+					print("\nA droid shoots at you but misses.")
+				print("\nYou deflect several blaster bullets and send them right back to the enemy.")
+				B1DroidHP -= lightsaberDMG
+				print(f"Droid HP:{B1DroidHP}")
+				if B1DroidHP == 0:
+					defeatedDroids += 1
+					input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
+		if defeatedDroids == 3:
+			print("\nYou defeated all the droids!")
 
 
 print("Welcome to Star Wars: Save the Chancellor!")
@@ -61,25 +81,7 @@ if pathOption == "north" or "n":
 			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 			fleeOrfight = input("Do you flee or fight?:\n")
 	if fleeOrfight == "fight":
-		print("\nYou ignite your lightsaber and begin fighting the battle droids.")
-		defeatedDroids = 0
-		while defeatedDroids != 3:
-			B1DroidHP = 10
-			while B1DroidHP > 0 and defeatedDroids != 3:
-				hit = random.randrange(2)
-				if hit:
-					jediPlyrHP -= blasterDMG
-					print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
-				else:
-					print("\nA droid shoots at you but misses.")
-				print("\nYou deflect several blaster bullets and send them right back to the enemy.")
-				B1DroidHP -= lightsaberDMG
-				print(f"Droid HP:{B1DroidHP}")
-				if B1DroidHP == 0:
-					defeatedDroids += 1
-					input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
-		if defeatedDroids == 3:
-			print("\nYou defeated all the droids!")
+		fight_B1(fleeOrfight)
 			input("Press enter to continue")
 
 print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
