@@ -68,7 +68,7 @@ print("<You start up your starfighter and fly over to the the Separatist Frigate
 input("Press enter to continue")
 
 print("\nThere is only one way in, through the hangar.")
-pathOption = input("Available paths: north\n").lower()
+pathOption = input(("Available paths: north\n").lower())
 print()
 while pathOption not in paths:
 	print(error_msg)
