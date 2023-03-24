@@ -94,22 +94,26 @@ print("\nNow that you've taken down those clankers, you must locate where the Ch
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print(rooms['Hangar'])
-hangarOption = input("Available paths: north, east\n")
+hangarOption = input("Available paths: north, east\n").lower()
 
 palpsLocation = False
-while hangarOption != paths:
+while hangarOption not in paths:
 	print(error_msg)
 	print(rooms['Hangar'])
-	hangarOption = input("Available paths: north, east\n")
+	hangarOption = input("Available paths: north, east\n").lower()
 
-if hangarOption == "north" or "n":
-	print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
-	print("Looks like you need a droid to operate the elevators.")
-	useDroid = input("Use droid?:\n")
-if useDroid and palpsLocation == False:
-	print("\nYou need to find the location of Chancellor Palpatine first.")
-	option = input("Available paths: south\n")
-while option != paths:
+	if hangarOption == "north" or "n":
+		print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
+		print("Looks like you need a droid to operate the elevators.")
+		useDroid = input("Use droid?:\n")
+		if useDroid and palpsLocation == False:
+			print("\nYou need to find the location of Chancellor Palpatine first.")
+			print(rooms['Elevator'])
+			option = input("Available paths: south\n").lower()
+	elif hangarOption == "east" or "e":
+		print(rooms['tinyRoom'])
+		p = input('Take droid poppers? (Who knows, you may need them.):\n')
+while option not in paths:
 	if option == "south" or "s":
 		print("\nYou head back to the hangar.")
 		print("You spot a hallway and a door. Find a port for your droid.")
