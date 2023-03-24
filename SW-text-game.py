@@ -19,16 +19,19 @@ import random
 rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
 		'Elevator': '\nYou go through the hallway. At the end of the hallway, there are elevators.\nLooks like you need a droid to operate the elevators.',
 		'tinyRoom': "You enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\n Before you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
-		'elevatorEnter': "The elevator doors open. You and your droid enter the elevator.\nYou press a button and the elevator begins to move.\n...\nThe elevator comes to a stop and the doors open."
+		'elevatorEnter': "The elevator doors open. You and your droid enter the elevator.\nYou press a button and the elevator begins to move.\n...\nThe elevator comes to a stop and the doors open.",
 		'PuzzleRoom': "You and your droid enter the room and hear a 'click' sound. You turn around to see what made"}
 
-paths = {'north', 'n', 'south', 's', 'east', 'e', 'west', 'w'}
-error_msg = print("Invalid input. You need to use either north/n, south/s, east/e, or west/w.")
+paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
+error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
 
 
 
 #fight B1 battledroids
 def fight_B1():
+	jediPlyrHP = 35
+	lightsaberDMG = 5
+	blasterDMG = 2
 	print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 	defeatedDroids = 0
 	while defeatedDroids != 3:
@@ -65,16 +68,16 @@ print("<You start up your starfighter and fly over to the the Separatist Frigate
 input("Press enter to continue")
 
 print("\nThere is only one way in, through the hangar.")
-pathOption = input("Available paths: north\n")
+pathOption = input("Available paths: north\n").lower()
 print()
-while pathOption != paths:
+while pathOption not in paths:
 	print(error_msg)
 	print("\nThere is only one way in, through the hangar.")
 	pathOption = input("Available paths: north\n")
 if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
-	while fleeOrfight != "fight":
+	while fleeOrfight != "fight" and fleeOrfight != 'flee':
 		print("\nInvalid input. Are you going to FLEE or FIGHT?")
 		fleeOrfight = input("Do you flee or fight?:\n")
 		if fleeOrfight == "flee":
@@ -83,9 +86,9 @@ if pathOption == "north" or "n":
 			input("\nPress enter to restart.\n")
 			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 			fleeOrfight = input("Do you flee or fight?:\n")
-	if fleeOrfight == "fight":
-		fight_B1()
-		input("Press enter to continue")
+		if fleeOrfight == "fight":
+			fight_B1()
+			input("Press enter to continue")
 
 print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
 print("Good thing you have your trusty astromech droid to help!")
