@@ -16,6 +16,8 @@ magnaDMG = 5
 stimpak = 6
 import random
 
+inventory = []
+
 rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
 		'Elevator': '\nYou go through the hallway. At the end of the hallway, there are elevators.\nLooks like you need a droid to operate the elevators.',
 		'tinyRoom': "You enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\n Before you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
@@ -27,11 +29,13 @@ error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or 
 
 
 
+
 #fight B1 battledroids
 def fight_B1():
 	jediPlyrHP = 35
 	lightsaberDMG = 5
 	blasterDMG = 2
+	
 	print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 	defeatedDroids = 0
 	while defeatedDroids != 3:
@@ -68,7 +72,7 @@ print("<You start up your starfighter and fly over to the the Separatist Frigate
 input("Press enter to continue")
 
 print("\nThere is only one way in, through the hangar.")
-pathOption = input(("Available paths: north\n").lower())
+pathOption = input("Available paths: north\n").lower()
 print()
 while pathOption not in paths:
 	print(error_msg)
@@ -77,7 +81,7 @@ while pathOption not in paths:
 if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
-	while fleeOrfight != "fight" or fleeOrfight != 'flee':
+	while fleeOrfight not in ('flee', 'fight'):
 		print("\nInvalid input. Are you going to FLEE or FIGHT?")
 		fleeOrfight = input("Do you flee or fight?:\n")
 		if fleeOrfight == "flee":
@@ -86,9 +90,9 @@ if pathOption == "north" or "n":
 			input("\nPress enter to restart.\n")
 			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 			fleeOrfight = input("Do you flee or fight?:\n")
-		if fleeOrfight == "fight":
-			fight_B1()
-			input("Press enter to continue")
+	if fleeOrfight == 'fight':
+		fight_B1()
+input("Press enter to continue")
 
 print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
 print("Good thing you have your trusty astromech droid to help!")
@@ -109,11 +113,16 @@ while hangarOption not in paths:
 		if useDroid and palpsLocation == False:
 			print("\nYou need to find the location of Chancellor Palpatine first.")
 			print(rooms['Elevator'])
-			option = input("Available paths: south\n").lower()
+			option = input("Available paths: south\n")
 	elif hangarOption == "east" or "e":
 		print(rooms['tinyRoom'])
 		p = input('Take droid poppers? (Who knows, you may need them.):\n')
+		if p == "take":
+			item = "DroidPoppers"
+			inventory.append(item)
 while option not in paths:
+	print(error_msg)
+	option = input("Available paths: south\n").lower()
 	if option == "south" or "s":
 		print("\nYou head back to the hangar.")
 		print("You spot a hallway and a door. Find a port for your droid.")
