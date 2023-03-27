@@ -26,7 +26,7 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
-ff = ('flee', 'fight')
+
 
 
 
@@ -81,7 +81,7 @@ while pathOption not in paths:
 if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
-	while fleeOrfight not in ff:
+	while fleeOrfight not in ('flee', 'fight'):
 		print("\nInvalid input. Are you going to FLEE or FIGHT?")
 		fleeOrfight = input("Do you flee or fight?:\n")
 		if fleeOrfight == "flee":
