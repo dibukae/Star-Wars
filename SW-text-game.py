@@ -35,7 +35,6 @@ def fight_B1():
 	jediPlyrHP = 35
 	lightsaberDMG = 5
 	blasterDMG = 2
-	import random
 	
 	print("\nYou ignite your lightsaber and begin fighting the battle droids.")
 	defeatedDroids = 0
@@ -91,7 +90,7 @@ if pathOption == "north" or "n":
 			input("\nPress enter to restart.\n")
 			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 			fleeOrfight = input("Do you flee or fight?:\n")
-		if fleeOrfight == 'fight':
+		elif fleeOrfight == 'fight':
 			fight_B1()
 input("Press enter to continue")
 
