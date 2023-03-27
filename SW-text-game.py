@@ -125,9 +125,8 @@ while hangarOption not in paths:
 			item = "Droid Poppers"
 			inventory.append(item)
 			print(f"{item} added to your inventory.")
-while option not in paths:
-	print(error_msg)
-	option = input("Available paths: south\n").lower()
+			option = input("Available paths: south\n")
+
 	if option == "south" or "s":
 		print("\nYou head back to the hangar.")
 		print(rooms['Hangar'])
