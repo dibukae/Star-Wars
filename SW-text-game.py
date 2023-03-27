@@ -24,6 +24,7 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
+ff = ('flee', 'fight')
 
 
 
@@ -77,18 +78,18 @@ while pathOption not in paths:
 if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
-	while fleeOrfight != "fight" or fleeOrfight != 'flee':
+	while fleeOrfight not in ff:
 		print("\nInvalid input. Are you going to FLEE or FIGHT?")
 		fleeOrfight = input("Do you flee or fight?:\n")
-	if fleeOrfight == "flee":
-		print("\nYou try to flee, the battle droids instantly shoot you down.")
-		print(f'\t{diedEnd}')
-		input("\nPress enter to restart.\n")
-		print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
-		fleeOrfight = input("Do you flee or fight?:\n")
-	if fleeOrfight == "fight":
-		fight_B1()
-		input("Press enter to continue")
+		if fleeOrfight == "flee":
+			print("\nYou try to flee, the battle droids instantly shoot you down.")
+			print(f'\t{diedEnd}')
+			input("\nPress enter to restart.\n")
+			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
+			fleeOrfight = input("Do you flee or fight?:\n")
+		if fleeOrfight == "fight":
+			fight_B1()
+			input("Press enter to continue")
 
 print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
 print("Good thing you have your trusty astromech droid to help!")
