@@ -80,15 +80,15 @@ if pathOption == "north" or "n":
 	while fleeOrfight != "fight" or fleeOrfight != 'flee':
 		print("\nInvalid input. Are you going to FLEE or FIGHT?")
 		fleeOrfight = input("Do you flee or fight?:\n")
-		if fleeOrfight == "flee":
-			print("\nYou try to flee, the battle droids instantly shoot you down.")
-			print(f'\t{diedEnd}')
-			input("\nPress enter to restart.\n")
-			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
-			fleeOrfight = input("Do you flee or fight?:\n")
-		if fleeOrfight == "fight":
-			fight_B1()
-			input("Press enter to continue")
+	if fleeOrfight == "flee":
+		print("\nYou try to flee, the battle droids instantly shoot you down.")
+		print(f'\t{diedEnd}')
+		input("\nPress enter to restart.\n")
+		print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
+		fleeOrfight = input("Do you flee or fight?:\n")
+	if fleeOrfight == "fight":
+		fight_B1()
+		input("Press enter to continue")
 
 print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
 print("Good thing you have your trusty astromech droid to help!")
