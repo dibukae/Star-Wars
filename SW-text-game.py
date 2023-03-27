@@ -60,6 +60,9 @@ def fight_B1():
 print("Welcome to Star Wars: Save the Chancellor!")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
 plyrName = input("Enter your epic Jedi name:\n")
+while plyrName == "":
+	print("Please enter your name to continue.")
+	plyrName = input("Enter your epic Jedi name:\n")
 
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
 print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load")
@@ -118,6 +121,7 @@ while hangarOption not in paths:
 		print(rooms['tinyRoom'])
 		p = input('Take droid poppers? (Who knows, you may need them.):\n')
 		if p == "take":
+			#there are 2 droid poppers, idk how to do that though
 			item = "Droid Poppers"
 			inventory.append(item)
 			print(f"{item} added to your inventory.")
