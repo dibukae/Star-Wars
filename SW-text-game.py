@@ -90,8 +90,8 @@ if pathOption == "north" or "n":
 			input("\nPress enter to restart.\n")
 			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 			fleeOrfight = input("Do you flee or fight?:\n")
-		elif fleeOrfight == 'fight':
-			fight_B1()
+	if fleeOrfight == 'fight':
+		fight_B1()
 input("Press enter to continue")
 
 print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
