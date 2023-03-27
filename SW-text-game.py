@@ -114,8 +114,7 @@ while hangarOption not in paths:
 		print("Looks like you need a droid to operate the elevators.")
 		useDroid = input("Use droid?:\n")
 		if useDroid and palpsLocation == False:
-			print("\nYou need to find the location of Chancellor Palpatine first.")
-			print(rooms['Elevator'])
+			print("\n*You need to find the location of Chancellor Palpatine first.*")
 			option = input("Available paths: south\n")
 if hangarOption == "east" or hangarOption == "e":
 	print(rooms['tinyRoom'])
