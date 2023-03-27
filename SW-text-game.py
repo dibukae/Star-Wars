@@ -20,7 +20,7 @@ inventory = []
 
 rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
 		'Elevator': '\nYou go through the hallway. At the end of the hallway, there are elevators.\nLooks like you need a droid to operate the elevators.',
-		'tinyRoom': "You enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\n Before you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
+		'tinyRoom': "You enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\nBefore you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
 		'elevatorEnter': "The elevator doors open. You and your droid enter the elevator.\nYou press a button and the elevator begins to move.\n...\nThe elevator comes to a stop and the doors open.",
 		'PuzzleRoom': "You and your droid enter the room and hear a 'click' sound. You turn around to see what made"}
 
@@ -80,13 +80,13 @@ print()
 while pathOption not in paths:
 	print(error_msg)
 	print("\nThere is only one way in, through the hangar.")
-	pathOption = input("Available paths: north\n")
+	pathOption = input("Available paths: north\n").lower()
 if pathOption == "north" or pathOption == "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
-	fleeOrfight = input("Do you flee or fight?:\n")
+	fleeOrfight = input("Do you flee or fight?:\n").lower()
 	while fleeOrfight not in ('flee', 'fight'):
 		print("\nInvalid input. Are you going to FLEE or FIGHT?")
-		fleeOrfight = input("Do you flee or fight?:\n")
+		fleeOrfight = input("Do you flee or fight?:\n").lower()
 		if fleeOrfight == "flee":
 			print("\nYou try to flee, the battle droids instantly shoot you down.")
 			print(f'\t{diedEnd}')
@@ -117,17 +117,17 @@ while hangarOption not in paths:
 			print("\nYou need to find the location of Chancellor Palpatine first.")
 			print(rooms['Elevator'])
 			option = input("Available paths: south\n")
-	if hangarOption == "east" or hangarOption == "e":
-		print(rooms['tinyRoom'])
-		p = input('Take droid poppers? (Who knows, you may need them.):\n')
-		if p == "take":
-			#there are 2 droid poppers, idk how to do that though
-			item = "Droid Poppers"
-			inventory.append(item)
-			print(f"{item} added to your inventory.")
-			option = input("Available paths: south\n")
+if hangarOption == "east" or hangarOption == "e":
+	print(rooms['tinyRoom'])
+	p = input('Take droid poppers? (Who knows, you may need them.):\n')
+	if p == "take":
+		#there are 2 droid poppers, idk how to do that though
+		item = "Droid Poppers"
+		inventory.append(item)
+		print(f"{item} added to your inventory.")
+		option = input("Available paths: south\n")
 
-	if option == "south" or "s":
-		print("\nYou head back to the hangar.")
-		print(rooms['Hangar'])
-		option = input("Avaiable paths: north, east")
+if option == "south" or "s":
+	print("\nYou head back to the hangar.")
+	print(rooms['Hangar'])
+	option = input("Avaiable paths: north, east\n")
