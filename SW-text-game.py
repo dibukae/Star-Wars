@@ -77,7 +77,7 @@ while pathOption not in paths:
 if pathOption == "north" or "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
-	while fleeOrfight != "fight" and fleeOrfight != 'flee':
+	while fleeOrfight != "fight" or fleeOrfight != 'flee':
 		print("\nInvalid input. Are you going to FLEE or FIGHT?")
 		fleeOrfight = input("Do you flee or fight?:\n")
 		if fleeOrfight == "flee":
