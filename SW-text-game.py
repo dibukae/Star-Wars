@@ -118,12 +118,13 @@ while hangarOption not in paths:
 		print(rooms['tinyRoom'])
 		p = input('Take droid poppers? (Who knows, you may need them.):\n')
 		if p == "take":
-			item = "DroidPoppers"
+			item = "Droid Poppers"
 			inventory.append(item)
+			print(f"{item} added to your inventory.")
 while option not in paths:
 	print(error_msg)
 	option = input("Available paths: south\n").lower()
 	if option == "south" or "s":
 		print("\nYou head back to the hangar.")
-		print("You spot a hallway and a door. Find a port for your droid.")
+		print(rooms['Hangar'])
 		option = input("Avaiable paths: north, east")
