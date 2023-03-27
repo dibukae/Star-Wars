@@ -16,6 +16,8 @@ magnaDMG = 5
 stimpak = 6
 import random
 
+inventory = []
+
 rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
 		'Elevator': '\nYou go through the hallway. At the end of the hallway, there are elevators.\nLooks like you need a droid to operate the elevators.',
 		'tinyRoom': "You enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\n Before you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
@@ -114,7 +116,12 @@ while hangarOption not in paths:
 	elif hangarOption == "east" or "e":
 		print(rooms['tinyRoom'])
 		p = input('Take droid poppers? (Who knows, you may need them.):\n')
+		if p == "take":
+			item = "DroidPoppers"
+			inventory.append(item)
 while option not in paths:
+	print(error_msg)
+	option = input("Available paths: south\n").lower()
 	if option == "south" or "s":
 		print("\nYou head back to the hangar.")
 		print("You spot a hallway and a door. Find a port for your droid.")
