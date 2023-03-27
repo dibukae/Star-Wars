@@ -81,7 +81,7 @@ while pathOption not in paths:
 	print(error_msg)
 	print("\nThere is only one way in, through the hangar.")
 	pathOption = input("Available paths: north\n")
-if pathOption == "north" or "n":
+if pathOption == "north" or pathOption == "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n")
 	while fleeOrfight not in ('flee', 'fight'):
@@ -109,7 +109,7 @@ while hangarOption not in paths:
 	print(rooms['Hangar'])
 	hangarOption = input("Available paths: north, east\n").lower()
 
-	if hangarOption == "north" or "n":
+	if hangarOption == "north" or hangarOption == "n":
 		print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
 		print("Looks like you need a droid to operate the elevators.")
 		useDroid = input("Use droid?:\n")
@@ -117,7 +117,7 @@ while hangarOption not in paths:
 			print("\nYou need to find the location of Chancellor Palpatine first.")
 			print(rooms['Elevator'])
 			option = input("Available paths: south\n")
-	elif hangarOption == "east" or "e":
+	elif hangarOption == "east" or hangarOption == "e":
 		print(rooms['tinyRoom'])
 		p = input('Take droid poppers? (Who knows, you may need them.):\n')
 		if p == "take":
