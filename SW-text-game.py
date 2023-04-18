@@ -125,13 +125,13 @@ if hangarOption == "north" or "n":
 		print("\n*You need to find the location of Chancellor Palpatine first.*")
 		option = input("Available paths: south\n").lower()
 	else:
+		option = input("Available paths: south\n").lower()
 
 		if option in ("south", "s"):
 			print("\nYou head back to the hangar.")
 			print(rooms['Hangar'])
 			hangarOption = input("Avaiable paths: north, east\n")
-
-
+#this is where you find the location of the chancellor
 if hangarOption in ("east", "e"):
 	print(rooms['tinyRoom'])
 	palpsLocation = True
