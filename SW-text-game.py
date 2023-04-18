@@ -128,10 +128,6 @@ if hangarOption in ("north", "n"):
 	if useDroid == "use" and palpsLocation == False:
 		print("\n*You need to find the location of Chancellor Palpatine first.*")
 		option = input("Available paths: south\n").lower()
-	else:
-		print("Your droid plugs into the elevator port.")
-		print(rooms['elevatorEnter'])
-
 
 		if option in ("south", "s"):
 			print("\nYou head back to the hangar.")
