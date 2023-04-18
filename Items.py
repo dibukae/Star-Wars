@@ -10,6 +10,7 @@ class Items():
 		while takeP != "take":
 			print('''Are you sure you don't want to "TAKE" them?''')
 			takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
+			break
 		if takeP == "take":
 			self.droidPop = 2
 			self.inventory.append(self.droidPop)
