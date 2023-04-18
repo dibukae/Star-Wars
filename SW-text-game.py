@@ -153,11 +153,11 @@ elif hangarOption in ("east", "e"):
 			print('You should probably "USE" your droid')
 			useDroid = input("[Use] droid?:\n").lower()
 
-			if useDroid == "use" and palpsLocation == False:
-				print("\n*You need to find the location of Chancellor Palpatine first.*")
-				option = input("Available paths: south\n").lower()
-			else:
-				print("Your droid plugs into the elevator port.")
-				print(rooms['elevatorEnter'])
+		if useDroid == "use" and palpsLocation == False:
+			print("\n*You need to find the location of Chancellor Palpatine first.*")
+			option = input("Available paths: south\n").lower()
+		else:
+			print("Your droid plugs into the elevator port.")
+			print(rooms['elevatorEnter'])
 input("Press enter to continue")
 
