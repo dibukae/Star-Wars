@@ -1,3 +1,6 @@
+import items
+
+#imported stuff above
 diedEnd = "You died and failed to save the chancellor..."
 goodEnd = "You successfully saved the Chancellor! The Jedi Council promoted you to the rank of Jedi Master! Yippee!"
 
@@ -92,7 +95,7 @@ if pathOption == "north" or pathOption == "n":
 			print(f'\t{diedEnd}')
 			input("\nPress enter to restart.\n")
 			print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
-			fleeOrfight = input("Do you flee or fight?:\n")
+			fleeOrfight = input("Do you flee or fight?:\n").lower()
 	if fleeOrfight == 'fight':
 		fight_B1()
 input("Press enter to continue")
@@ -118,13 +121,11 @@ while hangarOption not in paths:
 			option = input("Available paths: south\n")
 if hangarOption == "east" or hangarOption == "e":
 	print(rooms['tinyRoom'])
-	p = input('Take droid poppers? (Who knows, you may need them.):\n')
-	if p == "take":
-		#there are 2 droid poppers, idk how to do that though
-		item = "Droid Poppers"
-		inventory.append(item)
-		print(f"{item} added to your inventory.")
-		option = input("Available paths: south\n")
+	Items.droidPop(self)
+		
+	item = "Droid Poppers"
+	print(f"{item} added to your inventory.")
+	option = input("Available paths: south\n")
 
 if option == "south" or "s":
 	print("\nYou head back to the hangar.")
