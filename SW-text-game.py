@@ -1,4 +1,4 @@
-import Items
+from Items import Items
 
 
 #imported stuff above
@@ -123,10 +123,8 @@ while hangarOption not in paths:
 if hangarOption in ("east", "e"):
 	print(rooms['tinyRoom'])
 	items = Items()
-	items.droid_pop
+	items.droid_pop()
 		
-	item = "Droid Poppers"
-	print(f"{item} added to your inventory.")
 	option = input("Available paths: west\n")
 	if option in ("west", "w"):
 		print("\nYou head back to the hangar.")

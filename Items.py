@@ -9,5 +9,7 @@ class Items():
 		if takeP == "take":
 			self.droidPop = 2
 			self.inventory.append(self.droidPop)
+			item = "Droid Poppers"
+			print(f"{item} added to your inventory.")
 		else:
 			print("You did not take the droid poppers.")
