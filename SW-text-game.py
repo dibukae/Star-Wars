@@ -92,7 +92,7 @@ if pathOption == "north" or pathOption == "n":
 	print("You swoop into the hangar and quickly exit your ship.\nSuddenly, a large group of Separatist battle droids are surrounding you. They have been awaiting your arrival.")
 	fleeOrfight = input("Do you flee or fight?:\n").lower()
 	while fleeOrfight not in ('flee', 'fight'):
-		print("\nInvalid input. Are you going to FLEE or FIGHT?")
+		print('\nInvalid input. Are you going to "FLEE" or "FIGHT?"')
 		fleeOrfight = input("Do you flee or fight?:\n").lower()
 		if fleeOrfight == "flee":
 			print("\nYou try to flee, the battle droids instantly shoot you down.")
@@ -148,11 +148,16 @@ elif hangarOption in ("east", "e"):
 		if option in ("north", "n"):
 			print(rooms['Elevator'])
 			useDroid = input("[Use] droid?:\n").lower()
-		if useDroid == "use" and palpsLocation == False:
-			print("\n*You need to find the location of Chancellor Palpatine first.*")
-			option = input("Available paths: south\n").lower()
-		else:
-			print("Your droid plugs into the elevator port.")
-			print(rooms['elevatorEnter'])
+		
+		while useDroid != "use":
+			print('You should probably "USE" your droid')
+			useDroid = input("[Use] droid?:\n").lower()
+
+			if useDroid == "use" and palpsLocation == False:
+				print("\n*You need to find the location of Chancellor Palpatine first.*")
+				option = input("Available paths: south\n").lower()
+			else:
+				print("Your droid plugs into the elevator port.")
+				print(rooms['elevatorEnter'])
 input("Press enter to continue")
 

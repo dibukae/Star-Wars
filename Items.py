@@ -6,10 +6,14 @@ class Items():
 	def droid_pop(self):
 		self.inventory = []
 		takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
-		if takeP == "take":
-			self.droidPop = 2
-			self.inventory.append(self.droidPop)
-			item = "Droid Poppers"
-			print(f"\n{item} added to your inventory.\n")
-		else:
-			print("You did not take the droid poppers.")
+		
+		while takeP != "take":
+			print('''Are you sure you don't want to "TAKE" them?''')
+			takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
+			if takeP == "take":
+				self.droidPop = 2
+				self.inventory.append(self.droidPop)
+				item = "Droid Poppers"
+				print(f"\n{item} added to your inventory.\n")
+			else:
+				print("You did not take the droid poppers.")
