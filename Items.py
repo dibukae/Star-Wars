@@ -10,6 +10,6 @@ class Items():
 			self.droidPop = 2
 			self.inventory.append(self.droidPop)
 			item = "Droid Poppers"
-			print(f"{item} added to your inventory.")
+			print(f"\n{item} added to your inventory.\n")
 		else:
 			print("You did not take the droid poppers.")
