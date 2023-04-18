@@ -117,7 +117,7 @@ while hangarOption not in paths:
 	print(rooms['Hangar'])
 	hangarOption = input("Available paths: north, east\n").lower()
 
-if hangarOption == "north" or "n":
+if hangarOption in ("north", "n"):
 	print(rooms['Elevator'])
 	useDroid = input("[Use] droid?:\n").lower()
 #can't use elevator unless you have chancellor's location
