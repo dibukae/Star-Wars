@@ -1,4 +1,5 @@
-import items
+from Items import Items
+
 
 #imported stuff above
 diedEnd = "You died and failed to save the chancellor..."
@@ -21,6 +22,7 @@ import random
 
 inventory = []
 
+#all the frickin rooms
 rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
 		'Elevator': '\nYou go through the hallway. At the end of the hallway, there are elevators.\nLooks like you need a droid to operate the elevators.',
 		'tinyRoom': "\nYou enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\nBefore you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
@@ -62,11 +64,13 @@ def fight_B1():
 
 print("Welcome to Star Wars: Save the Chancellor!")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
+#player needs to enter name plz
 plyrName = input("Enter your epic Jedi name:\n")
 while plyrName == "":
 	print("Please enter your name to continue.")
 	plyrName = input("Enter your epic Jedi name:\n")
 
+#key and greeting player.
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
 print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load, quit")
 input("Press enter to continue")
@@ -106,28 +110,55 @@ print("But first your droid needs a port to plug into.")
 print(rooms['Hangar'])
 hangarOption = input("Available paths: north, east\n").lower()
 
+#time to find the location of chancellor poopy
 palpsLocation = False
 while hangarOption not in paths:
 	print(error_msg)
 	print(rooms['Hangar'])
 	hangarOption = input("Available paths: north, east\n").lower()
 
-	if hangarOption == "north" or hangarOption == "n":
-		print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
-		print("Looks like you need a droid to operate the elevators.")
-		useDroid = input("Use droid?:\n")
-		if useDroid and palpsLocation == False:
+	if hangarOption in ("north", "n"):
+		print(rooms['Elevator'])
+		useDroid = input("[Use] droid?:\n").lower()
+#can't use elevator unless you have chancellor's location
+		if useDroid == "use" and palpsLocation == False:
 			print("\n*You need to find the location of Chancellor Palpatine first.*")
-			option = input("Available paths: south\n")
-if hangarOption == "east" or hangarOption == "e":
-	print(rooms['tinyRoom'])
-	Items.droidPop(self)
-		
-	item = "Droid Poppers"
-	print(f"{item} added to your inventory.")
-	option = input("Available paths: south\n")
+			option = input("Available paths: south\n").lower()
 
-if option == "south" or "s":
-	print("\nYou head back to the hangar.")
-	print(rooms['Hangar'])
-	option = input("Avaiable paths: north, east\n")
+			if hangarOption in ("north", "n"):
+				print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
+				print("Looks like you need a droid to operate the elevators.")
+				useDroid = input("Use droid?:\n").lower()
+
+			if useDroid and palpsLocation == False:
+				print("\n*You need to find the location of Chancellor Palpatine first.*")
+				option = input("Available paths: south\n").lower()
+				if option in ("south", "s"):
+					print("\nYou head back to the hangar.")
+					print(rooms['Hangar'])
+					option = input("Avaiable paths: north, east\n")
+
+
+if hangarOption in ("east", "e"):
+	print(rooms['tinyRoom'])
+	palpsLocation = True
+	items = Items()
+	items.droid_pop()
+	option = input("Available paths: west\n").lower()
+
+	if option in ("west", "w"):
+		print("\nYou head back to the hangar.")
+		print(rooms['Hangar'])
+		option = input("Available paths: north, east\n").lower()
+
+		if option in ("north", "n"):
+			print(rooms['Elevator'])
+			useDroid = input("[Use] droid?:\n").lower()
+		if useDroid == "use" and palpsLocation == False:
+			print("\n*You need to find the location of Chancellor Palpatine first.*")
+			option = input("Available paths: south\n").lower()
+		else:
+			print("Your droid plugs into the elevator port.")
+			print(rooms['elevatorEnter'])
+input("Press enter to continue")
+
