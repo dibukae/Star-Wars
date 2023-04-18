@@ -121,7 +121,7 @@ while hangarOption not in paths:
 			option = input("Available paths: south\n")
 if hangarOption == "east" or hangarOption == "e":
 	print(rooms['tinyRoom'])
-	Items.droidPop(self)
+	items(droidPop(self))
 		
 	item = "Droid Poppers"
 	print(f"{item} added to your inventory.")
