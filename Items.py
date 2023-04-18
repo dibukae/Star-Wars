@@ -5,7 +5,7 @@ class Items():
 		
 	def droid_pop(self):
 		self.inventory = []
-		takeP = input("Take droid poppers? (Who knows, you may need them.):\n").lower()
+		takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
 		if takeP == "take":
 			self.droidPop = 2
 			self.inventory.append(self.droidPop)

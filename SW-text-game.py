@@ -118,18 +118,17 @@ while hangarOption not in paths:
 	hangarOption = input("Available paths: north, east\n").lower()
 
 	if hangarOption in ("north", "n"):
-		print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
-		print("Looks like you need a droid to operate the elevators.")
-		useDroid = input("Use droid?:\n")
+		print(rooms['Elevator'])
+		useDroid = input("[Use] droid?:\n").lower()
 #can't use elevator unless you have chancellor's location
-		if useDroid and palpsLocation == False:
+		if useDroid == "use" and palpsLocation == False:
 			print("\n*You need to find the location of Chancellor Palpatine first.*")
 			option = input("Available paths: south\n").lower()
 
 			if hangarOption in ("north", "n"):
 				print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
 				print("Looks like you need a droid to operate the elevators.")
-				useDroid = input("Use droid?:\n")
+				useDroid = input("Use droid?:\n").lower()
 
 			if useDroid and palpsLocation == False:
 				print("\n*You need to find the location of Chancellor Palpatine first.*")
@@ -145,7 +144,7 @@ if hangarOption in ("east", "e"):
 	palpsLocation = True
 	items = Items()
 	items.droid_pop()
-	option = input("Available paths: west\n")
+	option = input("Available paths: west\n").lower()
 
 	if option in ("west", "w"):
 		print("\nYou head back to the hangar.")
@@ -153,14 +152,13 @@ if hangarOption in ("east", "e"):
 		option = input("Available paths: north, east\n").lower()
 
 		if option in ("north", "n"):
-			print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
-			print("Looks like you need a droid to operate the elevators.")
-			useDroid = input("Use droid?:\n").lower()
+			print(rooms['Elevator'])
+			useDroid = input("[Use] droid?:\n").lower()
 		if useDroid == "use" and palpsLocation == False:
 			print("\n*You need to find the location of Chancellor Palpatine first.*")
 			option = input("Available paths: south\n").lower()
 		else:
 			print("Your droid plugs into the elevator port.")
 			print(rooms['elevatorEnter'])
-
+input("Press enter to continue")
 
