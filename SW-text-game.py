@@ -22,6 +22,7 @@ import random
 
 inventory = []
 
+#all the frickin rooms
 rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
 		'Elevator': '\nYou go through the hallway. At the end of the hallway, there are elevators.\nLooks like you need a droid to operate the elevators.',
 		'tinyRoom': "\nYou enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\nBefore you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
@@ -63,11 +64,13 @@ def fight_B1():
 
 print("Welcome to Star Wars: Save the Chancellor!")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
+#player needs to enter name plz
 plyrName = input("Enter your epic Jedi name:\n")
 while plyrName == "":
 	print("Please enter your name to continue.")
 	plyrName = input("Enter your epic Jedi name:\n")
 
+#key and greeting player.
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
 print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load, quit")
 input("Press enter to continue")
