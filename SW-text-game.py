@@ -1,4 +1,5 @@
 import items
+items = Items()
 
 #imported stuff above
 diedEnd = "You died and failed to save the chancellor..."
@@ -112,17 +113,17 @@ while hangarOption not in paths:
 	print(rooms['Hangar'])
 	hangarOption = input("Available paths: north, east\n").lower()
 
-	if hangarOption == "north" or hangarOption == "n":
+	if hangarOption in ("north", "n"):
 		print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
 		print("Looks like you need a droid to operate the elevators.")
 		useDroid = input("Use droid?:\n")
 		if useDroid and palpsLocation == False:
 			print("\n*You need to find the location of Chancellor Palpatine first.*")
-			option = input("Available paths: south\n")
-if hangarOption == "east" or hangarOption == "e":
+			option = input("Available paths: south\n").lower()
+if hangarOption in ("east", "e"):
 	print(rooms['tinyRoom'])
-	items(droidPop(self))
-		
+	items.droidPop(self)
+	
 	item = "Droid Poppers"
 	print(f"{item} added to your inventory.")
 	option = input("Available paths: south\n")
