@@ -1,5 +1,5 @@
 import items
-items = Items()
+I = items()
 
 #imported stuff above
 diedEnd = "You died and failed to save the chancellor..."
