@@ -1,5 +1,5 @@
-import items
-I = items()
+import Items
+items = Items()
 
 #imported stuff above
 diedEnd = "You died and failed to save the chancellor..."
@@ -122,7 +122,7 @@ while hangarOption not in paths:
 			option = input("Available paths: south\n").lower()
 if hangarOption in ("east", "e"):
 	print(rooms['tinyRoom'])
-	items.droidPop(self)
+	items.droidPop()
 	
 	item = "Droid Poppers"
 	print(f"{item} added to your inventory.")
