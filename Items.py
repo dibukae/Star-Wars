@@ -3,9 +3,9 @@ class Items():
 	def __init__(self):
 		self.droidPop = 0
 		
-	def droidPop(self):
+		self.inventory = []
 		takeP = input("Take droid poppers? (Who knows, you may need them.):\n").lower()
 		if takeP == "take":
 			self.droidPop = 2
-			inventory.append(self.droidPop)
+			self.inventory.append(self.droidPop)
 		
