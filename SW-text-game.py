@@ -122,14 +122,26 @@ while hangarOption not in paths:
 			option = input("Available paths: south\n").lower()
 if hangarOption in ("east", "e"):
 	print(rooms['tinyRoom'])
+	palpsLocation = True
 	items = Items()
 	items.droid_pop()
-		
 	option = input("Available paths: west\n")
+
 	if option in ("west", "w"):
 		print("\nYou head back to the hangar.")
 		print(rooms['Hangar'])
 		option = input("Available paths: north, east\n").lower()
+
+		if option in ("north", "n"):
+			print("\nYou go through the hallway. At the end of the hallway, there are elevators.")
+			print("Looks like you need a droid to operate the elevators.")
+			useDroid = input("Use droid?:\n").lower()
+		if useDroid == "use" and palpsLocation == False:
+			print("\n*You need to find the location of Chancellor Palpatine first.*")
+			option = input("Available paths: south\n").lower()
+		else:
+			print("Your droid plugs into the elevator port.")
+			print(rooms['elevatorEnter'])
 
 if option in ("south", "s"):
 	print("\nYou head back to the hangar.")
