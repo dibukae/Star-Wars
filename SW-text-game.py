@@ -133,7 +133,7 @@ if hangarOption == "north" or "n":
 			print(rooms['Hangar'])
 			hangarOption = input("Avaiable paths: north, east\n")
 #this is where you find the location of the chancellor
-if hangarOption in ("east", "e"):
+elif hangarOption in ("east", "e"):
 	print(rooms['tinyRoom'])
 	palpsLocation = True
 	items = Items()
