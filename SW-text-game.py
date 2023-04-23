@@ -43,13 +43,39 @@ def puzzle():
 	print(f"\nBlast! There really are blasters pointed at your head! Guess you better play along!")
 	
 	print("\n\t~|STAR WARS FILL IN THE BLANK|~")
-	print("\nHere is your first quote!")
+	print("\nHere is your first quote! You are allowed to ask for a hint! Just type '?'")
 	print('"Why, you stuck up, half-witted, scruffy-looking, ____ ______!" -Leia Organa') #nerf herder
 	
 	correct = 0
 	answer1 = "nerf herder"
-	ans1 = input("What word(s) shoudl go in the blank?:\n").lower()
-	while ans1 
+	answer2 = "shorter"
+	answer3 = ""
+
+	while correct != 3:
+		ans = input("What word(s) should go in the blank?:\n").lower()
+		if ans == answer1:
+			print("Correct!\nNow on to the second quote!")
+			input("Press enter to continue")
+			correct += 1
+		elif ans == "?":
+			print("\nYour hint is: it's 'NERF' or nothing")
+			ans = input("What word(s) should go in the blank?:\n").lower()
+		else:
+			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer1}'.")
+		
+		print("Here is your second quote! You are allowed to ask for a hint! Just type '?'")
+		print('''"General Grievous, you're _______ than I expexted." -Anakin Skywalker''')#shorter
+		ans = input("What word(s) should go in the blank?:\n").lower()
+		if ans == answer2:
+			print("Correct!\nNow on to the third and final quote!")
+			input("Press enter to continue")
+			correct += 1
+		elif ans == "?":
+			print("\nYour hint is: the opposite of taller")
+			ans = input("What word(s) should go in the blank?:\n").lower()
+		else:
+			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
+
 
 
 #fight B1 battledroids
