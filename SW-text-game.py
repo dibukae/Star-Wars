@@ -108,16 +108,16 @@ print("\nNow that you've taken down those clankers, you must locate where the Ch
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print(rooms['Hangar'])
-hangarOption = input("Available paths: north, east\n").lower()
+option = input("Available paths: north, east\n").lower()
 
 #time to find the location of chancellor poopy
 palpsLocation = False
-while hangarOption not in paths:
+while option not in paths:
 	print(error_msg)
 	print(rooms['Hangar'])
-	hangarOption = input("Available paths: north, east\n").lower()
+	option = input("Available paths: north, east\n").lower()
 
-if hangarOption in ("north", "n"):
+if option in ("north", "n"):
 	print(rooms['Elevator'])
 	useDroid = input("[Use] droid?:\n").lower()
 #can't use elevator unless you have chancellor's location
@@ -129,10 +129,16 @@ if hangarOption in ("north", "n"):
 		print("\n*You need to find the location of Chancellor Palpatine first.*")
 		option = input("Available paths: south\n").lower()
 
-		if option in ("south", "s"):
-			print("\nYou head back to the hangar.")
-			print(rooms['Hangar'])
-			hangarOption = input("Avaiable paths: north, east\n")
+		while option not in paths:
+			print(error_msg)
+			print("\n*You need to find the location of Chancellor Palpatine first.*")
+			option = input("Available paths: south\n").lower()
+
+			if option in ("south", "s"):
+				print("\nYou head back to the hangar.")
+				print(rooms['Hangar'])
+				option = input("Avaiable paths: north, east\n")#im lazy please dont choose north ;-;
+
 #this is where you find the location of the chancellor
 elif hangarOption in ("east", "e"):
 	print(rooms['tinyRoom'])
