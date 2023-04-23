@@ -1,5 +1,5 @@
 from Items import Items
-
+import random
 
 #imported stuff above
 diedEnd = "You died and failed to save the chancellor..."
@@ -18,7 +18,7 @@ magnaDroidHP = 40
 magnaDMG = 5
 #helps recover player HP
 stimpak = 6
-import random
+
 
 inventory = []
 
@@ -28,8 +28,8 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 		'tinyRoom': "\nYou enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\nBefore you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
 		'elevatorEnter': "\nThe elevator doors open. You and your droid enter the elevator.\nYou press a button and the elevator begins to move.\n...\nThe elevator comes to a stop and the doors open.",
 		'puzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made the noise.\nOh no!\nYou're locked in the room!\nTry and a find a way out, you still need to get to Chancellor Palpatine.\n\t<There is a strange mechanism at the center of the room.>",
-		"hallway": "There is a hallway leading to a door at the end.",
-		"droideka": "The door opens as you approach it. Once it opens, droidekas roll in and begin shooting at you!"}
+		"hallway": "\nThere is a hallway leading to a door at the end.",
+		"droideka": "\nThe door opens as you approach it. Once it opens, droidekas roll in and begin shooting at you!"}
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
@@ -286,5 +286,9 @@ if op in ("north", "n"):
 	print(rooms['puzzleRoom'])
 	op = input("Available paths: north\n").lower()
 
+	while op not in paths:
+	print(error_msg)
+	op = input("Available paths: north\n").lower()
 	if op in ("north", "n"):
 		puzzle()
+		print(rooms['hallway'])
