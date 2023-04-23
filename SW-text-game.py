@@ -27,7 +27,7 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 		'Elevator': '\nYou go through the hallway. At the end of the hallway, there are elevators.\nLooks like you need a droid to operate the elevators.',
 		'tinyRoom': "\nYou enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\nBefore you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
 		'elevatorEnter': "\nThe elevator doors open. You and your droid enter the elevator.\nYou press a button and the elevator begins to move.\n...\nThe elevator comes to a stop and the doors open.",
-		'PuzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made"}
+		'puzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made the noise.\nOh no!\nYou're locked in the room!\nTry and a find a way out, you still need to get to Chancellor Palpatine.\n\t<There is a strange mechanism at the center of the room.>"}
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
@@ -137,7 +137,7 @@ if option in ("north", "n"):
 			if option in ("south", "s"):
 				print("\nYou head back to the hangar.")
 				print(rooms['Hangar'])
-				option = input("Avaiable paths: north, east\n")#im lazy please dont choose north ;-;
+				option = input("Available paths: north, east\n")#im lazy please dont choose north ;-;
 
 #this is where you find the location of the chancellor
 elif hangarOption in ("east", "e"):
@@ -168,3 +168,8 @@ elif hangarOption in ("east", "e"):
 			print(rooms['elevatorEnter'])
 			input("Press enter to continue")
 
+print("You and your droid exit the elevator.\nThere seems to be a room up ahead.")
+op = input("Available paths: north")
+
+if op in ("north", "n"):
+	print(rooms[''])
