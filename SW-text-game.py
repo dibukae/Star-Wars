@@ -165,6 +165,10 @@ def fight_B1():
 	if defeatedDroids == 3:
 		print("\nYou defeated all the droids!")
 
+#fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield
+def fight_ekas():
+	defeatedDroids = 0
+
 
 print("Welcome to Star Wars: Save the Chancellor!")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
@@ -282,13 +286,22 @@ while op not in paths:
 	print(error_msg)
 	op = input("Available paths: north\n").lower()
 
-if op in ("north", "n"):
-	print(rooms['puzzleRoom'])
+	if op in ("north", "n"):
+		print(rooms['puzzleRoom'])
+		op = input("Available paths: north\n").lower()
+
+		while op not in paths:
+			print(error_msg)
+			op = input("Available paths: north\n").lower()
+			if op in ("north", "n"):
+				puzzle()
+				
+print(rooms['hallway'])
+op = input("Available paths: north\n").lower()
+while op not in paths:
+	print(error_msg)
+	print(rooms['hallway'])
 	op = input("Available paths: north\n").lower()
 
-	while op not in paths:
-	print(error_msg)
-	op = input("Available paths: north\n").lower()
 	if op in ("north", "n"):
-		puzzle()
-		print(rooms['hallway'])
+		print(rooms['droideka'])
