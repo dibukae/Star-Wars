@@ -134,13 +134,13 @@ if option in ("north", "n"):
 			print("\n*You need to find the location of Chancellor Palpatine first.*")
 			option = input("Available paths: south\n").lower()
 
-			if option in ("south", "s"):
-				print("\nYou head back to the hangar.")
-				print(rooms['Hangar'])
-				option = input("Available paths: north, east\n")#im lazy please dont choose north ;-;
+		if option in ("south", "s"):
+			print("\nYou head back to the hangar.")
+			print(rooms['Hangar'])
+			option = input("Available paths: north, east\n")#im lazy please dont choose north ;-;
 
 #this is where you find the location of the chancellor
-elif hangarOption in ("east", "e"):
+if option in ("east", "e"):
 	print(rooms['tinyRoom'])
 	palpsLocation = True
 	items = Items()
@@ -168,8 +168,11 @@ elif hangarOption in ("east", "e"):
 			print(rooms['elevatorEnter'])
 			input("Press enter to continue")
 
-print("You and your droid exit the elevator.\nThere seems to be a room up ahead.")
-op = input("Available paths: north")
+print("\nYou and your droid exit the elevator.\nThere seems to be a room up ahead.")
+op = input("Available paths: north\n")
 
 if op in ("north", "n"):
-	print(rooms[''])
+	print(rooms['puzzleRoom'])
+	op = input("Available paths: north\n")
+else:
+	print(error_msg)
