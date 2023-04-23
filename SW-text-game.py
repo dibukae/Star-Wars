@@ -27,7 +27,9 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 		'Elevator': '\nYou go through the hallway. At the end of the hallway, there are elevators.\nLooks like you need a droid to operate the elevators.',
 		'tinyRoom': "\nYou enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!\nBefore you leave the room, you spot something shiny. It's some droid poppers! Wonder how these got here...",
 		'elevatorEnter': "\nThe elevator doors open. You and your droid enter the elevator.\nYou press a button and the elevator begins to move.\n...\nThe elevator comes to a stop and the doors open.",
-		'puzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made the noise.\nOh no!\nYou're locked in the room!\nTry and a find a way out, you still need to get to Chancellor Palpatine.\n\t<There is a strange mechanism at the center of the room.>"}
+		'puzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made the noise.\nOh no!\nYou're locked in the room!\nTry and a find a way out, you still need to get to Chancellor Palpatine.\n\t<There is a strange mechanism at the center of the room.>",
+		"hallway": "There is a hallway leading to a door at the end.",
+		"droideka": "The door opens as you approach it. Once it opens, droidekas roll in and begin shooting at you!"}
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
@@ -43,27 +45,36 @@ def puzzle():
 	print(f"\nBlast! There really are blasters pointed at your head! Guess you better play along!")
 	
 	print("\n\t~|STAR WARS FILL IN THE BLANK|~")
-	print("\nHere is your first quote! You are allowed to ask for a hint! Just type '?'")
+	print("\nHere is your first quote! You are allowed to ask for one hint! Just type '?'")
 	print('"Why, you stuck up, half-witted, scruffy-looking, ____ ______!" -Leia Organa') #nerf herder
 	
 	correct = 0
 	answer1 = "nerf herder"
 	answer2 = "shorter"
-	answer3 = ""
+	answer3 = "force"
 
+	ans = input("What word(s) should go in the blank?:\n").lower()
 	while correct != 3:
-		ans = input("What word(s) should go in the blank?:\n").lower()
 		if ans == answer1:
 			print("Correct!\nNow on to the second quote!")
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
-			print("\nYour hint is: it's 'NERF' or nothing")
+			print("\nYour hint is: It's 'NERF' or nothing")
 			ans = input("What word(s) should go in the blank?:\n").lower()
+			if ans == answer1:
+				print("Correct!\nNow on to the second quote!")
+				input("Press enter to continue")
+				correct += 1
 		else:
 			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer1}'.")
+			print("The blasters instantly fire at you!")
+			print(diedEnd)
+			input("Press enter to restart")
+			return puzzle()
+			
 		
-		print("Here is your second quote! You are allowed to ask for a hint! Just type '?'")
+		print("Here is your second quote! You are allowed to ask for one hint! Just type '?'")
 		print('''"General Grievous, you're _______ than I expexted." -Anakin Skywalker''')#shorter
 		ans = input("What word(s) should go in the blank?:\n").lower()
 		if ans == answer2:
@@ -71,10 +82,42 @@ def puzzle():
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
-			print("\nYour hint is: the opposite of taller")
+			print("\nYour hint is: The opposite of taller")
 			ans = input("What word(s) should go in the blank?:\n").lower()
+			if ans == answer2:
+				print("Correct!\nNow on to the third and final quote!")
+				input("Press enter to continue")
+				correct += 1
 		else:
 			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
+			print("The blasters instantly fire at you!")
+			print(diedEnd)
+			input("Press enter to restart")
+			return puzzle()
+
+		print("Here is your third quote! You are allowed to ask for one hint! Just type '?'")
+		print('"May the _____ be with you"')#force
+		ans = input("What word(s) should go in the blank?:\n").lower()
+		if ans == answer3:
+			print("Correct!\nYou got all of them correct! Hooray!")
+			input("Press enter to continue")
+			correct += 1
+		elif ans == "?":
+			print("\nYour hint is: A power the Jedi possess")
+			ans = input("What word(s) should go in the blank?:\n").lower()
+			if ans == answer2:
+				print("Correct!\nYou got all of them correct! Hooray!")
+				input("Press enter to continue")
+				correct += 1
+		else:
+			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
+			print("The blasters instantly fire at you!")
+			print(diedEnd)
+			input("Press enter to restart")
+			return puzzle()
+	if correct == 3:
+		print("All of the doors have been unlocked!\nYou can now continue with your mission!")
+		
 
 
 
