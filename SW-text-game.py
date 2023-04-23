@@ -66,6 +66,12 @@ def puzzle():
 				print("Correct!\nNow on to the second quote!")
 				input("Press enter to continue")
 				correct += 1
+			else:
+				print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer1}'.")
+				print("The blasters instantly fire at you!")
+				print(diedEnd)
+				input("Press enter to restart")
+				return puzzle()
 		else:
 			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer1}'.")
 			print("The blasters instantly fire at you!")
@@ -74,7 +80,7 @@ def puzzle():
 			return puzzle()
 			
 		
-		print("Here is your second quote! You are allowed to ask for one hint! Just type '?'")
+		print("\nHere is your second quote! You are allowed to ask for one hint! Just type '?'")
 		print('''"General Grievous, you're _______ than I expexted." -Anakin Skywalker''')#shorter
 		ans = input("What word(s) should go in the blank?:\n").lower()
 		if ans == answer2:
@@ -88,6 +94,12 @@ def puzzle():
 				print("Correct!\nNow on to the third and final quote!")
 				input("Press enter to continue")
 				correct += 1
+			else:
+				print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
+				print("The blasters instantly fire at you!")
+				print(diedEnd)
+				input("Press enter to restart")
+				return puzzle()
 		else:
 			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
 			print("The blasters instantly fire at you!")
@@ -95,7 +107,7 @@ def puzzle():
 			input("Press enter to restart")
 			return puzzle()
 
-		print("Here is your third quote! You are allowed to ask for one hint! Just type '?'")
+		print("\nHere is your third quote! You are allowed to ask for one hint! Just type '?'")
 		print('"May the _____ be with you"')#force
 		ans = input("What word(s) should go in the blank?:\n").lower()
 		if ans == answer3:
@@ -105,10 +117,16 @@ def puzzle():
 		elif ans == "?":
 			print("\nYour hint is: A power the Jedi possess")
 			ans = input("What word(s) should go in the blank?:\n").lower()
-			if ans == answer2:
+			if ans == answer3:
 				print("Correct!\nYou got all of them correct! Hooray!")
 				input("Press enter to continue")
 				correct += 1
+			else:
+				print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
+				print("The blasters instantly fire at you!")
+				print(diedEnd)
+				input("Press enter to restart")
+				return puzzle()
 		else:
 			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
 			print("The blasters instantly fire at you!")
