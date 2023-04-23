@@ -166,5 +166,5 @@ elif hangarOption in ("east", "e"):
 		else:
 			print("Your droid plugs into the elevator port.")
 			print(rooms['elevatorEnter'])
-input("Press enter to continue")
+			input("Press enter to continue")
 
