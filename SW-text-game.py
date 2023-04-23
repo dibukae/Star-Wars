@@ -33,6 +33,16 @@ paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
 
 
+def puzzle():
+	correct = 0
+	print("You walk up to the strange mechanism, you see a button and press it.")
+	print("A hologram pops up and begins speaking to you.")
+	print('''"Welcome to the galaxy's best fill in the blank game!"''')
+	print("<What is going on? Is this the Separatists idea of a trap or something? Because it's not a very effective trap.?")
+	print('"\nIn this game you must fill in the blank of iconic quotes from Star Wars!"')
+	print("<What the kark is 'Star Wars'?>")
+	print('''"If you want to escape this room, you must get all three answers correct!"\n"If you don't get the all answers correct, you'll get killed by the blasters pointed directly at your head at your head!" :D''')
+	print("<Maybe I spoke too soon about this being a bad trap.>")
 
 
 #fight B1 battledroids
@@ -171,8 +181,12 @@ if option in ("east", "e"):
 print("\nYou and your droid exit the elevator.\nThere seems to be a room up ahead.")
 op = input("Available paths: north\n")
 
+while op not in paths:
+	print(error_msg)
+	op = input("Available paths: north\n")
+
 if op in ("north", "n"):
 	print(rooms['puzzleRoom'])
 	op = input("Available paths: north\n")
-else:
-	print(error_msg)
+
+	if op in ("north", "n"):
