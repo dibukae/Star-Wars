@@ -170,7 +170,7 @@ def fight_ekas(Items):
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 	if self.droidPop in self.inventory:
 		print("It'll be difficult to deflect blaster bullets with those sheilds up.\nThose droid poppers will sure be helpful!")
-		input("")
+		input("[Use] droid poppers?")
 	while defeatedDroids != 2:
 	droidekaHP = 15
 		while droidekaHP > 0 and defeatedDroids != 3:
