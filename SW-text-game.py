@@ -20,7 +20,6 @@ magnaDMG = 5
 stimpak = 6
 
 
-inventory = []
 
 #all the frickin rooms
 rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
@@ -46,10 +45,10 @@ def puzzle():
 	
 	print("\n\t~|STAR WARS FILL IN THE BLANK|~")
 	print("\nHere is your first quote! You are allowed to ask for one hint! Just type '?'")
-	print('"Why, you stuck up, half-witted, scruffy-looking, ____ ______!" -Leia Organa') #nerf herder
+	print('"Why, you stuck up, half-witted, scruffy-looking, ____ herder!" -Leia Organa') #nerf
 	
 	correct = 0
-	answer1 = "nerf herder"
+	answer1 = "nerf"
 	answer2 = "shorter"
 	answer3 = "force"
 
@@ -60,7 +59,7 @@ def puzzle():
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
-			print("\nYour hint is: It's 'NERF' or nothing")
+			print("\nYour hint is: It's 'nerf' or nothing")
 			ans = input("What word(s) should go in the blank?:\n").lower()
 			if ans == answer1:
 				print("Correct!\nNow on to the second quote!")
@@ -165,9 +164,30 @@ def fight_B1():
 	if defeatedDroids == 3:
 		print("\nYou defeated all the droids!")
 
-#fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield
-def fight_ekas():
+#fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
+def fight_ekas(Items):
 	defeatedDroids = 0
+	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
+	if self.droidPop in self.inventory:
+		print("It'll be difficult to deflect blaster bullets with those sheilds up.\nThose droid poppers will sure be helpful!")
+		input("")
+	while defeatedDroids != 2:
+	droidekaHP = 15
+		while droidekaHP > 0 and defeatedDroids != 3:
+			hit = random.randrange(2)
+			if hit:
+				jediPlyrHP -= blasterDMG
+				print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
+			else:
+				print("\nA droid shoots at you but misses.")
+			print("\nYou deflect several blaster bullets and send them right back to the enemy.")
+			droidekaHP -= lightsaberDMG
+			print(f"Droid HP:{droidekaHP}")
+			if droidekaHP == 0:
+				defeatedDroids += 1
+				input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
+	if defeatedDroids == 2:
+		print("\nYou defeated all the droids!")
 
 
 print("Welcome to Star Wars: Save the Chancellor!")
