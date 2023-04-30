@@ -14,12 +14,15 @@ class Items():
 		if takeP == "take":
 			self.droidPop = 2
 			self.inventory.append(self.droidPop)
-			item = "Droid Poppers"
-			print(f"\n{item} added to your inventory.\n")
+			print("\nDroid Poppers added to your inventory.\n")
 		else:
 			print("You did not take the droid poppers.")
 
 	def use_inv(self):
 		if self.droidPop in self.inventory:
 			print("It'll be difficult to deflect blaster bullets with those sheilds up.\nThose droid poppers will sure be helpful!")
-			use = input("[Use] droid poppers?")
+			use = input("[Use] droid poppers?").lower()
+			if use == 'use':
+				self.droidPop -= 1
+				self.inventory.append(self.droidPop)
+				print(f"You used 1 droid popper. You have {self.inventory} left.")

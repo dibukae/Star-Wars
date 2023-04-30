@@ -165,13 +165,13 @@ def fight_B1():
 		print("\nYou defeated all the droids!")
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
-def fight_ekas(Items):
+def fight_ekas():
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 	items = Items()
 	items.use_inv()
 	while defeatedDroids != 2:
-	droidekaHP = 15
+		droidekaHP = 15
 		while droidekaHP > 0 and defeatedDroids != 3:
 			hit = random.randrange(2)
 			if hit:
@@ -324,3 +324,4 @@ while op not in paths:
 
 	if op in ("north", "n"):
 		print(rooms['droideka'])
+		fight_ekas()
