@@ -165,26 +165,30 @@ def fight_B1():
 		print("\nYou defeated all the droids!")
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
-def fight_ekas():
+def fight_ekas(Items):
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
-	items = Items()
-	items.use_inv()
 	while defeatedDroids != 2:
-		droidekaHP = 15
-		while droidekaHP > 0 and defeatedDroids != 3:
-			hit = random.randrange(2)
-			if hit:
-				jediPlyrHP -= blasterDMG
-				print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
-			else:
-				print("\nA droid shoots at you but misses.")
-			print("\nYou deflect several blaster bullets and send them right back to the enemy.")
-			droidekaHP -= lightsaberDMG
-			print(f"Droid HP:{droidekaHP}")
-			if droidekaHP == 0:
-				defeatedDroids += 1
-				input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
+		items = Items()
+		items.use_inv()
+		print("You chuck a droid popper at one of the droidekas. It rolls into its shield")
+	
+	if self.droidPop not in self.inventory:
+		while defeatedDroids != 2:
+			droidekaHP = 15
+			while droidekaHP > 0 and defeatedDroids != 3:
+				hit = random.randrange(2)
+				if hit:
+					jediPlyrHP -= blasterDMG
+					print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
+				else:
+					print("\nA droid shoots at you but misses.")
+				print("\nYou deflect several blaster bullets and send them right back to the enemy.")
+				droidekaHP -= lightsaberDMG
+				print(f"Droid HP:{droidekaHP}")
+				if droidekaHP == 0:
+					defeatedDroids += 1
+					input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
 	if defeatedDroids == 2:
 		print("\nYou defeated all the droids!")
 
@@ -314,7 +318,7 @@ while op not in paths:
 			op = input("Available paths: north\n").lower()
 			if op in ("north", "n"):
 				puzzle()
-				
+
 print(rooms['hallway'])
 op = input("Available paths: north\n").lower()
 while op not in paths:
@@ -324,4 +328,4 @@ while op not in paths:
 
 	if op in ("north", "n"):
 		print(rooms['droideka'])
-		fight_ekas()
+		fight_ekas(Items)

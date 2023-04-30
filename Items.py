@@ -20,7 +20,7 @@ class Items():
 
 	def use_inv(self):
 		if self.droidPop in self.inventory:
-			print("It'll be difficult to deflect blaster bullets with those sheilds up.\nThose droid poppers will sure be helpful!")
+			print("It'll be difficult to deflect blaster bullets with those shields up.\nThose droid poppers will sure be helpful!")
 			use = input("[Use] droid poppers?").lower()
 			if use == 'use':
 				self.droidPop -= 1
