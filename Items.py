@@ -18,3 +18,8 @@ class Items():
 			print(f"\n{item} added to your inventory.\n")
 		else:
 			print("You did not take the droid poppers.")
+
+	def use_inv(self):
+		if self.droidPop in self.inventory:
+			print("It'll be difficult to deflect blaster bullets with those sheilds up.\nThose droid poppers will sure be helpful!")
+			use = input("[Use] droid poppers?")
