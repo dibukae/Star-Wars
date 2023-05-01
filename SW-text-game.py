@@ -2,8 +2,8 @@ from Items import Items
 import random
 
 #imported stuff above
-diedEnd = "You died and failed to save the chancellor..."
-goodEnd = "You successfully saved the Chancellor! The Jedi Council promoted you to the rank of Jedi Master! Yippee!"
+diedEnd = "\tYou died and failed to save the chancellor..."
+goodEnd = "\tYou successfully saved the Chancellor! The Jedi Council promoted you to the rank of Jedi Master! Yippee!"
 
 #max HP for player
 jediPlyrHP = 35
@@ -70,13 +70,13 @@ def mini_game():
 				print("The blasters instantly fire at you!")
 				print(diedEnd)
 				input("Press enter to restart")
-				return puzzle()
+				return mini_game()
 		else:
 			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer1}'.")
 			print("The blasters instantly fire at you!")
 			print(diedEnd)
 			input("Press enter to restart")
-			return puzzle()
+			return mini_game()
 			
 		
 		print("\nHere is your second quote! You are allowed to ask for one hint! Just type '?'")
@@ -98,13 +98,13 @@ def mini_game():
 				print("The blasters instantly fire at you!")
 				print(diedEnd)
 				input("Press enter to restart")
-				return puzzle()
+				return mini_game()
 		else:
 			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
 			print("The blasters instantly fire at you!")
 			print(diedEnd)
 			input("Press enter to restart")
-			return puzzle()
+			return mini_game()
 
 		print("\nHere is your third quote! You are allowed to ask for one hint! Just type '?'")
 		print('"May the _____ be with you"')#force
@@ -125,15 +125,15 @@ def mini_game():
 				print("The blasters instantly fire at you!")
 				print(diedEnd)
 				input("Press enter to restart")
-				return puzzle()
+				return mini_game()
 		else:
 			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
 			print("The blasters instantly fire at you!")
 			print(diedEnd)
 			input("Press enter to restart")
-			return puzzle()
+			return mini_game()
 	if correct == 3:
-		print("All of the doors have been unlocked!\nYou can now continue with your mission!")
+		print("\nAll of the doors have been unlocked!\nYou can now continue with your mission!")
 		
 
 
@@ -166,14 +166,23 @@ def fight_B1():
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
 def fight_ekas(Items):
+	taken = True
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
-	while defeatedDroids != 2:
-		items = Items()
-		items.use_inv()
-		print("You chuck a droid popper at one of the droidekas. It rolls into its shield")
+	if taken != True:
+		while defeatedDroids != 2:
+			droidekaHP = 15
+			items = Items()
+			items.use_inv()
+			print("You chuck a droid popper at one of the droidekas. It rolls into its shield.")
+			print("The droideka is instantly taken out and powered off!")
+			defeatedDroids += 1
+			input("Press enter to continue")
+		if defeatedDroids == 2:
+			print("\nYou defeated all the droidekas!")
+
 	
-	if self.droidPop not in self.inventory:
+	else:
 		while defeatedDroids != 2:
 			droidekaHP = 15
 			while droidekaHP > 0 and defeatedDroids != 3:
@@ -316,8 +325,8 @@ if op in ("north", "n"):
 	while op not in paths:
 		print(error_msg)
 		op = input("Available paths: north\n").lower()
-		if op in ("north", "n"):
-			mini_game()
+	if op in ("north", "n"):
+		mini_game()
 
 print(rooms['hallway'])
 op = input("Available paths: north\n").lower()
@@ -329,3 +338,4 @@ while op not in paths:
 	if op in ("north", "n"):
 		print(rooms['droideka'])
 		fight_ekas(Items)
+input("Press enter to continue")
