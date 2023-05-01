@@ -83,24 +83,24 @@ def mini_game():
 		print('''"General Grievous, you're _______ than I expexted." -Anakin Skywalker''')#shorter
 		ans = input("What word(s) should go in the blank?:\n").lower()
 		if ans == answer2:
-			print("Correct!\nNow on to the third and final quote!")
+			print("\nCorrect!\nNow on to the third and final quote!")
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
 			print("\nYour hint is: The opposite of taller")
 			ans = input("What word(s) should go in the blank?:\n").lower()
 			if ans == answer2:
-				print("Correct!\nNow on to the third and final quote!")
+				print("\nCorrect!\nNow on to the third and final quote!")
 				input("Press enter to continue")
 				correct += 1
 			else:
-				print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
+				print(f"\nWhoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
 				print("The blasters instantly fire at you!")
 				print(diedEnd)
 				input("Press enter to restart")
 				return mini_game()
 		else:
-			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
+			print(f"\nWhoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
 			print("The blasters instantly fire at you!")
 			print(diedEnd)
 			input("Press enter to restart")
@@ -110,24 +110,24 @@ def mini_game():
 		print('"May the _____ be with you"')#force
 		ans = input("What word(s) should go in the blank?:\n").lower()
 		if ans == answer3:
-			print("Correct!\nYou got all of them correct! Hooray!")
+			print("\nCorrect!\nYou got all of them correct! Hooray!")
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
 			print("\nYour hint is: A power the Jedi possess")
 			ans = input("What word(s) should go in the blank?:\n").lower()
 			if ans == answer3:
-				print("Correct!\nYou got all of them correct! Hooray!")
+				print("\nCorrect!\nYou got all of them correct! Hooray!")
 				input("Press enter to continue")
 				correct += 1
 			else:
-				print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
+				print(f"\nWhoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
 				print("The blasters instantly fire at you!")
 				print(diedEnd)
 				input("Press enter to restart")
 				return mini_game()
 		else:
-			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
+			print(f"\nWhoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
 			print("The blasters instantly fire at you!")
 			print(diedEnd)
 			input("Press enter to restart")
@@ -169,13 +169,13 @@ def fight_ekas(Items):
 	jediPlyrHP = 35
 	lightsaberDMG = 5
 	blasterDMG = 2
+	items = Items()
 	#this is if the player took the droid poppers from earlier
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 	if taken == True:
 		while defeatedDroids != 2:
 			#dont know if this will work
-			items = Items()
 			items.use_inv()
 			print("You chuck a droid popper at one of the droidekas. It rolls into its shield.")
 			print("The droideka is instantly taken out and powered off!")
