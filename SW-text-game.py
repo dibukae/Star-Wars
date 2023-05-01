@@ -55,7 +55,7 @@ def mini_game():
 	ans = input("What word(s) should go in the blank?:\n").lower()
 	while correct != 3:
 		if ans == answer1:
-			print("Correct!\nNow on to the second quote!")
+			print("\nCorrect!\nNow on to the second quote!")
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
@@ -165,7 +165,7 @@ def fight_B1():
 		print("\nYou defeated all the droids!")
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
-def fight_ekas(taken):
+def fight_ekas(self.taken):
 	jediPlyrHP = 35
 	lightsaberDMG = 5
 	blasterDMG = 2
@@ -178,7 +178,7 @@ def fight_ekas(taken):
 			#dont know if this will work
 			items.use_inv()
 			print("You chuck a droid popper at one of the droidekas. It rolls into its shield.")
-			print("The droideka is instantly taken out and powered off!")
+			print("The droideka is instantly taken out!")
 			defeatedDroids += 1
 			input("Press enter to continue")
 		if defeatedDroids == 2:
