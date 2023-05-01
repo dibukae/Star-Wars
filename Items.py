@@ -26,3 +26,5 @@ class Items():
 				self.droidPop -= 1
 				self.inventory.append(self.droidPop)
 				print(f"You used 1 droid popper. You have {self.inventory} left.")
+		taken = True
+		return taken
