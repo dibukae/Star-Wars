@@ -309,15 +309,15 @@ while op not in paths:
 	print(error_msg)
 	op = input("Available paths: north\n").lower()
 
-	if op in ("north", "n"):
-		print(rooms['puzzleRoom'])
-		op = input("Available paths: north\n").lower()
+if op in ("north", "n"):
+	print(rooms['puzzleRoom'])
+	op = input("Available paths: north\n").lower()
 
-		while op not in paths:
-			print(error_msg)
-			op = input("Available paths: north\n").lower()
-			if op in ("north", "n"):
-				mini_game()
+	while op not in paths:
+		print(error_msg)
+		op = input("Available paths: north\n").lower()
+		if op in ("north", "n"):
+			mini_game()
 
 print(rooms['hallway'])
 op = input("Available paths: north\n").lower()
