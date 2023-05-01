@@ -34,7 +34,7 @@ paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
 
 #silly little fill in the blank of star wars quotes
-def puzzle():
+def mini_game():
 	print("\nYou walk up to the strange mechanism, you see a button and press it.")
 	print("A hologram pops up and begins speaking to you.")
 	print('''"Welcome to the galaxy's best fill in the blank game!"''')
@@ -317,7 +317,7 @@ while op not in paths:
 			print(error_msg)
 			op = input("Available paths: north\n").lower()
 			if op in ("north", "n"):
-				puzzle()
+				mini_game()
 
 print(rooms['hallway'])
 op = input("Available paths: north\n").lower()
