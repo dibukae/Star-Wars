@@ -166,8 +166,10 @@ def fight_B1():
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
 def fight_ekas(Items):
+	jediPlyrHP = 35
+	lightsaberDMG = 5
+	blasterDMG = 2
 	#this is if the player took the droid poppers from earlier
-	taken = ''
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 	if taken == True:
@@ -182,6 +184,7 @@ def fight_ekas(Items):
 		if defeatedDroids == 2:
 			print("\nYou defeated all the droidekas!")
 #this is if the player didn't take the droid poppers from earlier
+
 	else:
 		while defeatedDroids != 2:
 			droidekaHP = 15
@@ -202,7 +205,7 @@ def fight_ekas(Items):
 					defeatedDroids += 1
 					input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
 	if defeatedDroids == 2:
-		print("\nYou defeated all the droids!")
+		print("\nYou defeated all the droidekas!")
 
 
 print("Welcome to Star Wars: Save the Chancellor!")
@@ -340,5 +343,6 @@ while op not in paths:
 
 if op in ("north", "n"):
 	print(rooms['droideka'])
+	input("Press enter to continue")
 	fight_ekas(Items)
 input("Press enter to continue")
