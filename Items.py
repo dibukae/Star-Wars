@@ -7,6 +7,7 @@ class Items():
 		self.inventory = []
 		takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
 		
+		taken = ''
 		while takeP != "take":
 			print('''Are you sure you don't want to "TAKE" them?''')
 			takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
@@ -15,8 +16,12 @@ class Items():
 			self.droidPop = 2
 			self.inventory.append(self.droidPop)
 			print("\nDroid Poppers added to your inventory.\n")
+			taken = True
+			return taken
 		else:
 			print("You did not take the droid poppers.")
+			taken = False
+			return taken
 
 	def use_inv(self):
 		if self.droidPop in self.inventory:
@@ -26,5 +31,4 @@ class Items():
 				self.droidPop -= 1
 				self.inventory.append(self.droidPop)
 				print(f"You used 1 droid popper. You have {self.inventory} left.")
-		taken = True
-		return taken
+		
