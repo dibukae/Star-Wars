@@ -215,7 +215,7 @@ def menu():
 			l - [Load game]''')
 
 
-print("Welcome to Star Wars: Save the Chancellor!")
+print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
 #player needs to enter name plz
 plyrName = input("Enter your epic Jedi name:\n")
