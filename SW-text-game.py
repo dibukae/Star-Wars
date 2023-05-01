@@ -170,7 +170,9 @@ def fight_ekas(droid_pop):
 	lightsaberDMG = 5
 	blasterDMG = 2
 	items = Items()
+	items.use_inv()
 	#this is if the player took the droid poppers from earlier
+	
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 	if taken == True:
