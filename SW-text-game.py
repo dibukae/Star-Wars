@@ -165,14 +165,14 @@ def fight_B1():
 		print("\nYou defeated all the droids!")
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
-def fight_ekas(Items):
+def fight_ekas(Items(use_inv)):
 	#this is if the player took the droid poppers from earlier
 	taken = ''
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 	if taken == True:
 		while defeatedDroids != 2:
-			droidekaHP = 15
+			#dont know if this will work
 			items = Items()
 			items.use_inv()
 			print("You chuck a droid popper at one of the droidekas. It rolls into its shield.")
@@ -194,6 +194,9 @@ def fight_ekas(Items):
 					print("\nA droid shoots at you but misses.")
 				print("\nYou deflect several blaster bullets and send them right back to the enemy.")
 				droidekaHP -= lightsaberDMG
+				print("Since there are blaster shields protecting the droidekas, you have to get close to kill the droidekas.\nYou lose extra HP. :(")
+				jediPlyrHP -= blasterDMG
+				print(f"Your HP is now: {jediPlyrHP}")
 				print(f"Droid HP:{droidekaHP}")
 				if droidekaHP == 0:
 					defeatedDroids += 1
