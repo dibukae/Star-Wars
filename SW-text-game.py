@@ -208,6 +208,13 @@ def fight_ekas(taken):
 		print("\nYou defeated all the droidekas!")
 
 
+#the prettiest menu
+def menu():
+	print('''\t*.+|-MENU-|+.*
+			s - [Start new game]
+			l - [Load game]''')
+
+
 print("Welcome to Star Wars: Save the Chancellor!")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
 #player needs to enter name plz
