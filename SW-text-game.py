@@ -173,7 +173,7 @@ def fight_ekas(taken):
 
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
-#this is if the player took the droid poppers from earlier
+#this is if the player took the droid poppers from earlier. (this isn't important but holy crap i was truggling so hard on this and then i had a big brain moment while listening to November Rain by Guns n roses)
 	if taken == True:
 		print(items.use_inv())
 		while defeatedDroids != 2:
