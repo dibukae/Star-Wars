@@ -28,7 +28,7 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 		'elevatorEnter': "\nThe elevator doors open. You and your droid enter the elevator.\nYou press a button and the elevator begins to move.\n...\nThe elevator comes to a stop and the doors open.",
 		'puzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made the noise.\nOh no!\nYou're locked in the room!\nTry and a find a way out, you still need to get to Chancellor Palpatine.\n\t<There is a strange mechanism at the center of the room.>",
 		"hallway": "\nThere is a hallway leading to a door at the end.",
-		"droideka": "\nThe door opens as you approach it. Once it opens, droidekas roll in and begin shooting at you!"}
+		"droideka": "\nThe door opens as you approach it. Once it opens, 2 droidekas roll in and begin shooting at you!"}
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
@@ -165,17 +165,25 @@ def fight_B1():
 		print("\nYou defeated all the droids!")
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
-def fight_ekas(Items):
+def fight_ekas():
 	jediPlyrHP = 35
 	lightsaberDMG = 5
 	blasterDMG = 2
 	items = Items()
-	
+
+	taken = items.droid_pop()
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 #this is if the player took the droid poppers from earlier
-	if items.
-		items.fight_t()
+	if taken == True:
+		items.use_inv()
+		while defeatedDroids != 2:
+			print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
+			print("The droideka is instantly taken out!")
+			defeatedDroids += 1
+			input("Press enter to continue")
+		if defeatedDroids == 2:
+			print("\nYou defeated all the droidekas!")
 
 #this is if the player didn't take the droid poppers from earlier
 	else:
@@ -344,5 +352,5 @@ while op not in paths:
 if op in ("north", "n"):
 	print(rooms['droideka'])
 	input("Press enter to continue")
-	fight_ekas(Items)
+	fight_ekas()
 input("Press enter to continue")
