@@ -165,12 +165,12 @@ def fight_B1():
 		print("\nYou defeated all the droids!")
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
-def fight_ekas(droid_pop):
+def fight_ekas(taken):
 	jediPlyrHP = 35
 	lightsaberDMG = 5
 	blasterDMG = 2
 	items = Items()
-	items.use_inv()
+	
 	#this is if the player took the droid poppers from earlier
 	
 	defeatedDroids = 0

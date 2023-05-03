@@ -2,9 +2,9 @@
 class Items():
 	def __init__(self):
 		self.droidPop = 0
-		
-	def droid_pop(self):
 		self.inventory = []
+
+	def droid_pop(self):
 		takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
 		
 		taken = ''
