@@ -175,7 +175,7 @@ def fight_ekas(taken):
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 #this is if the player took the droid poppers from earlier
 	if taken == True:
-		items.use_inv()
+		print(items.use_inv())
 		while defeatedDroids != 2:
 			print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
 			print("The droideka is instantly taken out!")
@@ -204,8 +204,8 @@ def fight_ekas(taken):
 				if droidekaHP == 0:
 					defeatedDroids += 1
 					input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
-	if defeatedDroids == 2:
-		print("\nYou defeated all the droidekas!")
+		if defeatedDroids == 2:
+			print("\nYou defeated all the droidekas!")
 
 
 #the prettiest menu

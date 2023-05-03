@@ -23,8 +23,8 @@ class Items():
 			taken = False
 			return taken
 
-	def use_inv(self):
-		if self.droidPop in self.inventory:
+	def use_inv(self, taken):
+		if taken == True:
 			print("It'll be difficult to deflect blaster bullets with those shields up.\nThose droid poppers will sure be helpful!")
 			use = input("[Use] droid poppers?").lower()
 			if use == 'use':
