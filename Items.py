@@ -17,9 +17,11 @@ class Items():
 			self.inventory.append(self.droidPop)
 			print("\nDroid Poppers added to your inventory.\n")
 			taken = True
+			return taken
 		else:
 			print("You did not take the droid poppers.")
 			taken = False
+			return taken
 
 	def use_inv(self):
 		if self.droidPop in self.inventory:

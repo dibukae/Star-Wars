@@ -52,7 +52,7 @@ def mini_game():
 	answer2 = "shorter"
 	answer3 = "force"
 
-	ans = input("What word(s) should go in the blank?:\n").lower()
+	ans = input("What word should go in the blank?:\n").lower()
 	while correct != 3:
 		if ans == answer1:
 			print("\nCorrect!\nNow on to the second quote!")
@@ -60,7 +60,7 @@ def mini_game():
 			correct += 1
 		elif ans == "?":
 			print("\nYour hint is: It's 'nerf' or nothing")
-			ans = input("What word(s) should go in the blank?:\n").lower()
+			ans = input("What word should go in the blank?:\n").lower()
 			if ans == answer1:
 				print("Correct!\nNow on to the second quote!")
 				input("Press enter to continue")
@@ -81,14 +81,14 @@ def mini_game():
 		
 		print("\nHere is your second quote! You are allowed to ask for one hint! Just type '?'")
 		print('''"General Grievous, you're _______ than I expexted." -Anakin Skywalker''')#shorter
-		ans = input("What word(s) should go in the blank?:\n").lower()
+		ans = input("What word should go in the blank?:\n").lower()
 		if ans == answer2:
 			print("\nCorrect!\nNow on to the third and final quote!")
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
 			print("\nYour hint is: The opposite of taller")
-			ans = input("What word(s) should go in the blank?:\n").lower()
+			ans = input("What word should go in the blank?:\n").lower()
 			if ans == answer2:
 				print("\nCorrect!\nNow on to the third and final quote!")
 				input("Press enter to continue")
@@ -108,14 +108,14 @@ def mini_game():
 
 		print("\nHere is your third quote! You are allowed to ask for one hint! Just type '?'")
 		print('"May the _____ be with you"')#force
-		ans = input("What word(s) should go in the blank?:\n").lower()
+		ans = input("What word should go in the blank?:\n").lower()
 		if ans == answer3:
 			print("\nCorrect!\nYou got all of them correct! Hooray!")
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
 			print("\nYour hint is: A power the Jedi possess")
-			ans = input("What word(s) should go in the blank?:\n").lower()
+			ans = input("What word should go in the blank?:\n").lower()
 			if ans == answer3:
 				print("\nCorrect!\nYou got all of them correct! Hooray!")
 				input("Press enter to continue")
@@ -165,13 +165,12 @@ def fight_B1():
 		print("\nYou defeated all the droids!")
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
-def fight_ekas():
+def fight_ekas(taken):
 	jediPlyrHP = 35
 	lightsaberDMG = 5
 	blasterDMG = 2
 	items = Items()
 
-	taken = items.droid_pop()
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 #this is if the player took the droid poppers from earlier
@@ -226,7 +225,7 @@ while plyrName == "":
 
 #key and greeting player.
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
-print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load, quit")
+print("KEY: north/n, south/s, east/e, west/w, flee, fight, use, take, save, load, quit") #for save there will save points. ex) "Now seems like a good time to [save] the game"
 input("Press enter to continue")
 
 print(f"\nHello there, Jedi {plyrName}. We need your help to save Chancellor Palpatine.\nHe has been captured by the Separatists. It is rumored that he was captured by the leader of the droid army, General Grievous.")
@@ -301,8 +300,12 @@ if option in ("east", "e"):
 	print(rooms['tinyRoom'])
 	palpsLocation = True
 	items = Items()
-	items.droid_pop()
+	taken = items.droid_pop()
 	option = input("Available paths: west\n").lower()
+
+
+
+
 
 	if option in ("west", "w"):
 		print("\nYou head back to the hangar.")
@@ -352,5 +355,5 @@ while op not in paths:
 if op in ("north", "n"):
 	print(rooms['droideka'])
 	input("Press enter to continue")
-	fight_ekas()
+	fight_ekas(taken)
 input("Press enter to continue")
