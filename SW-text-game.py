@@ -171,22 +171,12 @@ def fight_ekas(taken):
 	blasterDMG = 2
 	items = Items()
 	
-	#this is if the player took the droid poppers from earlier
-	
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
-	if taken == True:
-		while defeatedDroids != 2:
-			#dont know if this will work
-			items.use_inv()
-			print("You chuck a droid popper at one of the droidekas. It rolls into its shield.")
-			print("The droideka is instantly taken out!")
-			defeatedDroids += 1
-			input("Press enter to continue")
-		if defeatedDroids == 2:
-			print("\nYou defeated all the droidekas!")
-#this is if the player didn't take the droid poppers from earlier
+#this is if the player took the droid poppers from earlier
+	items.fight_t()
 
+#this is if the player didn't take the droid poppers from earlier
 	else:
 		while defeatedDroids != 2:
 			droidekaHP = 15
