@@ -17,11 +17,9 @@ class Items():
 			self.inventory.append(self.droidPop)
 			print("\nDroid Poppers added to your inventory.\n")
 			taken = True
-			return taken
 		else:
 			print("You did not take the droid poppers.")
 			taken = False
-			return taken
 
 	def use_inv(self):
 		if self.droidPop in self.inventory:
@@ -31,15 +29,3 @@ class Items():
 				self.droidPop -= 1
 				self.inventory.append(self.droidPop)
 				print(f"You used 1 droid popper. You have {self.inventory} left.")
-		
-	def fight_t(taken):
-		defeatedDroids = 0
-		if taken == True:
-			print(use_inv())
-				while defeatedDroids != 2:
-					print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
-					print("The droideka is instantly taken out!")
-					defeatedDroids += 1
-					input("Press enter to continue")
-				if defeatedDroids == 2:
-					print("\nYou defeated all the droidekas!")
