@@ -165,7 +165,7 @@ def fight_B1():
 		print("\nYou defeated all the droids!")
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
-def fight_ekas(taken):
+def fight_ekas(taken, used):
 	jediPlyrHP = 35
 	lightsaberDMG = 5
 	blasterDMG = 2
@@ -175,14 +175,15 @@ def fight_ekas(taken):
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 #this is if the player took the droid poppers from earlier. (this isn't important but holy crap i was truggling so hard on this and then i had a big brain moment while listening to November Rain by Guns n roses)
 	if taken == True:
-		print(items.use_inv())
-		while defeatedDroids != 2:
-			print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
-			print("The droideka is instantly taken out!")
-			defeatedDroids += 1
-			input("Press enter to continue")
-		if defeatedDroids == 2:
-			print("\nYou defeated all the droidekas!")
+		used = print(items.use_inv())
+		if used == True:
+			while defeatedDroids != 2:
+				print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
+				print("The droideka is instantly taken out!")
+				defeatedDroids += 1
+				input("Press enter to continue")
+			if defeatedDroids == 2:
+				print("\nYou defeated all the droidekas!")
 
 #this is if the player didn't take the droid poppers from earlier
 	else:
@@ -355,5 +356,5 @@ while op not in paths:
 if op in ("north", "n"):
 	print(rooms['droideka'])
 	input("Press enter to continue")
-	fight_ekas(taken)
+	fight_ekas(taken, used)
 input("Press enter to continue")
