@@ -25,10 +25,10 @@ class Items():
 	def use_inv(self, taken):
 		if taken == True:
 			print("It'll be difficult to deflect blaster bullets with those shields up.\nThose droid poppers will sure be helpful!")
-			use = input("[Use] droid poppers?").lower()
+			use = input("[Use] droid poppers?\n").lower()
 			while use != 'use':
 				print('''Are you sure you don't want to "USE" them?''')
-				use = input("[Use] droid poppers?").lower()
+				use = input("[Use] droid poppers?\n").lower()
 				break
 			if use == 'use':
 				self.droidPop -= 1

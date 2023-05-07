@@ -165,6 +165,7 @@ def fight_B1():
 		print("\nYou defeated all the droids!")
 
 #fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
+
 def fight_ekas(taken, used):
 	jediPlyrHP = 35
 	lightsaberDMG = 5
@@ -173,9 +174,9 @@ def fight_ekas(taken, used):
 
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
-#this is if the player took the droid poppers from earlier. (this isn't important but holy crap i was truggling so hard on this and then i had a big brain moment while listening to November Rain by Guns n roses)
+#this is if the player took the droid poppers from earlier.
 	if taken == True:
-		used = print(items.use_inv())
+		print(items.use_inv(taken))
 		if used == True:
 			while defeatedDroids != 2:
 				print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
@@ -304,9 +305,9 @@ if option in ("east", "e"):
 	taken = items.droid_pop()
 	option = input("Available paths: west\n").lower()
 
-
-
-
+	while option not in ("west", "w"):
+		print(error_msg)
+		option = input("Available paths: west\n").lower()
 
 	if option in ("west", "w"):
 		print("\nYou head back to the hangar.")
