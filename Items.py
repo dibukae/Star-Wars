@@ -7,7 +7,6 @@ class Items():
 	def droid_pop(self):
 		takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
 		
-		taken = ''
 		while takeP != "take":
 			print('''Are you sure you don't want to "TAKE" them?''')
 			takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
@@ -27,6 +26,10 @@ class Items():
 		if taken == True:
 			print("It'll be difficult to deflect blaster bullets with those shields up.\nThose droid poppers will sure be helpful!")
 			use = input("[Use] droid poppers?").lower()
+			while use != 'use':
+				print('''Are you sure you don't want to "USE" them?''')
+				use = input("[Use] droid poppers?").lower()
+				break
 			if use == 'use':
 				self.droidPop -= 1
 				self.inventory.append(self.droidPop)
