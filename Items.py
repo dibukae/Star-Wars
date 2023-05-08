@@ -1,8 +1,8 @@
 #trying to add certain number of items to inventory idk if this will work
 class Items():
-	def __init__(self):
-		self.droidPop = 0
-		self.inventory = []
+	def __init__(self, droidPop = 0, inventory = []):
+		self.droidPop = droidPop
+		self.inventory = inventory
 
 	def droid_pop(self):
 		takeP = input("[Take] droid poppers? (Who knows, you may need them.):\n").lower()
@@ -23,15 +23,14 @@ class Items():
 			return taken
 
 	def use_inv(self, taken):
-		if taken == True:
-			print("It'll be difficult to deflect blaster bullets with those shields up.\nThose droid poppers will sure be helpful!")
+		print("It'll be difficult to deflect blaster bullets with those shields up.\nThose droid poppers will sure be helpful!")
+		use = input("[Use] droid poppers?\n").lower()
+		while use != 'use':
+			print('''Are you sure you don't want to "USE" them?''')
 			use = input("[Use] droid poppers?\n").lower()
-			while use != 'use':
-				print('''Are you sure you don't want to "USE" them?''')
-				use = input("[Use] droid poppers?\n").lower()
-				break
-			if use == 'use':
-				self.inventory[0] -= 1
-				print(f"You used 1 droid popper. You have {self.inventory} left.")
-			else:
-				print("You didn't use the droid poppers.")
+			break
+		if use == 'use':
+			self.inventory[0] -= 1
+			print(f"You used 1 droid popper. You have {self.inventory} left.")
+		else:
+			print("You didn't use the droid poppers.")
