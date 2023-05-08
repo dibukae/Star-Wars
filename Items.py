@@ -31,8 +31,7 @@ class Items():
 				use = input("[Use] droid poppers?\n").lower()
 				break
 			if use == 'use':
-				self.droidPop -= 1
-				self.inventory.append(self.droidPop)
+				self.inventory[0] -= 1
 				print(f"You used 1 droid popper. You have {self.inventory} left.")
 			else:
 				print("You didn't use the droid poppers.")
