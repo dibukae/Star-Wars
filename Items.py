@@ -34,9 +34,5 @@ class Items():
 				self.droidPop -= 1
 				self.inventory.append(self.droidPop)
 				print(f"You used 1 droid popper. You have {self.inventory} left.")
-				used = True
-				return used
 			else:
 				print("You didn't use the droid poppers.")
-				used = False
-				return used

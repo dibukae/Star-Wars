@@ -177,7 +177,7 @@ def fight_ekas(taken, used):
 #this is if the player took the droid poppers from earlier.
 	if taken == True:
 		print(items.use_inv(taken))
-		if used == True:
+		if use == 'used':
 			while defeatedDroids != 2:
 				print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
 				print("The droideka is instantly taken out!")
