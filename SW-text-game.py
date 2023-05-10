@@ -29,7 +29,7 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 		'puzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made the noise.\nOh no!\nYou're locked in the room!\nTry and a find a way out, you still need to get to Chancellor Palpatine.\n\t<There is a strange mechanism at the center of the room.>",
 		"hallway": "\nThere is a hallway leading to a door at the end.",
 		"droideka": "\nThe door opens as you approach it. Once it opens, 2 droidekas roll in and begin shooting at you!",
-		"bridge": ""}
+		"bridge": "This door won't budge! What could be hiding in there? Could it be the Chancellor?"}
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
@@ -172,7 +172,7 @@ def fight_ekas(taken):
 	lightsaberDMG = 5
 	blasterDMG = 2
 	items = Items()
-
+#when you say things are roger roger, but they are not roger roger :'(
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
 #this is if the player took the droid poppers from earlier.
@@ -216,6 +216,19 @@ def menu():
 	print('''\t*.+|-MENU-|+.*
 			s - [Start new game]
 			l - [Load game]''')
+
+#saving game
+def save():
+	print("Now seems like a good time to [save] the game...")
+	r = input("Save game?:\n")
+
+#loading game
+def load():
+	#if save exists
+	print("Using the force to retrieve your data...")
+	#if save no exist
+	print("Could not be found")
+
 
 
 print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
