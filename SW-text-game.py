@@ -175,8 +175,9 @@ def fight_ekas(taken):
 #when you say things are roger roger, but they are not roger roger :'(
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
+	used = items.use_inv(True)
 #this is if the player took the droid poppers from earlier.
-	if taken == True:
+	if taken and used:
 	
 		while defeatedDroids != 2:
 			print(items.use_inv(taken))
@@ -188,7 +189,7 @@ def fight_ekas(taken):
 			print("\nYou defeated all the droidekas!")
 
 #this is if the player didn't take the droid poppers from earlier
-	else:
+	elif not taken or not used:
 		while defeatedDroids != 2:
 			droidekaHP = 15
 			while droidekaHP > 0 and defeatedDroids != 3:

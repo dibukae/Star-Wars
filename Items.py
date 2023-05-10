@@ -25,12 +25,14 @@ class Items():
 	def use_inv(self, taken):
 		print("It'll be difficult to deflect blaster bullets with those shields up.\nThose droid poppers will sure be helpful!")
 		use = input("[Use] droid poppers?\n").lower()
-		while use != 'use':
+		if use != 'use':
 			print('''Are you sure you don't want to "USE" them?''')
 			use = input("[Use] droid poppers?\n").lower()
-			break
+
 		if use == 'use':
 			self.inventory[0] -= 1
 			print(f"You used 1 droid popper. You have {self.inventory} left.")
+			return True
 		else:
 			print("You didn't use the droid poppers.")
+			return False
