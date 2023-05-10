@@ -398,13 +398,13 @@ if op in ("north", "n"):
 		print(rooms['elevatorEnter'])
 input("Press enter to continue")
 
-print(rooms[hallway])
+print(rooms['hallway'])
 #########add save point
 
-print(rooms[bridge])
+print(rooms['bridge'])
 print(f'''\n"Not so fast Jedi {plyrName}."
-	It's General Grievous!
-	"If you want your Chancellor back, you must fight for it!"*coughing*
-	Suddenly, 2 magna guards appear behind you!
-	It's time save the Chancellor, get rid of the guards Jedi {plyrName}!
-	''')
+It's General Grievous!
+"If you want your Chancellor back, you must fight for it!"*coughing*
+Suddenly, 2 magna guards appear behind you!
+It's time save the Chancellor, get rid of those guards Jedi {plyrName}!
+''')

@@ -14,12 +14,13 @@ class Items():
 		if takeP == "take":
 			self.droidPop = 2
 			self.inventory.append(self.droidPop)
-			print("\nDroid Poppers added to your inventory.\n")
-			print(f"You have {self.inventory[0]}")
+			print("\nDroid Poppers added to your inventory.")
+			print(f"You have {self.inventory[0]}\n")
 			taken = True
 			return taken
 		else:
 			print("You did not take the droid poppers.")
+			print(f"You have {self.droidPop}\n")
 			taken = False
 			return taken
 
@@ -32,7 +33,7 @@ class Items():
 
 		if use == 'use':
 			self.inventory[0] -= 1
-			print(f"You used 1 droid popper. You have {self.inventory[0]} left.")
+			print(f"You used 1 droid popper. You have {self.inventory[0]} left.")#i don't know why it's returning none here
 
 	def stim(self):
 		tak = input("[Take] stimpaks? (Who knows, you may need them.):\n").lower()
@@ -42,12 +43,12 @@ class Items():
 		if tak == "take":
 			self.stimpak += 3
 			self.inventory.append(self.stimpak)
-			print("Stimpaks added to your inventory.\n")
-			print(f"You have {self.inventory[1]}")
+			print("Stimpaks added to your inventory.")
+			print(f"You have {self.inventory[1]}\n")
 			Taknn = True
 			return Taknn
 		else:
 			print("You did not take the stimpaks.")
-			print(f"You have {self.inventory[1]}")
+			print(f"You have {self.stimpak}\n")
 			Taknn = False
 			return Taknn
