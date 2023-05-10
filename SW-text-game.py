@@ -175,21 +175,21 @@ def fight_ekas(taken):
 #when you say things are roger roger, but they are not roger roger :'(
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
-	used = items.use_inv(True)
+
 #this is if the player took the droid poppers from earlier.
-	if taken and used:
-	
+	if taken == True:#sorry im gonna force you to use them or something i cant figure out how to do crap. ur not gonna use them after this and i need to finish this quickly
 		while defeatedDroids != 2:
-			print(items.use_inv(taken))
+			print(items.use_inv())
 			print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
 			print("The droideka is instantly taken out!")
 			defeatedDroids += 1
+			
 			input("Press enter to continue")
 		if defeatedDroids == 2:
 			print("\nYou defeated all the droidekas!")
 
 #this is if the player didn't take the droid poppers from earlier
-	elif not taken or not used:
+	else:
 		while defeatedDroids != 2:
 			droidekaHP = 15
 			while droidekaHP > 0 and defeatedDroids != 3:
