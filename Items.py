@@ -53,6 +53,8 @@ class Items():
 			Taknn = False
 			return Taknn
 	
-	def use_stim(self):
-		print("Your HP is getting pretty low, you should use your stimpaks!")
-		print(f"You have {self.stimpak} stimpak(s).\n")
+	def use_stim(self, jediPlyrHP):
+		if jediPlyrHP <= 10:
+			print("Your HP is getting pretty low, you should use your stimpaks!")
+			print(f"You have {self.stimpak} stimpak(s).\n")
+			use = input("[Use] stimpaks?:\n")
