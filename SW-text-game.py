@@ -2,8 +2,8 @@ from Items import Items
 import random
 
 #imported stuff above
-diedEnd = "You died and failed to save the chancellor..."
-goodEnd = "You successfully saved the Chancellor! The Jedi Council promoted you to the rank of Jedi Master! Yippee!"
+diedEnd = "\tYou died and failed to save the chancellor..."
+goodEnd = "\tYou successfully saved the Chancellor! The Jedi Council promoted you to the rank of Jedi Master! Yippee!"
 
 #max HP for player
 jediPlyrHP = 35
@@ -20,7 +20,6 @@ magnaDMG = 5
 stimpak = 6
 
 
-inventory = []
 
 #all the frickin rooms
 rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.',
@@ -29,13 +28,14 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 		'elevatorEnter': "\nThe elevator doors open. You and your droid enter the elevator.\nYou press a button and the elevator begins to move.\n...\nThe elevator comes to a stop and the doors open.",
 		'puzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made the noise.\nOh no!\nYou're locked in the room!\nTry and a find a way out, you still need to get to Chancellor Palpatine.\n\t<There is a strange mechanism at the center of the room.>",
 		"hallway": "\nThere is a hallway leading to a door at the end.",
-		"droideka": "\nThe door opens as you approach it. Once it opens, droidekas roll in and begin shooting at you!"}
+		"droideka": "\nThe door opens as you approach it. Once it opens, 2 droidekas roll in and begin shooting at you!",
+		"bridge": "This door won't budge! What could be hiding in there? Could it be the Chancellor?"}
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
 
 #silly little fill in the blank of star wars quotes
-def puzzle():
+def mini_game():
 	print("\nYou walk up to the strange mechanism, you see a button and press it.")
 	print("A hologram pops up and begins speaking to you.")
 	print('''"Welcome to the galaxy's best fill in the blank game!"''')
@@ -46,22 +46,22 @@ def puzzle():
 	
 	print("\n\t~|STAR WARS FILL IN THE BLANK|~")
 	print("\nHere is your first quote! You are allowed to ask for one hint! Just type '?'")
-	print('"Why, you stuck up, half-witted, scruffy-looking, ____ ______!" -Leia Organa') #nerf herder
+	print('"Why, you stuck up, half-witted, scruffy-looking, ____ herder!" -Leia Organa') #nerf
 	
 	correct = 0
-	answer1 = "nerf herder"
+	answer1 = "nerf"
 	answer2 = "shorter"
 	answer3 = "force"
 
-	ans = input("What word(s) should go in the blank?:\n").lower()
+	ans = input("What word should go in the blank?:\n").lower()
 	while correct != 3:
 		if ans == answer1:
-			print("Correct!\nNow on to the second quote!")
+			print("\nCorrect!\nNow on to the second quote!")
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
-			print("\nYour hint is: It's 'NERF' or nothing")
-			ans = input("What word(s) should go in the blank?:\n").lower()
+			print("\nYour hint is: It's 'nerf' or nothing")
+			ans = input("What word should go in the blank?:\n").lower()
 			if ans == answer1:
 				print("Correct!\nNow on to the second quote!")
 				input("Press enter to continue")
@@ -71,70 +71,70 @@ def puzzle():
 				print("The blasters instantly fire at you!")
 				print(diedEnd)
 				input("Press enter to restart")
-				return puzzle()
+				return mini_game()
 		else:
 			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer1}'.")
 			print("The blasters instantly fire at you!")
 			print(diedEnd)
 			input("Press enter to restart")
-			return puzzle()
+			return mini_game()
 			
 		
 		print("\nHere is your second quote! You are allowed to ask for one hint! Just type '?'")
 		print('''"General Grievous, you're _______ than I expexted." -Anakin Skywalker''')#shorter
-		ans = input("What word(s) should go in the blank?:\n").lower()
+		ans = input("What word should go in the blank?:\n").lower()
 		if ans == answer2:
-			print("Correct!\nNow on to the third and final quote!")
+			print("\nCorrect!\nNow on to the third and final quote!")
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
 			print("\nYour hint is: The opposite of taller")
-			ans = input("What word(s) should go in the blank?:\n").lower()
+			ans = input("What word should go in the blank?:\n").lower()
 			if ans == answer2:
-				print("Correct!\nNow on to the third and final quote!")
+				print("\nCorrect!\nNow on to the third and final quote!")
 				input("Press enter to continue")
 				correct += 1
 			else:
-				print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
+				print(f"\nWhoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
 				print("The blasters instantly fire at you!")
 				print(diedEnd)
 				input("Press enter to restart")
-				return puzzle()
+				return mini_game()
 		else:
-			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
+			print(f"\nWhoops! That wasn't correct!\nThe correct anwser was '{answer2}'.")
 			print("The blasters instantly fire at you!")
 			print(diedEnd)
 			input("Press enter to restart")
-			return puzzle()
+			return mini_game()
 
 		print("\nHere is your third quote! You are allowed to ask for one hint! Just type '?'")
 		print('"May the _____ be with you"')#force
-		ans = input("What word(s) should go in the blank?:\n").lower()
+		ans = input("What word should go in the blank?:\n").lower()
 		if ans == answer3:
-			print("Correct!\nYou got all of them correct! Hooray!")
+			print("\nCorrect!\nYou got all of them correct! Hooray!")
 			input("Press enter to continue")
 			correct += 1
 		elif ans == "?":
 			print("\nYour hint is: A power the Jedi possess")
-			ans = input("What word(s) should go in the blank?:\n").lower()
+			ans = input("What word should go in the blank?:\n").lower()
 			if ans == answer3:
-				print("Correct!\nYou got all of them correct! Hooray!")
+				print("\nCorrect!\nYou got all of them correct! Hooray!")
 				input("Press enter to continue")
 				correct += 1
 			else:
-				print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
+				print(f"\nWhoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
 				print("The blasters instantly fire at you!")
 				print(diedEnd)
 				input("Press enter to restart")
-				return puzzle()
+				return mini_game()
 		else:
-			print(f"Whoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
+			print(f"\nWhoops! That wasn't correct!\nThe correct anwser was '{answer3}'.")
 			print("The blasters instantly fire at you!")
 			print(diedEnd)
 			input("Press enter to restart")
-			return puzzle()
+			return mini_game()
 	if correct == 3:
-		print("All of the doors have been unlocked!\nYou can now continue with your mission!")
+		print("\nAll of the doors have been unlocked!\nYou can now continue with your mission!")
 		
 
 
@@ -165,12 +165,74 @@ def fight_B1():
 	if defeatedDroids == 3:
 		print("\nYou defeated all the droids!")
 
-#fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield
-def fight_ekas():
+#fight droidekas. if player didn't get droid poppers they lose a little extra health because they have to get closer to the droideka and can't deflect blaster shot cuz shield idk
+
+def fight_ekas(taken):
+	jediPlyrHP = 35
+	lightsaberDMG = 5
+	blasterDMG = 2
+	items = Items()
+#when you say things are roger roger, but they are not roger roger :'(
 	defeatedDroids = 0
+	print("\nYou ignite your lightsaber and begin fighting the droidekas.")
+
+#this is if the player took the droid poppers from earlier.
+	if taken == True:#sorry im gonna force you to use them or something i cant figure out how to do crap. ur not gonna use them after this and i need to finish this quickly
+		while defeatedDroids != 2:
+			print(items.use_inv())
+			print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
+			print("The droideka is instantly taken out!")
+			defeatedDroids += 1
+			
+			input("Press enter to continue")
+		if defeatedDroids == 2:
+			print("\nYou defeated all the droidekas!")
+
+#this is if the player didn't take the droid poppers from earlier
+	else:
+		while defeatedDroids != 2:
+			droidekaHP = 15
+			while droidekaHP > 0 and defeatedDroids != 3:
+				hit = random.randrange(2)
+				if hit:
+					jediPlyrHP -= blasterDMG
+					print(f"\nA droid hits you, your HP is now: {jediPlyrHP}")
+				else:
+					print("\nA droid shoots at you but misses.")
+				print("\nYou deflect several blaster bullets and send them right back to the enemy.")
+				droidekaHP -= lightsaberDMG
+				print("Since there are blaster shields protecting the droidekas, you have to get close to kill the droidekas.\nYou lose extra HP. :(")
+				jediPlyrHP -= blasterDMG
+				print(f"Your HP is now: {jediPlyrHP}")
+				print(f"Droid HP:{droidekaHP}")
+				if droidekaHP == 0:
+					defeatedDroids += 1
+					input(f"\nYou defeated {defeatedDroids} droid(s)!\nPress enter to continue")
+		if defeatedDroids == 2:
+			print("\nYou defeated all the droidekas!")
 
 
-print("Welcome to Star Wars: Save the Chancellor!")
+#the prettiest menu
+def menu():
+	print('''\t*.+|-MENU-|+.*
+			s - [Start new game]
+			l - [Load game]''')
+
+#saving game
+def save():
+	print("Now seems like a good time to [save] the game...")
+	r = input("Save game?:\n")
+
+#loading game
+def load():
+	#if save exists
+	print("Using the force to retrieve your data...")
+	#if save no exist
+	print("Could not be found")
+
+
+
+print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
 #player needs to enter name plz
 plyrName = input("Enter your epic Jedi name:\n")
@@ -180,7 +242,7 @@ while plyrName == "":
 
 #key and greeting player.
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
-print("KEY: north/n, south/s, east/e, west/w, up, down, flee, fight, use, take, inventory, save, load, quit")
+print("KEY: north/n, south/s, east/e, west/w, flee, fight, use, take, save, load, quit") #for save there will save points. ex) "Now seems like a good time to [save] the game"
 input("Press enter to continue")
 
 print(f"\nHello there, Jedi {plyrName}. We need your help to save Chancellor Palpatine.\nHe has been captured by the Separatists. It is rumored that he was captured by the leader of the droid army, General Grievous.")
@@ -255,8 +317,12 @@ if option in ("east", "e"):
 	print(rooms['tinyRoom'])
 	palpsLocation = True
 	items = Items()
-	items.droid_pop()
+	taken = items.droid_pop()
 	option = input("Available paths: west\n").lower()
+
+	while option not in ("west", "w"):
+		print(error_msg)
+		option = input("Available paths: west\n").lower()
 
 	if option in ("west", "w"):
 		print("\nYou head back to the hangar.")
@@ -286,16 +352,16 @@ while op not in paths:
 	print(error_msg)
 	op = input("Available paths: north\n").lower()
 
-	if op in ("north", "n"):
-		print(rooms['puzzleRoom'])
-		op = input("Available paths: north\n").lower()
+if op in ("north", "n"):
+	print(rooms['puzzleRoom'])
+	op = input("Available paths: north\n").lower()
 
-		while op not in paths:
-			print(error_msg)
-			op = input("Available paths: north\n").lower()
-			if op in ("north", "n"):
-				puzzle()
-				
+	while op not in paths:
+		print(error_msg)
+		op = input("Available paths: north\n").lower()
+	if op in ("north", "n"):
+		mini_game()
+
 print(rooms['hallway'])
 op = input("Available paths: north\n").lower()
 while op not in paths:
@@ -303,5 +369,8 @@ while op not in paths:
 	print(rooms['hallway'])
 	op = input("Available paths: north\n").lower()
 
-	if op in ("north", "n"):
-		print(rooms['droideka'])
+if op in ("north", "n"):
+	print(rooms['droideka'])
+	input("Press enter to continue")
+	fight_ekas(taken)
+input("Press enter to continue")
