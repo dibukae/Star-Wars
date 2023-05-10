@@ -179,7 +179,7 @@ def fight_ekas(taken):
 #this is if the player took the droid poppers from earlier.
 	if taken == True:#sorry im gonna force you to use them or something i cant figure out how to do crap. ur not gonna use them after this and i need to finish this quickly
 		while defeatedDroids != 2:
-			print(items.use_inv())
+			print(items.use_pop())
 			print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
 			print("The droideka is instantly taken out!")
 			defeatedDroids += 1
@@ -213,8 +213,16 @@ def fight_ekas(taken):
 
 #BOSS FIGHT
 def boss_fight(Taknn):
+	magnaDroidHP = 40
+	magnaDMG = 5
+	jediPlyrHP = 35
+	lightsaberDMG = 5
+
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the magna guards.")
+
+	while defeatedDroids != 2:
+		magnaDroidHP = 40
 
 
 #the prettiest menu
@@ -381,7 +389,7 @@ if op in ("north", "n"):
 	input("Press enter to continue")
 	fight_ekas(taken)
 input("Press enter to continue")
-print("Before you leave, you spot something in the corner of the room.\n...\nThey're stimpaks! You can use stimpaks to heal yourself during battle!")
+print("\nBefore you leave, you spot something in the corner of the room.\n...\nThey're stimpaks! You can use stimpaks to heal yourself during battle!")
 items = Items()
 Taknn = items.stim()
 

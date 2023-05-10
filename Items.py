@@ -15,16 +15,16 @@ class Items():
 			self.droidPop = 2
 			self.inventory.append(self.droidPop)
 			print("\nDroid Poppers added to your inventory.")
-			print(f"You have {self.inventory[0]}\n")
+			print(f"You have {self.inventory[0]}droid popper(s).\n")
 			taken = True
 			return taken
 		else:
 			print("You did not take the droid poppers.")
-			print(f"You have {self.droidPop}\n")
+			print(f"You have {self.droidPop} droid popper(s).\n")
 			taken = False
 			return taken
 
-	def use_inv(self):
+	def use_pop(self):
 		print("It'll be difficult to deflect blaster bullets with those shields up.\nThose droid poppers will sure be helpful!")
 		use = input("[Use] droid poppers?\n").lower()
 		while use != 'use':
@@ -44,11 +44,15 @@ class Items():
 			self.stimpak += 3
 			self.inventory.append(self.stimpak)
 			print("Stimpaks added to your inventory.")
-			print(f"You have {self.inventory[1]}\n")
+			print(f"You have {self.inventory[1]} stimpak(s).\n")
 			Taknn = True
 			return Taknn
 		else:
 			print("You did not take the stimpaks.")
-			print(f"You have {self.stimpak}\n")
+			print(f"You have {self.stimpak} stimpak(s).\n")
 			Taknn = False
 			return Taknn
+	
+	def use_stim(self):
+		print("Your HP is getting pretty low, you should use your stimpaks!")
+		print(f"You have {self.stimpak} stimpak(s).\n")
