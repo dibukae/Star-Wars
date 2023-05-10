@@ -29,7 +29,7 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 		'puzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made the noise.\nOh no!\nYou're locked in the room!\nTry and a find a way out, you still need to get to Chancellor Palpatine.\n\t<There is a strange mechanism at the center of the room.>",
 		"hallway": "\nThere is a hallway leading to a door at the end.",
 		"droideka": "\nThe door opens as you approach it. Once it opens, 2 droidekas roll in and begin shooting at you!",
-		"bridge": "This door won't budge! What could be hiding in there? Could it be the Chancellor?"}
+		"bridge": "This door won't budge! What could be hiding in there? Could it be the Chancellor?\nYou take out your lightsaber and begin cutting a hole through the door, because why would you waste time finding some key card when you literally have a lightsaber that can cut through pretty much anything?(im looking at you jedi fallen order).\nYou finally make it in the command bridge, and there he is! The Chancellor!"}
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
@@ -277,7 +277,7 @@ if pathOption == "north" or pathOption == "n":
 		fight_B1()
 		input("Press enter to continue")
 
-print("\nNow that you've taken down those clankers, you must locate where the Chancellor is.")
+print(f"\nNow that you've taken down those clankers, you must locate where the Chancellor is Jedi {plyrName}.")
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print(rooms['Hangar'])
@@ -310,7 +310,7 @@ if option in ("north", "n"):
 		if option in ("south", "s"):
 			print("\nYou head back to the hangar.")
 			print(rooms['Hangar'])
-			option = input("Available paths: north, east\n")#im lazy please dont choose north ;-;
+			option = input("Available paths: north, east\n")#sorry you can't go back. i'll maybe fix this
 
 #this is where you find the location of the chancellor
 if option in ("east", "e"):
@@ -374,3 +374,22 @@ if op in ("north", "n"):
 	input("Press enter to continue")
 	fight_ekas(taken)
 input("Press enter to continue")
+
+print(f"We're almost there Jedi {plyrName}! I feel it in the force!\nYou got this!")
+print("You go through a door that was behind the droidekas.\nThere are more elevators.\nLooks like you need a droid to operate the elevators.")
+use = input("[Use] droid?:\n").lower()
+
+while use != "use":
+	print('You should probably "USE" your droid')
+	useDroid = input("[Use] droid?:\n").lower()
+if use == "use":
+	print("Your droid plugs into the elevator port.")
+	print(rooms['elevatorEnter'])
+	input("Press enter to continue")
+
+print(rooms[bridge])
+print(f'''"Not so fast Jedi {plyrName}."
+	It's General Grievous!
+	"If you want your Chancellor back, you must fight for it!"*coughing*
+	Suddenly, 2 magna guards appear behind you!
+	It's time save the Chancellor, get rid of the guards Jedi {plyrName}!''')
