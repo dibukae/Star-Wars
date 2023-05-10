@@ -211,6 +211,11 @@ def fight_ekas(taken):
 		if defeatedDroids == 2:
 			print("\nYou defeated all the droidekas!")
 
+#BOSS FIGHT
+def boss_fight(Taknn):
+	defeatedDroids = 0
+	print("\nYou ignite your lightsaber and begin fighting the magna guards.")
+
 
 #the prettiest menu
 def menu():
@@ -408,3 +413,4 @@ It's General Grievous!
 Suddenly, 2 magna guards appear behind you!
 It's time save the Chancellor, get rid of those guards Jedi {plyrName}!
 ''')
+boss_fight(Taknn)
