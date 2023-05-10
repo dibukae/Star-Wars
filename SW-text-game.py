@@ -281,6 +281,7 @@ print(f"\nNow that you've taken down those clankers, you must locate where the C
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print(rooms['Hangar'])
+#########add save point
 option = input("Available paths: north, east\n").lower()
 
 #time to find the location of chancellor poopy
@@ -363,6 +364,7 @@ if op in ("north", "n"):
 		mini_game()
 
 print(rooms['hallway'])
+##########add save point
 op = input("Available paths: north\n").lower()
 while op not in paths:
 	print(error_msg)
@@ -374,19 +376,30 @@ if op in ("north", "n"):
 	input("Press enter to continue")
 	fight_ekas(taken)
 input("Press enter to continue")
-print("Before you leave, you spot something in the corner of the room.\n...\nThey're stimpaks! You can use stimpaks to heal yourself during battle1")
+print("Before you leave, you spot something in the corner of the room.\n...\nThey're stimpaks! You can use stimpaks to heal yourself during battle!")
+items = Items()
+Taknn = items.stim()
 
-print(f"We're almost there Jedi {plyrName}! I feel it in the force!\nYou got this!")
-print("You go through a door that was behind the droidekas.\nThere are more elevators.\nLooks like you need a droid to operate the elevators.")
-use = input("[Use] droid?:\n").lower()
+op = input("Available paths: north\n").lower()
+while op not in paths:
+	print(error_msg)
+	op = input("Available paths: north\n").lower()
 
-while use != "use":
-	print('You should probably "USE" your droid')
-	useDroid = input("[Use] droid?:\n").lower()
-if use == "use":
-	print("Your droid plugs into the elevator port.")
-	print(rooms['elevatorEnter'])
-	input("Press enter to continue")
+if op in ("north", "n"):
+	print(f"We're almost there Jedi {plyrName}! I feel it in the force!\nYou got this!")
+	print("There are more elevators.\nLooks like you need a droid to operate the elevators.")
+	use = input("[Use] droid?:\n").lower()
+
+	while use != "use":
+		print('You should probably "USE" your droid')
+		useDroid = input("[Use] droid?:\n").lower()
+	if use == "use":
+		print("Your droid plugs into the elevator port.")
+		print(rooms['elevatorEnter'])
+input("Press enter to continue")
+
+print(rooms[hallway])
+#########add save point
 
 print(rooms[bridge])
 print(f'''\n"Not so fast Jedi {plyrName}."
@@ -395,4 +408,3 @@ print(f'''\n"Not so fast Jedi {plyrName}."
 	Suddenly, 2 magna guards appear behind you!
 	It's time save the Chancellor, get rid of the guards Jedi {plyrName}!
 	''')
-
