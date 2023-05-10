@@ -29,7 +29,7 @@ rooms = {'Hangar': '\nYou spot a hallway and a door. Find a port for your droid.
 		'puzzleRoom': "\nYou and your droid enter the room and hear a 'click' sound. You turn around to see what made the noise.\nOh no!\nYou're locked in the room!\nTry and a find a way out, you still need to get to Chancellor Palpatine.\n\t<There is a strange mechanism at the center of the room.>",
 		"hallway": "\nThere is a hallway leading to a door at the end.",
 		"droideka": "\nThe door opens as you approach it. Once it opens, 2 droidekas roll in and begin shooting at you!",
-		"bridge": "This door won't budge! What could be hiding in there? Could it be the Chancellor?\nYou take out your lightsaber and begin cutting a hole through the door, because why would you waste time finding some key card when you literally have a lightsaber that can cut through pretty much anything?(im looking at you jedi fallen order).\nYou finally make it in the command bridge, and there he is! The Chancellor!"}
+		"bridge": "\nThis door won't budge! What could be hiding in there? Could it be the Chancellor?\nYou take out your lightsaber and begin cutting a hole through the door, because why would you waste time finding some key card when you literally have a lightsaber that can cut through pretty much anything?(im looking at you jedi fallen order).\nYou finally make it in the command bridge, and there he is! The Chancellor!"}
 
 paths = ('north', 'n', 'south', 's', 'east', 'e', 'west', 'w')
 error_msg = "Invalid input. You need to use either north/n, south/s, east/e, or west/w."
@@ -374,6 +374,7 @@ if op in ("north", "n"):
 	input("Press enter to continue")
 	fight_ekas(taken)
 input("Press enter to continue")
+print("Before you leave, you spot something in the corner of the room.\n...\nThey're stimpaks! You can use stimpaks to heal yourself during battle1")
 
 print(f"We're almost there Jedi {plyrName}! I feel it in the force!\nYou got this!")
 print("You go through a door that was behind the droidekas.\nThere are more elevators.\nLooks like you need a droid to operate the elevators.")
@@ -388,8 +389,10 @@ if use == "use":
 	input("Press enter to continue")
 
 print(rooms[bridge])
-print(f'''"Not so fast Jedi {plyrName}."
+print(f'''\n"Not so fast Jedi {plyrName}."
 	It's General Grievous!
 	"If you want your Chancellor back, you must fight for it!"*coughing*
 	Suddenly, 2 magna guards appear behind you!
-	It's time save the Chancellor, get rid of the guards Jedi {plyrName}!''')
+	It's time save the Chancellor, get rid of the guards Jedi {plyrName}!
+	''')
+
