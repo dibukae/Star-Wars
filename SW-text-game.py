@@ -7,7 +7,7 @@ goodEnd = "\tYou successfully saved the Chancellor! The Jedi Council promoted yo
 
 #max HP for player
 jediPlyrHP = 35
-#can add more damage to weapon during game
+
 lightsaberDMG = 5
 B1DroidHP = 10
 blasterDMG = 2
