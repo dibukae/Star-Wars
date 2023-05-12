@@ -1,5 +1,6 @@
 from Items import Items
 import random
+import shelve
 
 #imported stuff above
 diedEnd = "\tYou died and failed to save the chancellor..."
@@ -253,31 +254,46 @@ def boss_fight():
 
 #the prettiest menu
 def menu():
-	print('''\t*.+|-MENU-|+.*
+	M = print('''\t*.+|-MENU-|+.*
 s - [Start new game]
 l - [Load game]
 q - [Quit]''')
 	o = input("Choose an option:\n").lower()
-	if o == "s":
-		print("Starting game...\n")
-	#elif o == "l":
-		#print("Retrieving data...\n")
-	elif o == "q":
-		print("Goodbye, may the force be with you.")
-		exit()
+	while o not in ("s", 'l', 'q'):
+		print(M)
+		o = input("Choose an option:\n").lower()
+
+		if o == "s":
+			print("Starting game...\n")
+		elif o == "l":
+			print("Retrieving data...\n")
+		elif o == "q":
+			print("Goodbye, may the force be with you.")
+			exit()
 
 
 #saving game
-def save():
+def save(Items, plyrName):
 	print("Now seems like a good time to [save] the game...")
-	r = input("Save game?:\n")
+	r = input("[Save] game?:\n").lower()
+	if r == "save":
+		s = shelve.open("game.bin")
+		s[game.plyrName] = game
+		s.sync()
+		s.close()
 
 #loading game
-def load():
-	#if save exists
-	print("Using the force to retrieve your data...")
-	#if save no exist
-	print("Could not be found")
+def load(plyrName):
+	N = input("Enter player name:\n")
+	if N in plyrName:
+		print("Using the force to retrieve your data...")
+		s = shelve.open("game.bin")
+		game = s.get(plyrName)
+		return game
+
+	else:
+		print("Could not be found. Try starting a new game.")
+		menu()
 
 
 menu()
@@ -332,7 +348,8 @@ print(f"\nNow that you've taken down those clankers, you must locate where the C
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print(rooms['Hangar'])
-#########add save point
+#save point
+save()
 option = input("Available paths: north, east\n").lower()
 
 #time to find the location of chancellor poopy
@@ -509,7 +526,8 @@ if op in ("north", "n"):
 		mini_game()
 
 print(rooms['hallway'])
-##########add save point
+#save point
+save()
 op = input("Available paths: north\n").lower()
 while op not in paths:
 	print(error_msg)
@@ -544,7 +562,8 @@ if op in ("east", "e"):
 input("Press enter to continue")
 
 print(rooms['hallway'])
-#########add save point
+#save point
+save()
 
 print(rooms['bridge'])
 print(f'''\n"Not so fast Jedi {plyrName}."
