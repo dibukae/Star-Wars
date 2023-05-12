@@ -1,6 +1,6 @@
 from Items import Items
 import random
-import shelve
+import pickle
 
 #imported stuff above
 diedEnd = "\tYou died and failed to save the chancellor..."
@@ -251,60 +251,78 @@ def boss_fight():
 		print("\nYou've successfully defeated the MagnaGuards!")
 
 
-
-#the prettiest menu
-def menu():
-	M = print('''\t*.+|-MENU-|+.*
-s - [Start new game]
-l - [Load game]
-q - [Quit]''')
-	o = input("Choose an option:\n").lower()
-	while o not in ("s", 'l', 'q'):
-		print(M)
-		o = input("Choose an option:\n").lower()
-
-		if o == "s":
-			print("Starting game...\n")
-		elif o == "l":
-			print("Retrieving data...\n")
-		elif o == "q":
-			print("Goodbye, may the force be with you.")
-			exit()
-
-
-#saving game
-def save(Items, plyrName):
-	print("Now seems like a good time to [save] the game...")
-	r = input("[Save] game?:\n").lower()
-	if r == "save":
-		s = shelve.open("game.bin")
-		s[game.plyrName] = game
-		s.sync()
-		s.close()
-
-#loading game
-def load(plyrName):
-	N = input("Enter player name:\n")
-	if N in plyrName:
-		print("Using the force to retrieve your data...")
-		s = shelve.open("game.bin")
-		game = s.get(plyrName)
-		return game
-
-	else:
-		print("Could not be found. Try starting a new game.")
-		menu()
-
-
-menu()
-
-print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
-print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
 #player needs to enter name plz
 plyrName = input("Enter your epic Jedi name:\n")
 while plyrName == "":
 	print("Please enter your name to continue.")
 	plyrName = input("Enter your epic Jedi name:\n")
+print(f"Welcome {plyrName}!\n")
+
+
+#the prettiest menu
+def menu(plyrName):
+	print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
+	o = input("Choose an option:\n").lower()
+	while o not in ("s", 'l', 'q'):
+		print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
+		o = input("Choose an option:\n").lower()
+	if o == "s":
+		print("Starting game...\n")
+	if o == "l":
+		game = load(plyrName, Items, rooms)
+		if game:
+			print("Retrieving data...\n")
+		else:
+			print("\nFile could not be found. Try starting a new game.")
+			menu(plyrName)
+	if o == "q":
+		print("Goodbye, may the force be with you.")
+		exit()
+
+
+#saving game
+def save(plyrName, Items, rooms):
+	print("Now seems like a good time to [save] the game...")
+	r = input("[Save] game?:\n").lower()
+	if r != "save":
+		print("Are you sure you don't want to save your game?")
+		r = input("[Save] game?:\n").lower()
+	if r == "save":
+		with open("game.bin", "wb")as file:
+			pickle.dump(plyrName, file)
+			pickle.dump(Items, file)
+			pickle.dump(rooms, file)
+		
+	else:
+		print("You did not save the game.")
+		input("Press enter to continue")
+
+#loading game
+def load(plyrName, Items, rooms):
+	
+	plyrName = input("Enter player name:\n")
+	with open("game.bin", "rb")as file:
+		plyrName = pickle.load(file)
+		Items = pickle.load(file)
+		rooms = pickle.load(file)
+	
+
+
+#quit
+def exit_game():
+	q = input("Would you like to [quit] the game?:\n").lower()
+	if q != "quit":
+		q = input("Are you sure you don't want to [quit] the game?:\n").lower()
+	if q == "quit":
+		exit()
+	else:
+		input("Press enter to continue")
+
+menu(plyrName)
+
+print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
+print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
+
 
 #key and greeting player.
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
@@ -349,7 +367,8 @@ print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 print(rooms['Hangar'])
 #save point
-save()
+save(plyrName, Items, rooms)
+exit_game()
 option = input("Available paths: north, east\n").lower()
 
 #time to find the location of chancellor poopy
@@ -527,7 +546,8 @@ if op in ("north", "n"):
 
 print(rooms['hallway'])
 #save point
-save()
+save(plyrName, Items, rooms)
+exit_game()
 op = input("Available paths: north\n").lower()
 while op not in paths:
 	print(error_msg)
@@ -563,7 +583,8 @@ input("Press enter to continue")
 
 print(rooms['hallway'])
 #save point
-save()
+save(plyrName, Items, rooms)
+exit_game()
 
 print(rooms['bridge'])
 print(f'''\n"Not so fast Jedi {plyrName}."
