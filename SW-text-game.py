@@ -12,12 +12,11 @@ lightsaberDMG = 5
 B1DroidHP = 10
 blasterDMG = 2
 droidekaHP = 15
-B2droidHP = 25
 #boss battle
 magnaGuardHP = 40
 magnaDMG = 5
-#helps recover player HP
-stimPak = 10
+#recovers player HP
+stimPak = 20
 
 
 
@@ -228,8 +227,15 @@ def boss_fight():
 			if hit:
 				jediPlyrHP -= magnaDMG
 				print(f"\nOne of the MagnaGuards hits you, your HP is now: {jediPlyrHP}")
-				if jediPlyrHP <= 12:
+				if jediPlyrHP <= 10:
 					items.use_stim(jediPlyrHP, stimPak)
+					jediPlyrHP += stimPak
+					print(f"Your HP is now: {jediPlyrHP}")
+				if jediPlyrHP == 0: #if player die
+					print("The MagnaGuards electrocute you to death.")
+					print(diedEnd)
+					input("\n[Load] last save?:\n")#when (or if) i add save points
+					return boss_fight #returning for now until i add saves
 			else:
 				print("\nOne of the MagnaGuards strikes at you, but you dodge out of harms way.")
 			
@@ -375,6 +381,9 @@ if option in ("east", "e"):
 		print(rooms['Hangar'])
 		option = input("Available paths: north, east\n").lower()
 
+		while option not in paths:
+			print(error_msg)
+			option = input("Available paths: north\n").lower()
 		if option in ("north", "n"):
 			print(rooms['Elevator'])
 			useDroid = input("[Use] droid?:\n").lower()
@@ -390,6 +399,69 @@ if option in ("east", "e"):
 			print("Your droid plugs into the elevator port.")
 			print(rooms['elevatorEnter'])
 			input("Press enter to continue")
+		
+		if option in ("east", "e") and taken == True:
+			print(rooms['tinyRoom'])
+			palpsLocation = True
+			option = input("Available paths: west\n").lower()
+			while option not in ("west", "w"):
+					print(error_msg)
+					option = input("Available paths: west\n").lower()
+
+			if option in ("west", "w"):
+				print("\nYou head back to the hangar.")
+				print(rooms['Hangar'])
+				option = input("Available paths: north, east\n").lower()
+				while option not in paths:
+					print(error_msg)
+					option = input("Available paths: north\n").lower()
+				if option in ("north", "n"):
+					print(rooms['Elevator'])
+					useDroid = input("[Use] droid?:\n").lower()
+				
+				while useDroid != "use":
+					print('You should probably "USE" your droid')
+					useDroid = input("[Use] droid?:\n").lower()
+
+				if useDroid == "use" and palpsLocation == False:
+					print("\n*You need to find the location of Chancellor Palpatine first.*")
+					option = input("Available paths: south\n").lower()
+				else:
+					print("Your droid plugs into the elevator port.")
+					print(rooms['elevatorEnter'])
+					input("Press enter to continue")
+
+		elif option in ("east", "e") and taken == False:
+			items = Items()
+			taken = items.droid_pop()
+			option = input("Available paths: west\n").lower()
+			while option not in ("west", "w"):
+					print(error_msg)
+					option = input("Available paths: west\n").lower()
+
+			if option in ("west", "w"):
+				print("\nYou head back to the hangar.")
+				print(rooms['Hangar'])
+				option = input("Available paths: north, east\n").lower()
+				while option not in paths:
+					print(error_msg)
+					option = input("Available paths: north\n").lower()
+				if option in ("north", "n"):
+					print(rooms['Elevator'])
+					useDroid = input("[Use] droid?:\n").lower()
+				
+				while useDroid != "use":
+					print('You should probably "USE" your droid')
+					useDroid = input("[Use] droid?:\n").lower()
+
+				if useDroid == "use" and palpsLocation == False:
+					print("\n*You need to find the location of Chancellor Palpatine first.*")
+					option = input("Available paths: south\n").lower()
+				else:
+					print("Your droid plugs into the elevator port.")
+					print(rooms['elevatorEnter'])
+					input("Press enter to continue")
+
 
 print("\nYou and your droid exit the elevator.\nThere seems to be a room up ahead.")
 op = input("Available paths: north\n").lower()
@@ -425,12 +497,12 @@ print("\nBefore you leave, you spot something in the corner of the room.\n...\nT
 items = Items()
 items.stim()
 
-op = input("Available paths: north\n").lower()
+op = input("Available paths: east\n").lower()
 while op not in paths:
 	print(error_msg)
-	op = input("Available paths: north\n").lower()
+	op = input("Available paths: east\n").lower()
 
-if op in ("north", "n"):
+if op in ("east", "e"):
 	print(f"We're almost there Jedi {plyrName}! I feel it in the force!\nYou got this!")
 	print("There are more elevators.\nLooks like you need a droid to operate the elevators.")
 	use = input("[Use] droid?:\n").lower()
@@ -452,4 +524,5 @@ It's General Grievous!
 "If you want your Chancellor back, you must fight for it!"*coughing*
 Suddenly, 2 MagnaGuards appear behind you!
 It's time save the Chancellor, get rid of those guards Jedi {plyrName}!''')
+input("Press enter to continue")
 boss_fight()

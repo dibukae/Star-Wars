@@ -44,7 +44,7 @@ class Items():
 			self.stimpak += 3
 			self.inventory.append(self.stimpak)
 			print("Stimpaks added to your inventory.")
-			print(f"You have {self.inventory[1]} stimpak(s).\n")
+			print(f"You have {self.stimpak} stimpak(s).\n")
 
 		else:
 			print("You did not take the stimpaks.")
@@ -53,9 +53,8 @@ class Items():
 
 	
 	def use_stim(self, jediPlyrHP, stimPak):
-		if jediPlyrHP <= 12:
+		if jediPlyrHP <= 10:
 			print("Your HP is getting pretty low, you should use your stimpaks!")
-			print(f"You have {self.inventory[1]} stimpak(s).\n")
 			use = input("[Use] stimpaks?:\n").lower()
 			while use != "use":
 				print('You should "USE" them! DO YOU WANT TO DIE?!')
@@ -63,6 +62,3 @@ class Items():
 			if use == "use":
 				self.inventory[1] -= 1
 				print(f"You used 1 stimpak. You have {self.inventory[1]} left.")
-				
-				jediPlyrHP += stimPak
-				print(f"Your HP is now: {jediPlyrHP}")
