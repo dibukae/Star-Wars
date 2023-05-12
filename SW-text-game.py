@@ -228,8 +228,17 @@ def boss_fight(Taknn):
 #the prettiest menu
 def menu():
 	print('''\t*.+|-MENU-|+.*
-			s - [Start new game]
-			l - [Load game]''')
+s - [Start new game]
+l - [Load game]
+q - [Quit]''')
+	o = input("Choose an option:\n").lower()
+	elif o == "s":
+		print("Starting game...")
+	#elif o == "l":
+		#print("Retrieving data...")
+	if o == "q":
+		print("Goodbye, may the force be with you.")
+
 
 #saving game
 def save():
@@ -244,6 +253,7 @@ def load():
 	print("Could not be found")
 
 
+menu()
 
 print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
