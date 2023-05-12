@@ -301,8 +301,8 @@ def boss_fight():
 				if jediPlyrHP == 0: #if player somehow dies
 					print("The MagnaGuards electrocute you to death.")
 					print(diedEnd)
-					input("\n[Load] last save?:\n")#when (or if) i add save points
-					return boss_fight #returning for now until i add saves
+					input("Press enter to restart")
+					return boss_fight()
 			else:
 				print("\nOne of the MagnaGuards strikes at you, but you dodge out of harms way.")
 			
