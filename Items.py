@@ -15,7 +15,7 @@ class Items():
 			self.droidPop = 2
 			self.inventory.append(self.droidPop)
 			print("\nDroid Poppers added to your inventory.")
-			print(f"You have {self.inventory[0]}droid popper(s).\n")
+			print(f"You have {self.inventory[0]} droid popper(s).\n")
 			taken = True
 			return taken
 		else:
@@ -50,11 +50,21 @@ class Items():
 		else:
 			print("You did not take the stimpaks.")
 			print(f"You have {self.stimpak} stimpak(s).\n")
+			self.inventory.append(self.stimpak)
 			Taknn = False
 			return Taknn
 	
-	def use_stim(self, jediPlyrHP):
-		if jediPlyrHP <= 10:
+	def use_stim(self, jediPlyrHP, stimPak):
+		if jediPlyrHP <= 12:
 			print("Your HP is getting pretty low, you should use your stimpaks!")
-			print(f"You have {self.stimpak} stimpak(s).\n")
-			use = input("[Use] stimpaks?:\n")
+			print(f"You have {self.inventory[1]} stimpak(s).\n")
+			use = input("[Use] stimpaks?:\n")/lower()
+			while use != "use":
+				print('You should "USE" them! DO YOU WANT TO DIE?!')
+				use = input("[Use] stimpaks?:\n")/lower()
+			if use == "use":
+				self.inventory[1] -= 1
+				print(f"You used 1 stimpak. You have {self.inventory[1]} left.")
+				
+				jediPlyrHP += stimPak
+				print(f"Your HP is now: {jediPlyrHP}")

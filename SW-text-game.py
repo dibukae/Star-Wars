@@ -17,7 +17,7 @@ B2droidHP = 25
 magnaDroidHP = 40
 magnaDMG = 5
 #helps recover player HP
-stimpak = 6
+stimPak = 10
 
 
 
@@ -232,12 +232,13 @@ s - [Start new game]
 l - [Load game]
 q - [Quit]''')
 	o = input("Choose an option:\n").lower()
-	elif o == "s":
-		print("Starting game...")
+	if o == "s":
+		print("Starting game...\n")
 	#elif o == "l":
-		#print("Retrieving data...")
-	if o == "q":
+		#print("Retrieving data...\n")
+	elif o == "q":
 		print("Goodbye, may the force be with you.")
+		exit()
 
 
 #saving game
