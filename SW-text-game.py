@@ -1,7 +1,7 @@
 from Items import Items
 import random
 import pickle
-import os
+import os#someone helped me
 
 #imported stuff above
 diedEnd = "\tYou died and failed to save the chancellor..."
