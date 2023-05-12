@@ -1,6 +1,6 @@
 #trying to add certain number of items to inventory idk if this will work
 class Items():
-	def __init__(self, droidPop = 0, inventory = [], stimpak = 3):
+	def __init__(self, droidPop = 0, inventory = [], stimpak = 2):
 		self.droidPop = droidPop
 		self.inventory = inventory
 		self.stimpak = stimpak
@@ -41,7 +41,7 @@ class Items():
 			print('''Are you sure you don't want to "TAKE" them?''')
 			tak = input("[Take] stimpaks? (Who knows, you may need them.):\n").lower()
 		if tak == "take":
-			self.stimpak += 3
+			self.stimpak += 2
 			self.inventory.append(self.stimpak)
 			print("Stimpaks added to your inventory.")
 			print(f"You have {self.stimpak} stimpak(s).\n")

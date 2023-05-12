@@ -388,20 +388,20 @@ if option in ("east", "e"):
 			print(rooms['Elevator'])
 			useDroid = input("[Use] droid?:\n").lower()
 		
-		while useDroid != "use":
-			print('You should probably "USE" your droid')
-			useDroid = input("[Use] droid?:\n").lower()
+			while useDroid != "use":
+				print('You should probably "USE" your droid')
+				useDroid = input("[Use] droid?:\n").lower()
 
-		if useDroid == "use" and palpsLocation == False:
-			print("\n*You need to find the location of Chancellor Palpatine first.*")
-			option = input("Available paths: south\n").lower()
-		else:
-			print("Your droid plugs into the elevator port.")
-			print(rooms['elevatorEnter'])
-			input("Press enter to continue")
+			if useDroid == "use" and palpsLocation == False:
+				print("\n*You need to find the location of Chancellor Palpatine first.*")
+				option = input("Available paths: south\n").lower()
+			else:
+				print("Your droid plugs into the elevator port.")
+				print(rooms['elevatorEnter'])
+				input("Press enter to continue")
 		
 		if option in ("east", "e") and taken == True:
-			print(rooms['tinyRoom'])
+			print("\nYou enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!")
 			palpsLocation = True
 			option = input("Available paths: west\n").lower()
 			while option not in ("west", "w"):
