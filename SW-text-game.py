@@ -1,9 +1,74 @@
+#unused code
+###i don't have enough time to figure out to do this so im just gonna keep the code here and hope for some points on save/load
+#the prettiest menu
+def menu(plyrName):
+	print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
+	o = input("Choose an option:\n").lower()
+	while o not in ("s", 'l', 'q'):
+		print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
+		o = input("Choose an option:\n").lower()
+	if o == "s":
+		print("Starting game...\n")
+	if o == "l":
+		game = load(plyrName, Items, rooms)
+		if game:
+			print("Retrieving data...\n")
+		else:
+			print("\nFile could not be found. Try starting a new game.")
+			menu(plyrName)
+	if o == "q":
+		print("Goodbye, may the force be with you.")
+		exit()
+
+
+#saving game
+def save(plyrName, Items, rooms):
+	print("\nNow seems like a good time to [save] the game...")
+	r = input("[Save] game?:\n").lower()
+	if r != "save":
+		print("Are you sure you don't want to save your game?")
+		r = input("[Save] game?:\n").lower()
+	if r == "save":
+		with open(plyrName + ".bin", "wb")as file:
+			pickle.dump({'name':plyrName,'items':Items,'rooms':rooms}, file)
+		
+	else:
+		print("You did not save the game.")
+		input("Press enter to continue")
+
+#loading game
+def load(plyrName, Items, rooms):
+	
+	plyrName = input("Enter player name:\n")
+	if os.path.exists(plyrName + ".bin"):
+		with open(plyrName + ".bin", "rb")as file:
+			loaded = pickle.load(file)
+			plyrName = loaded['name']
+			Items = loaded['items']
+			rooms = loaded['rooms']
+		return True
+	else:
+		return False
+
+
+#quit
+def exit_game():
+	q = input("Would you like to [quit] the game?:\n").lower()
+	if q != "quit":
+		q = input("Are you sure you don't want to [quit] the game?:\n").lower()
+	if q == "quit":
+		exit()
+	else:
+		input("Press enter to continue")
+
+#menu(plyrName)
+
+#imported stuff
 from Items import Items
 import random
 import pickle
 import os#someone helped me
 
-#imported stuff above
 diedEnd = "\tYou died and failed to save the chancellor..."
 goodEnd = "\tYou successfully saved the Chancellor! The Jedi Council promoted you to the rank of Jedi Master! Yippee!"
 
@@ -251,69 +316,7 @@ def boss_fight():
 	if defeatedDroids == 2:
 		print("\nYou've successfully defeated the MagnaGuards!")
 
-###i don't have enough time to figure out to do this so im just gonna keep the code here and hope for some points on save/load
-#the prettiest menu
-def menu(plyrName):
-	print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
-	o = input("Choose an option:\n").lower()
-	while o not in ("s", 'l', 'q'):
-		print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
-		o = input("Choose an option:\n").lower()
-	if o == "s":
-		print("Starting game...\n")
-	if o == "l":
-		game = load(plyrName, Items, rooms)
-		if game:
-			print("Retrieving data...\n")
-		else:
-			print("\nFile could not be found. Try starting a new game.")
-			menu(plyrName)
-	if o == "q":
-		print("Goodbye, may the force be with you.")
-		exit()
 
-
-#saving game
-def save(plyrName, Items, rooms):
-	print("\nNow seems like a good time to [save] the game...")
-	r = input("[Save] game?:\n").lower()
-	if r != "save":
-		print("Are you sure you don't want to save your game?")
-		r = input("[Save] game?:\n").lower()
-	if r == "save":
-		with open(plyrName + ".bin", "wb")as file:
-			pickle.dump({'name':plyrName,'items':Items,'rooms':rooms}, file)
-		
-	else:
-		print("You did not save the game.")
-		input("Press enter to continue")
-
-#loading game
-def load(plyrName, Items, rooms):
-	
-	plyrName = input("Enter player name:\n")
-	if os.path.exists(plyrName + ".bin"):
-		with open(plyrName + ".bin", "rb")as file:
-			loaded = pickle.load(file)
-			plyrName = loaded['name']
-			Items = loaded['items']
-			rooms = loaded['rooms']
-		return True
-	else:
-		return False
-
-
-#quit
-def exit_game():
-	q = input("Would you like to [quit] the game?:\n").lower()
-	if q != "quit":
-		q = input("Are you sure you don't want to [quit] the game?:\n").lower()
-	if q == "quit":
-		exit()
-	else:
-		input("Press enter to continue")
-
-#menu(plyrName)
 
 print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
