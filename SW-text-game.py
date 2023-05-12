@@ -1,5 +1,5 @@
 #unused code
-###i don't have enough time to figure out to do this so im just gonna keep the code here and hope for some points on save/load
+###i don't have enough time to figure out to do this. also i am lazy. so im just gonna keep the code here and hope for some points on save/load
 #the prettiest menu
 def menu(plyrName):
 	print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
