@@ -219,7 +219,7 @@ def boss_fight():
 	lightsaberDMG = 5
 	items = Items()
 	defeatedDroids = 0
-	print("\nYou ignite your lightsaber and begin fighting the magna guards.")
+	print("\nYou ignite your lightsaber and begin fighting the MagnaGuards.")
 
 	while defeatedDroids != 2:
 		magnaGuardHP = 40
@@ -232,7 +232,15 @@ def boss_fight():
 				print("\nOne of the MagnaGuards strikes at you, but you dodge out of harms way.")
 			if jediPlyrHP <= 12:
 				items.use_stim()
-			
+			print("You parry several attacks and attack when you have the chance.")
+			magnaGuardHP -= lightsaberDMG
+			print(f"MagnaGuard HP: {magnaGuardHP}")
+			if magnaGuardHP == 0:
+				defeatedDroids += 1
+				print(f"You defeated {defeatedDroids} droid(s)!")
+				input("Press enter to continue")
+		if defeatedDroids == 2:
+			print("You've successfully defeated the MagnaGuards!")
 
 
 
