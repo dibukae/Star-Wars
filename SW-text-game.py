@@ -233,15 +233,15 @@ def boss_fight():
 			else:
 				print("\nOne of the MagnaGuards strikes at you, but you dodge out of harms way.")
 			
-			print("You parry several attacks and attack when you have the chance.")
+			print("\nYou parry several attacks and attack when you have the chance.")
 			magnaGuardHP -= lightsaberDMG
 			print(f"MagnaGuard HP: {magnaGuardHP}")
 			if magnaGuardHP == 0:
 				defeatedDroids += 1
-				print(f"You defeated {defeatedDroids} droid(s)!")
+				print(f"\nYou defeated {defeatedDroids} droid(s)!")
 				input("Press enter to continue")
-		if defeatedDroids == 2:
-			print("You've successfully defeated the MagnaGuards!")
+	if defeatedDroids == 2:
+		print("\nYou've successfully defeated the MagnaGuards!")
 
 
 

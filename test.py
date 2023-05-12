@@ -34,6 +34,3 @@
 #			Taknn = False
 #			return Taknn
 
-
-
-boss_fight()
