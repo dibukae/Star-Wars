@@ -212,7 +212,7 @@ def fight_ekas(taken):
 			print("\nYou defeated all the droidekas!")
 
 #BOSS FIGHT magna guards
-def boss_fight(Taknn):
+def boss_fight():
 	magnaGuardHP = 40
 	magnaDMG = 5
 	jediPlyrHP = 35
@@ -412,7 +412,7 @@ if op in ("north", "n"):
 input("Press enter to continue")
 print("\nBefore you leave, you spot something in the corner of the room.\n...\nThey're stimpaks! You can use stimpaks to heal yourself during battle!")
 items = Items()
-Taknn = items.stim()
+items.stim()
 
 op = input("Available paths: north\n").lower()
 while op not in paths:
@@ -442,4 +442,4 @@ It's General Grievous!
 Suddenly, 2 MagnaGuards appear behind you!
 It's time save the Chancellor, get rid of those guards Jedi {plyrName}!
 ''')
-boss_fight(Taknn)
+boss_fight()
