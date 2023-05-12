@@ -246,12 +246,12 @@ def boss_fight():
 			print(f"MagnaGuard HP: {magnaGuardHP}")
 			if magnaGuardHP == 0:
 				defeatedDroids += 1
-				print(f"\nYou defeated {defeatedDroids} droid(s)!")
+				print(f"\nYou defeated {defeatedDroids} MagnaGuard(s)!")
 				input("Press enter to continue")
 	if defeatedDroids == 2:
 		print("\nYou've successfully defeated the MagnaGuards!")
 
-###i don't have enough time to figure out to do this so im just gonna keep the code here and hope for 6 points on save/load
+###i don't have enough time to figure out to do this so im just gonna keep the code here and hope for some points on save/load
 #the prettiest menu
 def menu(plyrName):
 	print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
@@ -424,7 +424,10 @@ if option in ("north", "n"):
 					if option in ("south", "s"):
 						print("\nYou head back to the hangar.")
 						print(rooms['Hangar'])
-						option = input("Available paths: east\n") #no more going north the game will crash and idk what to do
+						option = input("Available paths: east\n").lower() #no more going north the game will crash and idk what to do
+						while option not in paths:
+							print(error_msg)
+							option = input("Available paths: east\n").lower()
 
 #this is where you find the location of the chancellor
 if option in ("east", "e"):
@@ -445,7 +448,7 @@ if option in ("east", "e"):
 
 		while option not in paths:
 			print(error_msg)
-			option = input("Available paths: north\n").lower()
+			option = input("Available paths: north, east\n").lower()
 		if option in ("north", "n"):
 			print(rooms['Elevator'])
 			useDroid = input("[Use] droid?:\n").lower()
@@ -462,6 +465,9 @@ if option in ("east", "e"):
 				print(rooms['elevatorEnter'])
 				input("Press enter to continue")
 		
+		while option not in paths:
+			print(error_msg)
+			option = input("Available paths: north, east\n").lower()
 		if option in ("east", "e") and taken == True:
 			print("\nYou enter a small control room.")
 			palpsLocation = True
@@ -473,7 +479,7 @@ if option in ("east", "e"):
 			if option in ("west", "w"):
 				print("\nYou head back to the hangar.")
 				print(rooms['Hangar'])
-				option = input("Available paths: north, east\n").lower()
+				option = input("Available paths: north\n").lower()
 				while option not in paths:
 					print(error_msg)
 					option = input("Available paths: north\n").lower()
@@ -493,7 +499,10 @@ if option in ("east", "e"):
 						print(rooms['elevatorEnter'])
 						input("Press enter to continue")
 
-		elif option in ("east", "e") and taken == False:
+		while option not in paths:
+			print(error_msg)
+			option = input("Available paths: north, east\n").lower()
+		if option in ("east", "e") and taken == False:
 			print(rooms['tinyRoom'])
 			palpsLocation = True
 			items = Items()
@@ -587,6 +596,7 @@ print(rooms['hallway'])
 ##exit_game()
 
 print(rooms['bridge'])
+input("Press enter to continue")
 print(f'''\n"Not so fast Jedi {plyrName}."
 It's General Grievous!
 "If you want your Chancellor back, you must fight for it!"*coughing*
@@ -597,8 +607,9 @@ boss_fight()
 input("Press enter to continue")
 print('''The guards are now defeated, but it seems General Grievous has escaped.
 Typical. Oh well, we'll get him next time.
-You grab Chancellor Palpatine and head to the nearest escape pod, you need to get out quickly.
-...
-You and the Chancellor succesfully escape the Separatist Frigate and make your way back to Coruscant!''')
+You grab Chancellor Palpatine and head to the nearest escape pod, you need to get out quickly.''')
+input("Press enter to continue")
+print('''\n...
+You and the Chancellor succesfully escape the Separatist Frigate and make your way back to Coruscant!\n''')
 print(goodEnd)
 print("May the force be with you!")
