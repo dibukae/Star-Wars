@@ -321,7 +321,7 @@ def exit_game():
 	else:
 		input("Press enter to continue")
 
-menu(plyrName)
+#menu(plyrName)
 
 print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
@@ -369,8 +369,8 @@ print(f"\nNow that you've taken down those clankers, you must locate where the C
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
 #save point
-save(plyrName, Items, rooms)
-exit_game()
+##save(plyrName, Items, rooms)
+##exit_game()
 print(rooms['Hangar'])
 option = input("Available paths: north, east\n").lower()
 
@@ -549,8 +549,8 @@ if op in ("north", "n"):
 
 print(rooms['hallway'])
 #save point
-save(plyrName, Items, rooms)
-exit_game()
+##save(plyrName, Items, rooms)
+##exit_game()
 op = input("Available paths: north\n").lower()
 while op not in paths:
 	print(error_msg)
@@ -586,8 +586,8 @@ input("Press enter to continue")
 
 print(rooms['hallway'])
 #save point
-save(plyrName, Items, rooms)
-exit_game()
+##save(plyrName, Items, rooms)
+##exit_game()
 
 print(rooms['bridge'])
 print(f'''\n"Not so fast Jedi {plyrName}."
