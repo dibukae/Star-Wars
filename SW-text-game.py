@@ -1,6 +1,7 @@
 from Items import Items
 import random
 import pickle
+import os
 
 #imported stuff above
 diedEnd = "\tYou died and failed to save the chancellor..."
@@ -282,16 +283,14 @@ def menu(plyrName):
 
 #saving game
 def save(plyrName, Items, rooms):
-	print("Now seems like a good time to [save] the game...")
+	print("\nNow seems like a good time to [save] the game...")
 	r = input("[Save] game?:\n").lower()
 	if r != "save":
 		print("Are you sure you don't want to save your game?")
 		r = input("[Save] game?:\n").lower()
 	if r == "save":
-		with open("game.bin", "wb")as file:
-			pickle.dump(plyrName, file)
-			pickle.dump(Items, file)
-			pickle.dump(rooms, file)
+		with open(plyrName + ".bin", "wb")as file:
+			pickle.dump({'name':plyrName,'items':Items,'rooms':rooms}, file)
 		
 	else:
 		print("You did not save the game.")
@@ -301,11 +300,15 @@ def save(plyrName, Items, rooms):
 def load(plyrName, Items, rooms):
 	
 	plyrName = input("Enter player name:\n")
-	with open("game.bin", "rb")as file:
-		plyrName = pickle.load(file)
-		Items = pickle.load(file)
-		rooms = pickle.load(file)
-	
+	if os.path.exists(plyrName + ".bin"):
+		with open(plyrName + ".bin", "rb")as file:
+			loaded = pickle.load(file)
+			plyrName = loaded['name']
+			Items = loaded['items']
+			rooms = loaded['rooms']
+		return True
+	else:
+		return False
 
 
 #quit
@@ -365,10 +368,10 @@ if pathOption == "north" or pathOption == "n":
 print(f"\nNow that you've taken down those clankers, you must locate where the Chancellor is Jedi {plyrName}.")
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
-print(rooms['Hangar'])
 #save point
 save(plyrName, Items, rooms)
 exit_game()
+print(rooms['Hangar'])
 option = input("Available paths: north, east\n").lower()
 
 #time to find the location of chancellor poopy
