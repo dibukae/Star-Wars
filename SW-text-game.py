@@ -362,7 +362,33 @@ if option in ("north", "n"):
 		if option in ("south", "s"):
 			print("\nYou head back to the hangar.")
 			print(rooms['Hangar'])
-			option = input("Available paths: north, east\n")#sorry you can't go back. i'll maybe fix this
+			option = input("Available paths: north, east\n")#i have no idea what im doing
+			while option not in paths:
+				print(error_msg)
+				print(rooms['Hangar'])
+				option = input("Available paths: north, east\n").lower()
+
+			if option in ("north", "n"):
+				print(rooms['Elevator'])
+				useDroid = input("[Use] droid?:\n").lower()
+			#can't use elevator unless you have chancellor's location
+				while useDroid != "use":
+						print('You should probably "USE" your droid')
+						useDroid = input("[Use] droid?:\n").lower()
+				
+				if useDroid == "use" and palpsLocation == False:
+					print("\n*You need to find the location of Chancellor Palpatine first.*")
+					option = input("Available paths: south\n").lower()
+
+					while option not in paths:
+						print(error_msg)
+						print("\n*You need to find the location of Chancellor Palpatine first.*")
+						option = input("Available paths: south\n").lower()
+
+					if option in ("south", "s"):
+						print("\nYou head back to the hangar.")
+						print(rooms['Hangar'])
+						option = input("Available paths: east\n") #no more going north the game will crash and idk what to do
 
 #this is where you find the location of the chancellor
 if option in ("east", "e"):
@@ -401,7 +427,7 @@ if option in ("east", "e"):
 				input("Press enter to continue")
 		
 		if option in ("east", "e") and taken == True:
-			print("\nYou enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!")
+			print("\nYou enter a small control room.")
 			palpsLocation = True
 			option = input("Available paths: west\n").lower()
 			while option not in ("west", "w"):
