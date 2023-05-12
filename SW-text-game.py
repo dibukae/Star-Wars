@@ -329,8 +329,8 @@ while plyrName == "":
 
 #key and greeting player.
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
-print("KEY: north/n, south/s, east/e, west/w, flee, fight, use, take, save, load, quit") #for save there will save points. ex) "Now seems like a good time to [save] the game"
-print("\t(Note: You only use your inventory while in battle. You will also have save points at certain parts of the game.\nYou can quit at save points too. Also I apologize if I have any missed spelling errors in the game.)")
+print("KEY: north/n, south/s, east/e, west/w, flee, fight, use, take") 
+print("\t(Note: You only use your inventory while in battle. Also I apologize if I have any missed spelling errors in the game.)")
 input("Press enter to continue")
 
 print(f"\nHello there, Jedi {plyrName}. We need your help to save Chancellor Palpatine.\nHe has been captured by the Separatists. It is rumored that he was captured by the leader of the droid army, General Grievous.")
