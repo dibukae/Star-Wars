@@ -33,7 +33,7 @@ class Items():
 
 		if use == 'use':
 			self.inventory[0] -= 1
-			print(f"You used 1 droid popper. You have {self.inventory[0]} left.")#i don't know why it's returning none here
+			return f"You used 1 droid popper. You have {self.inventory[0]} left."
 
 	def stim(self):
 		tak = input("[Take] stimpaks? (Who knows, you may need them.):\n").lower()
