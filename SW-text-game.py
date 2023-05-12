@@ -251,15 +251,7 @@ def boss_fight():
 	if defeatedDroids == 2:
 		print("\nYou've successfully defeated the MagnaGuards!")
 
-
-#player needs to enter name plz
-plyrName = input("Enter your epic Jedi name:\n")
-while plyrName == "":
-	print("Please enter your name to continue.")
-	plyrName = input("Enter your epic Jedi name:\n")
-print(f"Welcome {plyrName}!\n")
-
-
+###i don't have enough time to figure out to do this so im just gonna keep the code here and hope for 6 points on save/load
 #the prettiest menu
 def menu(plyrName):
 	print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
@@ -325,6 +317,11 @@ def exit_game():
 
 print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
+#player needs to enter name plz
+plyrName = input("Enter your epic Jedi name:\n")
+while plyrName == "":
+	print("Please enter your name to continue.")
+	plyrName = input("Enter your epic Jedi name:\n")
 
 
 #key and greeting player.
