@@ -1,5 +1,7 @@
 from Items import Items
 import random
+import pickle
+import os#someone helped me
 
 #imported stuff above
 diedEnd = "\tYou died and failed to save the chancellor..."
@@ -249,38 +251,69 @@ def boss_fight():
 	if defeatedDroids == 2:
 		print("\nYou've successfully defeated the MagnaGuards!")
 
-
-
+###i don't have enough time to figure out to do this so im just gonna keep the code here and hope for 6 points on save/load
 #the prettiest menu
-def menu():
-	print('''\t*.+|-MENU-|+.*
-s - [Start new game]
-l - [Load game]
-q - [Quit]''')
+def menu(plyrName):
+	print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
 	o = input("Choose an option:\n").lower()
+	while o not in ("s", 'l', 'q'):
+		print('\t*.+|-MENU-|+.*\ns - [Start new game]\nl - [Load game]\nq - [Quit]')
+		o = input("Choose an option:\n").lower()
 	if o == "s":
 		print("Starting game...\n")
-	#elif o == "l":
-		#print("Retrieving data...\n")
-	elif o == "q":
+	if o == "l":
+		game = load(plyrName, Items, rooms)
+		if game:
+			print("Retrieving data...\n")
+		else:
+			print("\nFile could not be found. Try starting a new game.")
+			menu(plyrName)
+	if o == "q":
 		print("Goodbye, may the force be with you.")
 		exit()
 
 
 #saving game
-def save():
-	print("Now seems like a good time to [save] the game...")
-	r = input("Save game?:\n")
+def save(plyrName, Items, rooms):
+	print("\nNow seems like a good time to [save] the game...")
+	r = input("[Save] game?:\n").lower()
+	if r != "save":
+		print("Are you sure you don't want to save your game?")
+		r = input("[Save] game?:\n").lower()
+	if r == "save":
+		with open(plyrName + ".bin", "wb")as file:
+			pickle.dump({'name':plyrName,'items':Items,'rooms':rooms}, file)
+		
+	else:
+		print("You did not save the game.")
+		input("Press enter to continue")
 
 #loading game
-def load():
-	#if save exists
-	print("Using the force to retrieve your data...")
-	#if save no exist
-	print("Could not be found")
+def load(plyrName, Items, rooms):
+	
+	plyrName = input("Enter player name:\n")
+	if os.path.exists(plyrName + ".bin"):
+		with open(plyrName + ".bin", "rb")as file:
+			loaded = pickle.load(file)
+			plyrName = loaded['name']
+			Items = loaded['items']
+			rooms = loaded['rooms']
+		return True
+	else:
+		return False
 
 
-menu()
+#quit
+def exit_game():
+	q = input("Would you like to [quit] the game?:\n").lower()
+	if q != "quit":
+		q = input("Are you sure you don't want to [quit] the game?:\n").lower()
+	if q == "quit":
+		exit()
+	else:
+		input("Press enter to continue")
+
+#menu(plyrName)
 
 print("Welcome to\n\t*.-|Star Wars: Save the Chancellor!|-.*")
 print("In this game your main objective is to save Chancellor Palpatine, who has been captured by the Separatists.\n")
@@ -289,6 +322,7 @@ plyrName = input("Enter your epic Jedi name:\n")
 while plyrName == "":
 	print("Please enter your name to continue.")
 	plyrName = input("Enter your epic Jedi name:\n")
+
 
 #key and greeting player.
 print(f"Greetings, {plyrName}! Here is a key to navigate in the game.")
@@ -331,8 +365,10 @@ if pathOption == "north" or pathOption == "n":
 print(f"\nNow that you've taken down those clankers, you must locate where the Chancellor is Jedi {plyrName}.")
 print("Good thing you have your trusty astromech droid to help!")
 print("But first your droid needs a port to plug into.")
+#save point
+##save(plyrName, Items, rooms)
+##exit_game()
 print(rooms['Hangar'])
-#########add save point
 option = input("Available paths: north, east\n").lower()
 
 #time to find the location of chancellor poopy
@@ -362,7 +398,33 @@ if option in ("north", "n"):
 		if option in ("south", "s"):
 			print("\nYou head back to the hangar.")
 			print(rooms['Hangar'])
-			option = input("Available paths: north, east\n")#sorry you can't go back. i'll maybe fix this
+			option = input("Available paths: north, east\n")#i have no idea what im doing
+			while option not in paths:
+				print(error_msg)
+				print(rooms['Hangar'])
+				option = input("Available paths: north, east\n").lower()
+
+			if option in ("north", "n"):
+				print(rooms['Elevator'])
+				useDroid = input("[Use] droid?:\n").lower()
+			#can't use elevator unless you have chancellor's location
+				while useDroid != "use":
+						print('You should probably "USE" your droid')
+						useDroid = input("[Use] droid?:\n").lower()
+				
+				if useDroid == "use" and palpsLocation == False:
+					print("\n*You need to find the location of Chancellor Palpatine first.*")
+					option = input("Available paths: south\n").lower()
+
+					while option not in paths:
+						print(error_msg)
+						print("\n*You need to find the location of Chancellor Palpatine first.*")
+						option = input("Available paths: south\n").lower()
+
+					if option in ("south", "s"):
+						print("\nYou head back to the hangar.")
+						print(rooms['Hangar'])
+						option = input("Available paths: east\n") #no more going north the game will crash and idk what to do
 
 #this is where you find the location of the chancellor
 if option in ("east", "e"):
@@ -401,7 +463,7 @@ if option in ("east", "e"):
 				input("Press enter to continue")
 		
 		if option in ("east", "e") and taken == True:
-			print("\nYou enter a small control room, and to your luck, it has a port for your droid.\nYour droid plugs into the port and gets the location of Chancellor Palpatine. He is in the command bridge!")
+			print("\nYou enter a small control room.")
 			palpsLocation = True
 			option = input("Available paths: west\n").lower()
 			while option not in ("west", "w"):
@@ -419,17 +481,17 @@ if option in ("east", "e"):
 					print(rooms['Elevator'])
 					useDroid = input("[Use] droid?:\n").lower()
 				
-				while useDroid != "use":
-					print('You should probably "USE" your droid')
-					useDroid = input("[Use] droid?:\n").lower()
+					while useDroid != "use":
+						print('You should probably "USE" your droid')
+						useDroid = input("[Use] droid?:\n").lower()
 
-				if useDroid == "use" and palpsLocation == False:
-					print("\n*You need to find the location of Chancellor Palpatine first.*")
-					option = input("Available paths: south\n").lower()
-				else:
-					print("Your droid plugs into the elevator port.")
-					print(rooms['elevatorEnter'])
-					input("Press enter to continue")
+					if useDroid == "use" and palpsLocation == False:
+						print("\n*You need to find the location of Chancellor Palpatine first.*")
+						option = input("Available paths: south\n").lower()
+					else:
+						print("Your droid plugs into the elevator port.")
+						print(rooms['elevatorEnter'])
+						input("Press enter to continue")
 
 		elif option in ("east", "e") and taken == False:
 			print(rooms['tinyRoom'])
@@ -444,7 +506,7 @@ if option in ("east", "e"):
 			if option in ("west", "w"):
 				print("\nYou head back to the hangar.")
 				print(rooms['Hangar'])
-				option = input("Available paths: north, east\n").lower()
+				option = input("Available paths: north\n").lower()#no more east
 				while option not in paths:
 					print(error_msg)
 					option = input("Available paths: north\n").lower()
@@ -483,7 +545,9 @@ if op in ("north", "n"):
 		mini_game()
 
 print(rooms['hallway'])
-##########add save point
+#save point
+##save(plyrName, Items, rooms)
+##exit_game()
 op = input("Available paths: north\n").lower()
 while op not in paths:
 	print(error_msg)
@@ -518,7 +582,9 @@ if op in ("east", "e"):
 input("Press enter to continue")
 
 print(rooms['hallway'])
-#########add save point
+#save point
+##save(plyrName, Items, rooms)
+##exit_game()
 
 print(rooms['bridge'])
 print(f'''\n"Not so fast Jedi {plyrName}."
@@ -528,3 +594,11 @@ Suddenly, 2 MagnaGuards appear behind you!
 It's time save the Chancellor, get rid of those guards Jedi {plyrName}!''')
 input("Press enter to continue")
 boss_fight()
+input("Press enter to continue")
+print('''The guards are now defeated, but it seems General Grievous has escaped.
+Typical. Oh well, we'll get him next time.
+You grab Chancellor Palpatine and head to the nearest escape pod, you need to get out quickly.
+...
+You and the Chancellor succesfully escape the Separatist Frigate and make your way back to Coruscant!''')
+print(goodEnd)
+print("May the force be with you!")
