@@ -231,7 +231,7 @@ def boss_fight():
 					items.use_stim(jediPlyrHP, stimPak)
 					jediPlyrHP += stimPak
 					print(f"Your HP is now: {jediPlyrHP}")
-				if jediPlyrHP == 0: #if player die
+				if jediPlyrHP == 0: #if player somehow dies
 					print("The MagnaGuards electrocute you to death.")
 					print(diedEnd)
 					input("\n[Load] last save?:\n")#when (or if) i add save points
@@ -432,6 +432,8 @@ if option in ("east", "e"):
 					input("Press enter to continue")
 
 		elif option in ("east", "e") and taken == False:
+			print(rooms['tinyRoom'])
+			palpsLocation = True
 			items = Items()
 			taken = items.droid_pop()
 			option = input("Available paths: west\n").lower()
@@ -460,7 +462,7 @@ if option in ("east", "e"):
 				else:
 					print("Your droid plugs into the elevator port.")
 					print(rooms['elevatorEnter'])
-					input("Press enter to continue")
+					input("Press enter to continue")#im sure there is an easier way to do whatever i just did, i just don't know it ;-;
 
 
 print("\nYou and your droid exit the elevator.\nThere seems to be a room up ahead.")
