@@ -19,14 +19,18 @@
 #		print("\nYou spot a hallway and a door. Find a port for your droid.")
 
 
-def fight_t(taken):
-	defeatedDroids = 0
-	if taken == True:
-		print(use_inv())
-			while defeatedDroids != 2:
-				print("\nYou chuck a droid popper at one of the droidekas. It rolls into its shield.")
-				print("The droideka is instantly taken out!")
-				defeatedDroids += 1
-				input("Press enter to continue")
-			if defeatedDroids == 2:
-				print("\nYou defeated all the droidekas!")
+#don't know if i need the taknn thingy
+#if tak == "take":
+#			self.stimpak += 3
+#			self.inventory.append(self.stimpak)
+#			print("Stimpaks added to your inventory.")
+#			print(f"You have {self.inventory[1]} stimpak(s).\n")
+#			Taknn = True
+#			return Taknn
+#		else:
+#			print("You did not take the stimpaks.")
+#			print(f"You have {self.stimpak} stimpak(s).\n")
+#			self.inventory.append(self.stimpak)
+#			Taknn = False
+#			return Taknn
+
