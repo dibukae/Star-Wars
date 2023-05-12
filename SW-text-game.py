@@ -218,9 +218,9 @@ def boss_fight():
 	jediPlyrHP = 35
 	lightsaberDMG = 5
 	items = Items()
-	defeatedDroids = 0
+	
 	print("\nYou ignite your lightsaber and begin fighting the MagnaGuards.")
-
+	defeatedDroids = 0
 	while defeatedDroids != 2:
 		magnaGuardHP = 40
 		while magnaGuardHP > 0 and defeatedDroids != 2:
@@ -228,10 +228,11 @@ def boss_fight():
 			if hit:
 				jediPlyrHP -= magnaDMG
 				print(f"\nOne of the MagnaGuards hits you, your HP is now: {jediPlyrHP}")
+				if jediPlyrHP <= 12:
+					items.use_stim(jediPlyrHP, stimPak)
 			else:
 				print("\nOne of the MagnaGuards strikes at you, but you dodge out of harms way.")
-			if jediPlyrHP <= 12:
-				items.use_stim()
+			
 			print("You parry several attacks and attack when you have the chance.")
 			magnaGuardHP -= lightsaberDMG
 			print(f"MagnaGuard HP: {magnaGuardHP}")
@@ -450,6 +451,5 @@ print(f'''\n"Not so fast Jedi {plyrName}."
 It's General Grievous!
 "If you want your Chancellor back, you must fight for it!"*coughing*
 Suddenly, 2 MagnaGuards appear behind you!
-It's time save the Chancellor, get rid of those guards Jedi {plyrName}!
-''')
+It's time save the Chancellor, get rid of those guards Jedi {plyrName}!''')
 boss_fight()

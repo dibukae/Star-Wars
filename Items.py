@@ -56,10 +56,10 @@ class Items():
 		if jediPlyrHP <= 12:
 			print("Your HP is getting pretty low, you should use your stimpaks!")
 			print(f"You have {self.inventory[1]} stimpak(s).\n")
-			use = input("[Use] stimpaks?:\n")/lower()
+			use = input("[Use] stimpaks?:\n").lower()
 			while use != "use":
 				print('You should "USE" them! DO YOU WANT TO DIE?!')
-				use = input("[Use] stimpaks?:\n")/lower()
+				use = input("[Use] stimpaks?:\n").lower()
 			if use == "use":
 				self.inventory[1] -= 1
 				print(f"You used 1 stimpak. You have {self.inventory[1]} left.")
