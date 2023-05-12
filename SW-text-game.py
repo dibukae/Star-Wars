@@ -554,3 +554,11 @@ Suddenly, 2 MagnaGuards appear behind you!
 It's time save the Chancellor, get rid of those guards Jedi {plyrName}!''')
 input("Press enter to continue")
 boss_fight()
+input("Press enter to continue")
+print('''The guards are now defeated, but it seems General Grievous has escaped.
+Typical. Oh well, we'll get him next time.
+You grab Chancellor Palpatine and head to the nearest escape pod, you need to get out quickly.
+...
+You and the Chancellor succesfully escape the Separatist Frigate and make your way back to Coruscant!''')
+print(goodEnd)
+print("May the force be with you!")
