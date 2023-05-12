@@ -14,7 +14,7 @@ blasterDMG = 2
 droidekaHP = 15
 B2droidHP = 25
 #boss battle
-magnaDroidHP = 40
+magnaGuardHP = 40
 magnaDMG = 5
 #helps recover player HP
 stimPak = 10
@@ -192,7 +192,7 @@ def fight_ekas(taken):
 	else:
 		while defeatedDroids != 2:
 			droidekaHP = 15
-			while droidekaHP > 0 and defeatedDroids != 3:
+			while droidekaHP > 0 and defeatedDroids != 2:
 				hit = random.randrange(2)
 				if hit:
 					jediPlyrHP -= blasterDMG
@@ -211,18 +211,28 @@ def fight_ekas(taken):
 		if defeatedDroids == 2:
 			print("\nYou defeated all the droidekas!")
 
-#BOSS FIGHT
+#BOSS FIGHT magna guards
 def boss_fight(Taknn):
-	magnaDroidHP = 40
+	magnaGuardHP = 40
 	magnaDMG = 5
 	jediPlyrHP = 35
 	lightsaberDMG = 5
-
+	items = Items()
 	defeatedDroids = 0
 	print("\nYou ignite your lightsaber and begin fighting the magna guards.")
 
 	while defeatedDroids != 2:
-		magnaDroidHP = 40
+		magnaGuardHP = 40
+		while magnaGuardHP > 0 and defeatedDroids != 2:
+			hit = random.randrange(2)
+			if hit:
+				jediPlyrHP -= magnaDMG
+				print(f"\nOne of the MagnaGuards hits you, your HP is now: {jediPlyrHP}")
+			else:
+				print("\nOne of the MagnaGuards strikes at you, but you dodge out of harms way.")
+			if jediPlyrHP <= 12:
+				items.use_stim()
+
 
 
 #the prettiest menu
@@ -429,7 +439,7 @@ print(rooms['bridge'])
 print(f'''\n"Not so fast Jedi {plyrName}."
 It's General Grievous!
 "If you want your Chancellor back, you must fight for it!"*coughing*
-Suddenly, 2 magna guards appear behind you!
+Suddenly, 2 MagnaGuards appear behind you!
 It's time save the Chancellor, get rid of those guards Jedi {plyrName}!
 ''')
 boss_fight(Taknn)
